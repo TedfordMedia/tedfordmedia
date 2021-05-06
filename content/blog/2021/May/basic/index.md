@@ -1,10 +1,10 @@
 ---
-slug: demo-09
-date: 2010-10-05
-title: 'Lorem ipsum dolor sit amet'
-description: 'Curabitur fringilla vel purus sit amet malesuada.'
+slug: basicwebsetup
+date: 2021-05-06
+title: 'Gatsby Three.js Setup'
+description: 'This site runs react-three-fiber (@react-three/fiber)'
 published: true
-banner: './banner.png'
+banner: './r3ff.png'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus sem non eros semper posuere. Quisque scelerisque non diam in fringilla. Praesent dignissim eros vel urna tincidunt pharetra. Fusce cursus, est quis vestibulum facilisis, elit diam convallis orci, eu convallis metus leo vitae massa. Mauris id nisi ut erat auctor fermentum. Sed purus nisl, hendrerit id suscipit sit amet, consectetur ut magna. Donec cursus accumsan lectus vel porta. Proin ac mollis arcu. Integer nec dictum sapien, dignissim semper dui. Quisque porta ipsum sit amet lorem feugiat tincidunt. Nam vel purus dolor. Donec semper tortor lacus, sed blandit sapien rutrum id. Fusce gravida tortor ultrices magna auctor, at bibendum est pellentesque. Vivamus porttitor ultrices varius.
