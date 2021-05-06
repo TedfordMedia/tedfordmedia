@@ -10,6 +10,7 @@ import { fonts } from '../lib/typography'
 import Share from '../components/Share'
 import config from '../../config/website'
 import { bpMaxSM } from '../lib/breakpoints'
+ 
 
 export default function Post({
   data: { site, mdx },
@@ -20,12 +21,24 @@ export default function Post({
   const title = mdx.frontmatter.title
   const banner = mdx.frontmatter.banner
 
+
+  let featuredImage = mdx.frontmatter.featuredImage
+ 
+  let featuredImageCaption = mdx.frontmatter.featuredImageCaption
+  let featuredImagePath = null
+  let featuredImageFluid = null 
+  if (featuredImage) {
+    featuredImageFluid = featuredImage.childImageSharp.fluid
+    featuredImagePath = featuredImageFluid.src
+  }
+
   return (
     <Layout site={site} frontmatter={mdx.frontmatter}>
       <SEO frontmatter={mdx.frontmatter} isBlogPost />
       <article
         css={css`
           width: 100%;
+          background: #00ff00;
           display: flex;
         `}
       >
@@ -67,10 +80,16 @@ export default function Post({
                 }
               `}
             >
-              <Img
+              {/* <Img
                 sizes={banner.childImageSharp.fluid}
                 alt={site.siteMetadata.keywords.join(', ')}
-              />
+              /> */}
+               {featuredImageFluid && (
+                  <div  >
+                    {/* <Img fluid={featuredImageFluid} /> */}
+                    {/* {featuredImageCaption && <span className={postStyles.imageCaption}>{featuredImageCaption}</span>} */}
+                  </div>
+                )}
             </div>
           )}
           <br />
@@ -99,11 +118,22 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        featuredImageCaption
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         author
         banner {
           childImageSharp {
             fluid(maxWidth: 900) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+            fixed(width: 300, height: 300) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
