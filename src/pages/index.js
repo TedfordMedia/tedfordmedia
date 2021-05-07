@@ -36,7 +36,7 @@ const Hero = () => {
             max-width: ${rhythm(15)};
           `}
         >
-          I am hero io should include the scene mdx MainScene
+          Temporary page!
         </h1>
       </Container>
       <div
