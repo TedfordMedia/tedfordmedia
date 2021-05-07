@@ -36,7 +36,7 @@ const Hero = () => {
             max-width: ${rhythm(15)};
           `}
         >
-          Temporary page!
+          Temporary page!123
         </h1>
       </Container>
       <div
