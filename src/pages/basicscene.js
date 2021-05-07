@@ -3,9 +3,10 @@ import * as THREE from 'three'
 import React, {   useRef, useMemo, Suspense} from 'react' 
 import { Canvas, useFrame  } from "@react-three/fiber"  
 import Layout from "../components/layoutwide" 
-import {Stars, Icosahedron, Html , OrbitControls, useMatcapTexture, Environment} from '@react-three/drei'
+import RobotStarsScene from "../components/basics/robots/robotscenea" 
+
+import {   OrbitControls   } from '@react-three/drei'
  
-import Robot from "../helpers/Robot6.js";
  
 const IndexPage = (props) => (   
   <Layout displayHero={false}>  
@@ -17,27 +18,26 @@ const IndexPage = (props) => (
           shadowMap
           shadows
           gl={{ alpha: false }}
-          camera={{ position: [-1, 5, 30], fov: 20 }}
+          camera={{ position: [-1, 5, 12], fov: 20 }}
           onCreated={({ gl, camera, scene }) => {
-            camera.lookAt(0, 0, 0)
+            camera.lookAt(0, 1.2, 0)
            // scene.background = new THREE.Color('lightblue')
             gl.toneMapping = THREE.ACESFilmicToneMapping
             gl.outputEncoding = THREE.sRGBEncoding
             gl.shadowMap.enabled = true;
             gl.shadowMap.type = THREE.PCFSoftShadowMap;
           }}>
+            <RobotStarsScene/>
 
 {/* <LogoTedfordMedia castShadow position={[0, -3.5, 0]} rotation={[THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(20), 0]} scale={[80, 80, 80] }       /> */}
-            <mesh  >
-                <boxBufferGeometry args={[1, 1, 1]} attach="geometry" />
+            <mesh position={[0, -.5, 0]} >
+                <boxBufferGeometry args={[1, 1, 1]}  attach="geometry" />
                 <meshPhongMaterial color={'red'} attach="material" />
             </mesh> 
             <OrbitControls />  
-            <Stars/>
+        
 
-            <Suspense fallback={<Html>loading..</Html>}>    
-                <Robot/>
-            </Suspense>
+        
 
           <hemisphereLight intensity={0.35}intensity={.04} />
           <directionalLight position={[137, -170, -90]}  intensity={.3} castShadow shadow-camera-zoom={2} />           <directionalLight position={[137, 170, -40]}  intensity={.25} castShadow shadow-camera-zoom={2} /> 
