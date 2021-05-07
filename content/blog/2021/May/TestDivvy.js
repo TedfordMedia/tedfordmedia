@@ -6,7 +6,7 @@ import { Canvas,useFrame   } from '@react-three/fiber'
 // Static object
 const MyDivBox2 = styled.div({
   background: 'pink',
-  height: '300px',
+  height: '500px',
   width: '100%',
   padding: '1em'
 });
