@@ -131,13 +131,14 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-manifest/gatsby-ssr */ "./node_modules/gatsby-plugin-manifest/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "name": "My Blog",
-    "short_name": "Starter Blog",
+    "name": "TedfordMedia 3D Coding",
+    "short_name": "TedfordMedia 3D Coding",
     "description": "This is where they post things!",
     "start_url": "/",
     "background_color": "#2b2e3c",
     "theme_color": "#5348FF",
     "display": "standalone",
+    "icon": "static/favicon.png",
     "icons": [{
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
@@ -152,7 +153,7 @@ var plugins = [{
     "cache_busting_mode": "query",
     "crossOrigin": "anonymous",
     "include_favicon": true,
-    "cacheDigest": null
+    "cacheDigest": "8a652e327bb9e689272bd037cb4fa5d3"
   }
 }, {
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-google-analytics/gatsby-ssr */ "./node_modules/gatsby-plugin-google-analytics/gatsby-ssr.js"),

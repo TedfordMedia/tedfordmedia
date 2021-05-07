@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import SEO from 'components/SEO'
 import { css } from '@emotion/core'
-import Container from 'components/Container'
+import Container from '../components/Container'
 import Layout from '../components/Layout'
 import { fonts } from '../lib/typography'
 import Share from '../components/Share'
@@ -33,12 +33,11 @@ export default function Post({
   }
 
   return (
-    <Layout site={site} frontmatter={mdx.frontmatter}>
+    <Layout noSubscribeForm site={site} frontmatter={mdx.frontmatter}>
       <SEO frontmatter={mdx.frontmatter} isBlogPost />
       <article
         css={css`
-          width: 100%;
-          background: #00ff00;
+          width: 100%; 
           display: flex;
         `}
       >
@@ -86,7 +85,7 @@ export default function Post({
               /> */}
                {featuredImageFluid && (
                   <div  >
-                    {/* <Img fluid={featuredImageFluid} /> */}
+                    <Img fluid={featuredImageFluid} />
                     {/* {featuredImageCaption && <span className={postStyles.imageCaption}>{featuredImageCaption}</span>} */}
                   </div>
                 )}
@@ -121,7 +120,7 @@ export const pageQuery = graphql`
         featuredImageCaption
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 1800) {
               ...GatsbyImageSharpFluid
             }
           }

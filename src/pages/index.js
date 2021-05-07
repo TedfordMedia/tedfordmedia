@@ -36,7 +36,7 @@ const Hero = () => {
             max-width: ${rhythm(15)};
           `}
         >
-          Your blog says the things you want to say.
+          I am hero io should include the scene mdx MainScene
         </h1>
       </Container>
       <div
@@ -57,7 +57,7 @@ const Description = styled.p`
 export default function Index({ data: { site, allMdx } }) {
   const theme = useTheme()
   return (
-    <Layout site={site}>
+    <Layout noSubscribeForm site={site}>
       <Hero />
       <Container
         css={css`

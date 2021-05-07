@@ -19,7 +19,7 @@ const Blog = ({
     .filter(post => post !== undefined)
 
   return (
-    <Layout site={site}>
+    <Layout noSubscribeForm site={site}>
       <SEO />
       <Container noVerticalPadding>
         {posts.map(({ node: post }) => (
