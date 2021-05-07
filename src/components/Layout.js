@@ -11,8 +11,7 @@ import Header from './Header'
 import reset from '../lib/reset'
 import { fonts } from '../lib/typography'
 import config from '../../config/website'
-import Footer from '../components/Footer'
-
+import Footer from '../components/Footer' 
 const getGlobalStyles = theme => {
   return css`
     body {

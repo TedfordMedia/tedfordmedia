@@ -24,5 +24,5 @@ module.exports = {
   twitter: 'https://twitter.com/eggheadio/',
   twitterHandle: '@eggheadio',
   github: 'https://github.com/tedfordmedia/',
-  linkedin: 'www.linkedin.com/in/andrew-ted-tedford',
+  linkedin: 'https://www.linkedin.com/in/andrew-ted-tedford',
 }
