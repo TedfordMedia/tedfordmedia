@@ -1,26 +1,16 @@
 import React from 'react'
-import { css } from '@emotion/core'
-import { bpMaxSM } from '../lib/breakpoints'
-import SubscribeForm from './Forms/Subscribe'
+import { css } from '@emotion/core' 
 import { LinkedIn, GitHub } from './Social'
 import Container from './Container' 
-const Footer = ({ author, noSubscribeForm }) => (
-  <footer>
+const Footer = ({ author }) => (
+ 
     <Container
       css={css`
         padding-top: 0;
-        ${bpMaxSM} {
-          padding-top: 0;
-        }
+       
       `}
     >
-      {!noSubscribeForm && (
-        <div>
-          <SubscribeForm />
-          <br />
-          <br />
-        </div>
-      )}
+   
       <div
         css={css`
           display: flex;
@@ -42,7 +32,7 @@ const Footer = ({ author, noSubscribeForm }) => (
         </div>
       </div>
     </Container>
-  </footer>
+ 
 )
 
 export default Footer
