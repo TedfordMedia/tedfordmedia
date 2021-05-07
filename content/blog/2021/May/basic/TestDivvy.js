@@ -34,7 +34,9 @@ export const Testbyyy = () => (
       <meshPhongMaterial color={'red'} attach="material" />
     </mesh> 
       <directionalLight color="#ffffff" intensity={1} position={[-1, 2, 4]} />
-      <Box color="#f56f42" position={[1, 0, 3]} />
+      <Box color="#f56f42" position={[1, 0, 3]} />      
+      <Box color="#18a36e" position={[-1, 0, 3]} />
+
       </Canvas>
     </MyDivBox2>
   </div>
