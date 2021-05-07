@@ -34,6 +34,7 @@ module.exports = {
     },
   },
   plugins: [
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -155,8 +156,10 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+ 
     {
-      resolve: `gatsby-plugin-sass`, 
+      resolve: `gatsby-plugin-css-literal-loader`,
+      options: { extension: '.module.scss' },
     },
   ],
 }
