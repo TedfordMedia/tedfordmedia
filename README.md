@@ -14,6 +14,7 @@
 
 Here are some ideas to get you started:
 
+  ![](https://basicpageforcorsfiles.azurewebsites.net/assets/imgs/top-page/pageheader.png)
 
 [salted duck eggs](./salty_egg.jpg).
 
