@@ -1,1 +1,0 @@
-module.exports = require("/Users/atedford/Documents/CodingAll2020.nosync/eggegg-mdx/tedfordmedia/src/lib/typography")
