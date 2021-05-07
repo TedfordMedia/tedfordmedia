@@ -69,6 +69,7 @@
     "three": "^0.128.0",
     "typescript": "^3.6.4",
     "typography": "^0.16.19",
+    "unified-ui": "0.0.3",
     "yup": "^0.32.9"
   },
   "devDependencies": {
@@ -82,7 +83,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "rm -rf .cache/caches/gatsby-plugin-mdx && gatsby develop",
     "start": "serve public/",
     "now-build": "npm run build"
   }
