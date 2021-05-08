@@ -36,13 +36,12 @@ const IndexPage = (props) => (
 
         
 
-          <hemisphereLight intensity={0.35}intensity={.04} />
-          <directionalLight position={[137, -170, -90]}  intensity={.3} castShadow shadow-camera-zoom={2} />           <directionalLight position={[137, 170, -40]}  intensity={.25} castShadow shadow-camera-zoom={2} /> 
-          <directionalLight position={[7, 19, -70]}  intensity={.6} castShadow shadow-camera-zoom={2} /> 
-          <directionalLight position={[37, 50,-100]}  intensity={0.7} castShadow shadow-camera-zoom={2} />
+
+          {/* <directionalLight position={[137, -170, -90]}  intensity={.3} castShadow shadow-camera-zoom={2} />           <directionalLight position={[137, 170, -40]}  intensity={.25} castShadow shadow-camera-zoom={2} /> 
+
           <directionalLight position={[37, 39, -90]}  intensity={.7} castShadow shadow-camera-zoom={2} /> 
           <directionalLight position={[-17, 19, -50]}  intensity={.4} castShadow shadow-camera-zoom={2} /> 
-          <directionalLight position={[137, -170, -90]}  intensity={.3} castShadow shadow-camera-zoom={2} /> 
+          <directionalLight position={[137, -170, -90]}  intensity={.3} castShadow shadow-camera-zoom={2} />  */}
         </Canvas>
       </div>
     </section> 
