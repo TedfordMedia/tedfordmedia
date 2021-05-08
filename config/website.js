@@ -21,7 +21,7 @@ module.exports = {
   backgroundColor: '#2b2e3c',
 
   // Social component
-  twitter: 'https://twitter.com/eggheadio/',
+  twitter: 'https://twitter.com/MediaTedford/',
   twitterHandle: '@eggheadio',
   github: 'https://github.com/tedfordmedia/',
   linkedin: 'https://www.linkedin.com/in/andrew-ted-tedford',
