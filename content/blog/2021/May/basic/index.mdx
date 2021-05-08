@@ -5,22 +5,46 @@ date: 2021-05-06
 title: 'React-3-Fiber & Gatsby'
 description: 'This site runs react-three-fiber (@react-three/fiber)'
 published: true
-banner: './r3ff.png'
-featuredImage: './r3ff.png'
+banner: './redbox.png'
+featuredImage: './redbox.png'
 featuredImageCaption: 'adsadsas'
 ---
 import { Message } from "theme-ui" 
 import { Test } from './TestButton.js'
 import { Testbyyy } from './TestDivvy.js'
+import RobotStarsScene from "../../../../../src/components/basics/robots/robotscenea" 
 
 
+HERE ARE SOME NOTES!!!!
 
-xxxThis site is build with Gatsby and R3F.  It's main cleverness is in using MDX components to enbale 3D Objects to appear in a page like these cubes here:  
+
+Welcome to our new site, build with React-Three-Fiber and Gatsby.  React-Three-Fiber brings the world of 3D into the site and Gatsby enables the fastest possible WebGL experience available.
+
+Using R3F and Gatsby allows us to populate the site using simple 'markdown' and include Three.JS scenes anywhere in a page, multiple times; all done by writing a few simple lines of code.
+
+In order to get R3F to work in simple markdown language, we use .mdx files for our blog.  MDX files are like regulare .md files, but with the addition of allowing you to use JSX as well as text.  
+
+Gatsby uses R3F in a slightly different way to regular React, so building this site meant taking the available online resources and tweaking them to work in Gatsby.  A quick summary of Gatsby is that it's amazingly easy to use, but quite hard to get it to work with R3F and the other required libraries.   
+<RobotStarsScene/>
+ 
+It's main cleverness is in using MDX components to enbale 3D Objects to appear in a page like these simple test cubes:
+
+# react-three-fiber vs @react-three/fiber
+
+will write some notes here on the syntax differences and why codepen etc dont always cut-paste well.
 
 <Testbyyy/>
 
-And like this:
+  
+<br></br>The syntax is so simple, it can be entered into simple markdown 'blog-like' text!    
+<br></br><br></br>
+ 
 
+<div style="background:blue">
+  asdas
+   
+</div>
+ 
 To create those scenes is just a small piece of code.
 
 The main time saving feature of R3F 
