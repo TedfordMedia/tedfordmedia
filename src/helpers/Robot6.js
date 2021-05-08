@@ -16,14 +16,16 @@ export default function Model(props) {
   });
  
   return (
-    <group ref={group} {...props} dispose={null}>
-      <primitive object={nodes.mixamorigHips} />
+    <group castShadow receiveShadow ref={group} {...props} dispose={null}>
+      <primitive castShadow receiveShadow object={nodes.mixamorigHips} />
       <skinnedMesh
         geometry={nodes.Beta_Joints.geometry}
         material={materials.lambert2}
+        castShadow receiveShadow
         skeleton={nodes.Beta_Joints.skeleton}
       />
       <skinnedMesh
+        castShadow receiveShadow
         geometry={nodes.Beta_Surface.geometry}
         material={materials['Material.004']}
         skeleton={nodes.Beta_Surface.skeleton}
