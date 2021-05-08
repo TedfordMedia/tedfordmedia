@@ -30,10 +30,7 @@ const IndexPage = (props) => (
             <RobotStarsScene/>
 
 {/* <LogoTedfordMedia castShadow position={[0, -3.5, 0]} rotation={[THREE.MathUtils.degToRad(20), THREE.MathUtils.degToRad(20), 0]} scale={[80, 80, 80] }       /> */}
-            <mesh position={[0, -.5, 0]} >
-                <boxBufferGeometry args={[1, 1, 1]}  attach="geometry" />
-                <meshPhongMaterial color={'red'} attach="material" />
-            </mesh> 
+ 
             <OrbitControls />  
         
 
