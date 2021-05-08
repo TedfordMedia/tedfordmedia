@@ -18,7 +18,7 @@ const IndexPage = (props) => (
           shadowMap
           shadows
           gl={{ alpha: false }}
-          camera={{ position: [-1, 1.1, 4], fov: 30 }}
+          camera={{ position: [-3, 1.1, 3], fov: 30 }}
           onCreated={({ gl, camera, scene }) => { 
             // gl.toneMapping = THREE.ACESFilmicToneMapping
             // gl.outputEncoding = THREE.sRGBEncoding
