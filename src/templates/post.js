@@ -23,6 +23,9 @@ export default function Post({
 
 
   let featuredImage = mdx.frontmatter.featuredImage
+  let featuredScene = mdx.frontmatter.featuredScene
+
+  
  
   let featuredImageCaption = mdx.frontmatter.featuredImageCaption
   let featuredImagePath = null
@@ -31,7 +34,7 @@ export default function Post({
     featuredImageFluid = featuredImage.childImageSharp.fluid
     featuredImagePath = featuredImageFluid.src
   }
-
+ 
   return (
     <Layout noSubscribeForm site={site} frontmatter={mdx.frontmatter}>
       <SEO frontmatter={mdx.frontmatter} isBlogPost />
@@ -83,7 +86,7 @@ export default function Post({
                 sizes={banner.childImageSharp.fluid}
                 alt={site.siteMetadata.keywords.join(', ')}
               /> */}
-               {featuredImageFluid && (
+               {featuredImageFluid && (!featuredScene) && (
                   <div  >
                     <Img fluid={featuredImageFluid} />
                     {/* {featuredImageCaption && <span className={postStyles.imageCaption}>{featuredImageCaption}</span>} */}
@@ -117,6 +120,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+        featuredScene
         featuredImageCaption
         featuredImage {
           childImageSharp {
