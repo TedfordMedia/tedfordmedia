@@ -7,7 +7,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/watchexportedglb2.glb')
+  const { nodes, materials, animations } = useGLTF('/models/watchexportedglb2.glb')
   const { actions } = useAnimations(animations, group)
   //actions[0].play();
   console.dir(actions)
@@ -95,7 +95,7 @@ export default function Model(props) {
             <mesh  castShadow geometry={nodes['������������_�������001'].geometry} material={materials.Back} />
           </group>
           <group position={[5.08, 0, -372.12]}>
-            <mesh castShadow  geometry={nodes['������������_��������_p'].geometry} material={materials.plane} />
+            {/* <mesh castShadow  geometry={nodes['������������_��������_p'].geometry} material={materials.plane} /> */}
           </group>
           <group position={[-29.91, 252.93, 31.16]} rotation={[-0.21, 0, 1.54]}>
             <mesh castShadow  geometry={nodes['����������������_Face_0'].geometry} material={materials.Face} />
@@ -109,4 +109,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/watchexportedglb2.glb')
+useGLTF.preload('/models/watchexportedglb2.glb')

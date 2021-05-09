@@ -6,12 +6,12 @@ import { OrbitControls } from '@react-three/drei'
 import { Canvas } from "@react-three/fiber"  
 import * as THREE from 'three'
 
-const RobotStarsScene = ({ author, noSubscribeForm }) => (
+const WatchScene = ({ author, noSubscribeForm }) => (
     <Canvas style={{ height: "500px", width: "100%" }} 
     shadowMap
     shadows
     gl={{ alpha: false }}
-    camera={{ position: [-3, 1.1, 3], fov: 30 }}
+    camera={{ position: [-1, .7, 1], fov: 30 }}
     onCreated={({ gl, camera, scene }) => { 
       // gl.toneMapping = THREE.ACESFilmicToneMapping
       // gl.outputEncoding = THREE.sRGBEncoding
@@ -25,17 +25,18 @@ const RobotStarsScene = ({ author, noSubscribeForm }) => (
             <directionalLight position={[-57, 30,40]}  intensity={0.3} castShadow shadow-camera-zoom={2} />
 
             <mesh castShadow receiveShadow position={[0, -.5, 0]} >
-                <boxBufferGeometry args={[1, 1, 1]}  attach="geometry" />
-                <meshPhongMaterial color={'red'} attach="material" />
+                <boxBufferGeometry args={[2, 2, 2]}  attach="geometry" />
+                <meshPhongMaterial color={'blue'} attach="material" />
             </mesh> 
 
             <Stars/>
+            
             <Suspense fallback={<Html></Html>}>    
-                <Watch castShadow/> 
+                <Watch scale={[0.001,0.001,0.001]} position={[0,0.51,.3]}  /> 
             </Suspense> 
             <OrbitControls target={[0,.8,0]}/>   
         </group> 
     </Canvas>
 )
 
-export default RobotStarsScene 
+export default WatchScene 

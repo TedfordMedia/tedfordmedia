@@ -1,12 +1,12 @@
 import React from 'react' 
 import Layout from "../../components/layoutwide" 
-import RobotStarsScene from "../../components/basics/retrowatch" 
+import WatchScene from "../../components/basics/retrowatch" 
  
 const IndexPage = (props) => (   
   <Layout displayHero={false}>   
     <section >
       <div  style={{ height: "500px", width: "100%",background:"yellow" }}>  
-          <RobotStarsScene/>  
+          <WatchScene/>  
       </div>
     </section> 
   </Layout> 
