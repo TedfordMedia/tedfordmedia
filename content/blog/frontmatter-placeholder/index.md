@@ -8,6 +8,7 @@ keywords: ['test']
 banner: './images/banner.jpg'
 published: false
 author: 'author'
+featuredScene: true
 redirects:
   - '/invisible-post-423123'
 ---
