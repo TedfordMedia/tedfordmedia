@@ -35,6 +35,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-sass',
+    `gatsby-plugin-mdx-embed`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
