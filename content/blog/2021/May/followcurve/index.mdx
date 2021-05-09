@@ -163,11 +163,7 @@ const MyPage = (props) => (
 export default MyPage  
 ```
 
-..also amended the background color to black so now it shows:
-
-![](stars.png)
-
-Next.... make the scene Full height....we need to use the height units of vh like so:
+..also amended the holding div background color to black and to make the scene Full height with 100vh **not** 100%....
 
 ```jsx
 <div  style={{ height: "100vh", width: "100%",background:"black" }}>  
@@ -181,22 +177,43 @@ OK, next, we need to add a curved path, so we'll use the <a href="https://threej
 
 Here we se the start of a simple curve
 
-![](withcurve.png)
+![](blucurve.png)
 
-There is of course, some adjustment to do, which we'll get to shortly, but for now, it's a good start.  Here is the code that created that:  A New function: **TheCurveThing**
+That's a good start.  Here is the code that created that.  First, add a new function in index.js called **TheCurveThing**
 
 
 ```jsx
 function TheCurveThing(){
- 
- 
+ const [ref] = useRef() 
+
+  const curve = new THREE.CatmullRomCurve3( [
+    new THREE.Vector3( -10, 0, 6 ),
+    new THREE.Vector3( -5, 3, 5 ),
+    new THREE.Vector3( 0, 2, 0 ),
+    new THREE.Vector3( 5, 0, 5 ),
+    new THREE.Vector3( 5, 2, 5 ),
+    new THREE.Vector3( -10, 0, 6 ),
+  ] );
+  
+  const points = curve.getPoints( 50 );
+  const lineGeometry = new THREE.BufferGeometry().setFromPoints( points ); 
+
+  return (
+    <> 
+      <group position={[0, 1, -1]}> 
+        <line position={[0, 0, 0]} ref={ref} geometry={lineGeometry}>
+          <lineBasicMaterial attach="material" color={'blue'} linewidth={10} linecap={'round'} linejoin={'round'} />
+        </line>  
+      </group> 
+    </>
+  ) 
 }
 ```
 
 and simply drop **TheCurveThing** inside the Canvas tags:
 
 ```jsx
-<Canvas style={{ height: "100%", width: "100%" }}>
+<Canvas camera={{ position: [-10, 0, 25], fov: 30 }} style={{ height: "100%", width: "100%" }}>
 
   <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
     <planeBufferGeometry attach="geometry" args={[500, 500]} />
@@ -206,7 +223,15 @@ and simply drop **TheCurveThing** inside the Canvas tags:
   <pointLight position={[-10, 10, 10]} />
 
   <Stars/>
-  <TheCurveThing/> 
-</Canvas>
-
+  <TheCurveThing/>
+</Canvas> 
 ```
+
+Notice we also added a camera specification to the canvas
+```jsx
+  <Canvas camera={{ position: [-10, 0, 25], fov: 30 }} style={{ height: "100%", width: "100%" }}>
+```  
+
+
+
+ 

@@ -35,7 +35,7 @@ function TheCurveThing(){
 const MyPage = (props) => (   
   <Layout displayHero={false}>    
       <div  style={{ height: "100vh", width: "100%",background:"black" }}>  
-        <Canvas camera={{ position: [-2, 2, 75], fov: 30 }} style={{ height: "100%", width: "100%" }}>
+        <Canvas camera={{ position: [-10, 0, 25], fov: 30 }} style={{ height: "100%", width: "100%" }}>
 
           <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
             <planeBufferGeometry attach="geometry" args={[500, 500]} />
