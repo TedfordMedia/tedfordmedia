@@ -1,0 +1,212 @@
+---
+slug: followcurve
+author: 'Ted@TedfordMedia'
+date: 2021-05-09
+title: 'R3F Model Follow Path'
+description: 'Demo: GLTF model following a path'
+published: true
+banner: './road.png'
+featuredImage: './road.png' 
+---
+ 
+How to create a Three.JS scene with animated GLTF model bird that follows a path dictated by a 'curve'.  
+
+In this explainer post, we explore Gatsby.JS @React-Three/Fiber and JSX.
+
+__***Getting Started.....***__
+
+**Make a new page to hold the scene.  **
+Navigate to /src/pages and create a new folder 'followcurvedemo' and make a new empty file  *index.js* inside it:
+
+
+![](makefolder.png)
+
+Now let's get a basic page to display by adding some starter content.  Edit the new index.js file and add:
+
+```javascript
+import React from 'react' 
+import Layout from "../../components/layoutwide" 
+  
+const MyPage = (props) => (   
+  <Layout displayHero={false}>    
+      <div style={{ height: "500px", width: "100%",background:"yellow" }}>  
+          Hello test 123
+      </div> 
+  </Layout> 
+)
+ 
+export default MyPage  
+```  
+
+Notice we call our new function MyPage but the name is irrelevant - the Gatsby page will use the default export.  The height and width are just guesswork for now.
+
+**Test in local server** by using the *gatsby develop* command.  
+>Using MDX with components has some 'issues', so we found that the regular gatsby develop command needs enhancing.  In *package.json*, we have this develop command to run instead which removes cache and allows debug inspector clients (including VS Code) to connect:
+
+```bash
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "rm -rf .cache/caches/gatsby-plugin-mdx && gatsby develop --inspect",
+    "start": "serve public/", 
+  }
+```
+To run that command instead of gatsby develop, we use..
+```bash
+npm run develop
+```  
+
+Thanks to built in *Gatsby routing*, the page will automatically be served without any routing setup.  So, we can start the server and navigate to our new page <a target="_blank"   href='http://localhost:8000/followcurvedemo'>http://localhost:8000/followcurvedemo</a>
+
+![](yell.png)
+
+>Git is your friend!  Now that the basics are working, it makes sense to commit those changes to the GIT repo.  I prefer to commit whenever code is confirmed error free, as I find this can help narrow things down when identifying bugs.
+
+Now lets get a react-three-fiber Three.js scene running instead, so edit the index.js to:
+1.  create a **canvas** element (to display the three scene)
+2.  add a **floor plane** (mesh)
+3.  make a **light** (pointlight)
+
+Like so:
+
+```jsx
+import React from 'react' 
+import Layout from "../../components/layoutwide"  
+import { Canvas } from "@react-three/fiber"
+  
+const MyPage = (props) => (   
+  <Layout displayHero={false}>    
+      <div  style={{ height: "500px", width: "100%",background:"yellow" }}>  
+        <Canvas style={{ height: "100%", width: "100%" }}>
+
+          <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+            <planeBufferGeometry attach="geometry" args={[500, 500]} />
+            <meshStandardMaterial attach="material" color="white" />
+          </mesh>
+          
+          <pointLight position={[-10, 10, 10]} />
+
+        </Canvas>
+      </div> 
+  </Layout> 
+)
+ 
+export default MyPage  
+
+```
+
+The main changes there were to add the Canvas declaration at the top:
+```javascript
+import { Canvas } from "@react-three/fiber" 
+```
+
+notice for the floor, we added a mesh 500x500 as a child of the Canvas
+```jsx
+<mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+  <planeBufferGeometry attach="geometry" args={[500, 500]} />
+  <meshStandardMaterial attach="material" color="white" />
+</mesh>
+
+```
+
+and a basic light was added to light the scene a little
+```jsx
+<pointLight position={[-10, 10, 10]} />
+```
+
+now the page should give us that new scene:
+
+![](yell2.png)
+
+Success: The scene is rendering, the floor plane is visible. The 'back' of the Three.js scene is yellow:  that's from the holding div which was declared as yellow....
+```javascript
+const MyPage = (props) => (   
+  <Layout displayHero={false}>    
+      <div  style={{ height: "500px", width: "100%",background:"yellow" }}>  
+```
+
+<h1>Stars for a live background</h1>
+
+There is a super-easy way to build a nice Three.js background of STARS.  Just include the brilliant <a href="https://github.com/pmndrs/drei">@react-three/drei library</a> and add just 2 lines
+```jsx
+import { Stars } from '@react-three/drei';   //at the top
+
+<Stars/>    //inside your <canvas
+```
+
+So the full code is now....
+
+```jsx
+import React from 'react' 
+import Layout from "../../components/layoutwide"  
+import { Canvas } from "@react-three/fiber"
+import { Stars } from '@react-three/drei';
+  
+const MyPage = (props) => (   
+  <Layout displayHero={false}>    
+      <div  style={{ height: "500px", width: "100%",background:"black" }}>  
+        <Canvas style={{ height: "100%", width: "100%" }}>
+
+          <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+            <planeBufferGeometry attach="geometry" args={[500, 500]} />
+            <meshStandardMaterial attach="material" color="white" />
+          </mesh>
+          
+          <pointLight position={[-10, 10, 10]} />
+
+          <Stars/>
+
+        </Canvas>
+      </div> 
+  </Layout> 
+)
+ 
+export default MyPage  
+```
+
+..also amended the background color to black so now it shows:
+
+![](stars.png)
+
+Next.... make the scene Full height....we need to use the height units of vh like so:
+
+```jsx
+<div  style={{ height: "100vh", width: "100%",background:"black" }}>  
+```
+
+Now we see the full height..
+
+![](fullscr.png)
+
+OK, next, we need to add a curved path, so we'll use the <a href="https://threejs.org/docs/#api/en/extras/curves/CatmullRomCurve3">Three.JS CatmullRomCurve3</a>
+
+Here we se the start of a simple curve
+
+![](withcurve.png)
+
+There is of course, some adjustment to do, which we'll get to shortly, but for now, it's a good start.  Here is the code that created that:  A New function: **TheCurveThing**
+
+
+```jsx
+function TheCurveThing(){
+ 
+ 
+}
+```
+
+and simply drop **TheCurveThing** inside the Canvas tags:
+
+```jsx
+<Canvas style={{ height: "100%", width: "100%" }}>
+
+  <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+    <planeBufferGeometry attach="geometry" args={[500, 500]} />
+    <meshStandardMaterial attach="material" color="white" />
+  </mesh>
+
+  <pointLight position={[-10, 10, 10]} />
+
+  <Stars/>
+  <TheCurveThing/> 
+</Canvas>
+
+```

@@ -5,8 +5,7 @@ import "./styles/layout.css"
 
 const Layout = props => { 
   return (
-      <div >
- 
+      <div > 
         {props.displayHero && <Hero title={props.heroTitle} description={props.heroDescription} />}
         <div  > 
           {props.children} 
