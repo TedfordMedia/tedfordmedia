@@ -7,7 +7,7 @@ import Link from 'components/Link'
 import { useTheme } from 'components/Theming'
 import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
-
+import RobotStarsScene from "components/basics/robots/robotscenea" 
 const Hero = () => {
   const theme = useTheme()
   return (
@@ -16,35 +16,21 @@ const Hero = () => {
         color: ${theme.colors.white};
         width: 100%;
         background: ${theme.colors.primary};
-        padding: 20px 0 30px 0;
+        padding: 0px 0 0px 0;
         display: flex;
       `}
     >
-      <Container
-        css={css`
-          display: flex;
-          flex-direction: column;
-        `}
-      >
-        <h1
-          css={css`
-            color: ${theme.colors.white};
-            position: relative;
-            z-index: 5;
-            line-height: 1.5;
-            margin: 0;
-            max-width: ${rhythm(15)};
-          `}
-        >
-          Temporary page!123333
-        </h1>
-      </Container>
+   
       <div
         css={css`
-          height: 150px;
+          height: 50vh;
+          width: 100%;
+          background: ${theme.colors.black};
           overflow: hidden;
         `}
-      />
+      >
+            <RobotStarsScene/> 
+      </div>
     </section>
   )
 }

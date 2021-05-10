@@ -4,9 +4,10 @@ import { Canvas } from "@react-three/fiber"
 import { Stars, Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three'
 import Model from "../../helpers/Sentry.js";
- 
+import { Flow } from "three/examples/jsm/modifiers/CurveModifier.js";
 
-function TheCurveThing(){
+var flow;
+function TheCurveThing({children, scene}){
  
   const [ref] = useRef() 
 
@@ -21,6 +22,14 @@ function TheCurveThing(){
   
   const points = curve.getPoints( 50 );
   const lineGeometry = new THREE.BufferGeometry().setFromPoints( points ); 
+
+
+console.dir(children)
+ // flow = new Flow( {children});
+  // flow.updateCurve( 0, curve );
+  // scene.add( flow.object3D );
+
+
 
   return (
     <> 
@@ -47,7 +56,15 @@ const MyPage = (props) => (
           <pointLight position={[-10, 20, 20]} intensity={1}/>
           <pointLight position={[10, -10, -10]} intensity={1}/>
           <Stars/>
-          <TheCurveThing/> 
+
+          <TheCurveThing>
+            <Suspense fallback={<Html>Loading...</Html>}>    
+              <group scale={[.03,.03,.03]}>
+                <Model  /> 
+              </group>
+            </Suspense>
+          </TheCurveThing> 
+
           <Suspense fallback={<Html>Loading...</Html>}>    
             <group scale={[.03,.03,.03]}>
                <Model  /> 
