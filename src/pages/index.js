@@ -7,7 +7,7 @@ import Link from 'components/Link'
 import { useTheme } from 'components/Theming'
 import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
-import RobotStarsSceneNew from "components/basics/robots/robotscenenew" 
+import RobotStarsSceneNew from "components/basics/robots/robotscenemainpage" 
 
 const Hero = () => {
   const theme = useTheme()
@@ -24,9 +24,9 @@ const Hero = () => {
    
       <div
         css={css`
-          height: 50vh;
+          height: 95vh;
           width: 100%;
-          background: ${theme.colors.black};
+          background: ${theme.colors.blue};
           overflow: hidden;
         `}
       >

@@ -8,7 +8,7 @@ import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 
 const RobotStarsSceneNew = ({ author, noSubscribeForm }) => (
-    <Canvas style={{ height: "500px", width: "100%" }} 
+    <Canvas style={{ height: "100%", width: "100%" }} 
     shadowMap
     shadows
     gl={{ alpha: false }}
