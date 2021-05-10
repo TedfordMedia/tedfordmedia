@@ -24,7 +24,7 @@ function TheCurveThing(){
 
   return (
     <> 
-      <group position={[0, 1, -1]}> 
+      <group position={[0, 0, -1]}> 
         <line position={[0, 0, 0]} ref={ref} geometry={lineGeometry}>
           <lineBasicMaterial attach="material" color={'blue'} linewidth={10} linecap={'round'} linejoin={'round'} />
         </line>  
@@ -37,19 +37,21 @@ function TheCurveThing(){
 const MyPage = (props) => (   
   <Layout displayHero={false}>    
       <div  style={{ height: "100vh", width: "100%",background:"black" }}>  
-        <Canvas camera={{ position: [-10, 0, 25], fov: 30 }} style={{ height: "100%", width: "100%" }}>
+        <Canvas camera={{ position: [-7, 3, 20], fov: 30 }} style={{ height: "100%", width: "100%" }}>
 
-          <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+          <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
             <planeBufferGeometry attach="geometry" args={[500, 500]} />
             <meshStandardMaterial attach="material" color="white" />
           </mesh>
           
           <pointLight position={[-10, 20, 20]} intensity={1}/>
-          
+          <pointLight position={[10, -10, -10]} intensity={1}/>
           <Stars/>
           <TheCurveThing/> 
           <Suspense fallback={<Html>Loading...</Html>}>    
-            <Model scale={[.3, .3, .3]} position={[0, 0, 1]} rotation={[0, 1.4, 0]}/> 
+            <group scale={[.03,.03,.03]}>
+               <Model  /> 
+            </group>
           </Suspense>
           <OrbitControls/>
         </Canvas>

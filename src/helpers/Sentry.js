@@ -9,17 +9,17 @@ export default function Model(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/sentry.glb')
   const { actions } = useAnimations(animations, group)
-console.dir(actions)
-useEffect(() => { 
-  actions['Take 001'].play();
-});
+ 
+  useEffect(() => { 
+    actions['Take 001'].play();
+  });
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <group position={[0, 0, -1.79]}>
           <group rotation={[Math.PI / 2, 0, 0]}>
-            <group position={[0, 5.48, 0]} rotation={[0, 0, Math.PI / 2]}>
+            <group position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
               <primitive object={nodes._rootJoint} />
               <skinnedMesh
                 geometry={nodes['G_HeliBlade_01_-_Default_0'].geometry}

@@ -241,7 +241,7 @@ Notice we also added a camera specification to the canvas so we can see more of 
   
 **GLB/GLTF Model **
 
-To add an animated model, we found <a href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'>this</a>  on Sketchfab by <a  href='https://sketchfab.com/cyamahat'>**cyamahat** </a>and used here under CC Attribution License <a target='__blank' href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'></a> ![](bird.png)
+To add an animated model, we found <a href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'>this</a>  on Sketchfab by <a  href='https://sketchfab.com/cyamahat'>**cyamahat** </a>and used here under CC Attribution License <a target='__blank' href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'></a> ![](newmodel.png)
 
 To get the model ready, we downloaded the GLTF and then we have to manipulate it a little in Blender to make it a .glb.  Start with a blank Blender scene, import the gltf:
 
@@ -276,22 +276,24 @@ Great, now edit **index.js** to import the model:
 import Model from "../../helpers/Flyingmachine.js";
 ```
 
-and now we can put the "Model" in the scene after the curve, ensuring to include it in Suspense tags with the Html message 'loading':
-
+and now we can put the "Model" in the scene after the curve ensuring to include it in Suspense tags with the Html message 'loading'.  Also note we have placed the model in a group to ensure problem free resizing that doesn't negatively effect the animation:
+- the camera and plane were moved a little too..
 ```jsx
-<Canvas camera={{ position: [-10, 0, 25], fov: 30 }} style={{ height: "100%", width: "100%" }}>
+<Canvas camera={{ position: [-7, 3, 20], fov: 30 }} style={{ height: "100%", width: "100%" }}>
 
-  <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+  <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
     <planeBufferGeometry attach="geometry" args={[500, 500]} />
     <meshStandardMaterial attach="material" color="white" />
   </mesh>
   
   <pointLight position={[-10, 20, 20]} intensity={1}/>
-  
+  <pointLight position={[10, -10, -10]} intensity={1}/>
   <Stars/>
   <TheCurveThing/> 
   <Suspense fallback={<Html>Loading...</Html>}>    
-    <Model scale={[.3, .3, .3]} position={[0, 0, 1]} rotation={[0, 1.4, 0]}/> 
+    <group scale={[.03,.03,.03]}>
+        <Model  /> 
+    </group>
   </Suspense>
   <OrbitControls/>
 </Canvas>
@@ -299,6 +301,6 @@ and now we can put the "Model" in the scene after the curve, ensuring to include
 
 Now our scene shows:
 
-![](itshows.png) 
+![](newblu.png) 
 
 >You can visit the stand-alone version of this scene <a href="/followcurvedemo">here</a>
