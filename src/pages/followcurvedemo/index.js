@@ -3,6 +3,7 @@ import Layout from "../../components/layoutwide"
 import { Canvas } from "@react-three/fiber"
 import { Stars } from '@react-three/drei';
 import * as THREE from 'three'
+import Model from "../../components/Flybot.js";
 
 function TheCurveThing(){
  
@@ -46,6 +47,7 @@ const MyPage = (props) => (
           
           <Stars/>
           <TheCurveThing/>
+          <Model/>
         </Canvas>
       </div> 
   </Layout> 

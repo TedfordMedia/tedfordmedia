@@ -124,6 +124,8 @@ const MyPage = (props) => (
       <div  style={{ height: "500px", width: "100%",background:"yellow" }}>  
 ```
 
+>Did you know? This wwebsite's full source code is open source and available for you to downlaod and use at your pleasure <a href="https://github.com/TedfordMedia/tedfordmedia">here</a>
+
 <h1>Stars for a live background</h1>
 
 There is a super-easy way to build a nice Three.js background of STARS.  Just include the brilliant <a href="https://github.com/pmndrs/drei">@react-three/drei library</a> and add just 2 lines
@@ -227,11 +229,53 @@ and simply drop **TheCurveThing** inside the Canvas tags:
 </Canvas> 
 ```
 
-Notice we also added a camera specification to the canvas
+Notice we also added a camera specification to the canvas so we can see more of the curve.
 ```jsx
   <Canvas camera={{ position: [-10, 0, 25], fov: 30 }} style={{ height: "100%", width: "100%" }}>
 ```  
+  
+  
+**GLB/GLTF Model **
 
+To add an animated model, we found <a target='__blank' href='https://sketchfab.com/3d-models/veribot-9342a123c2f44661a93db71ae603d83f'> this character</a> on Sketchfab by <a target='__blank' href='https://sketchfab.com/nonlly'>**nonlly** </a>and used here under CC Attribution License
 
+Go into Blender, import the gltf:
 
+![](blender.png)
+
+and export it
+![](bexport.png)
+
+ensure to export as .glb 
+
+![](glbb.png)
+
+now, put the single glb file into the static folder (pay attention! the **static** folder)
+
+![](folder.png)
+
+In order for us to use this model in our react-three-fiber scene, we are going to use a tool to convert our flybot.glb into a special rebuilt version of itself as a Javascript object.  It is the .js file that we will be using.  To get this process done, navigate to the static folder in Terminal, and enter:
+```bash
+gltfjsx flybot.glb
+```
+Here we see that the gltfjsx command has automatically created Flybot.js..
+![](fly2.png)
  
+For future ease, let's move that file (the .js file) into our components folder:
+
+![]{helpers.png}
+Great, now we can use that in our scene.  First thing, edit our index.js top to import the model:
+
+```jsx
+import Model from "../../components/Flybot.js";
+```
+
+and now we can put the "Model" in the scene after the curve:
+
+```jsx
+<Stars/>
+<TheCurveThing/>
+<Model/>
+```
+
+>You can visit the stand-alone version of this scene <a href="/followcurvedemo">here</a>
