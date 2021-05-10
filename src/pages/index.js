@@ -7,7 +7,8 @@ import Link from 'components/Link'
 import { useTheme } from 'components/Theming'
 import Container from 'components/Container'
 import { rhythm } from '../lib/typography'
-import RobotStarsScene from "components/basics/robots/robotscenea" 
+import RobotStarsSceneNew from "components/basics/robots/robotscenenew" 
+
 const Hero = () => {
   const theme = useTheme()
   return (
@@ -29,7 +30,7 @@ const Hero = () => {
           overflow: hidden;
         `}
       >
-            <RobotStarsScene/> 
+        <RobotStarsSceneNew/> 
       </div>
     </section>
   )
@@ -37,6 +38,7 @@ const Hero = () => {
 
 const Description = styled.p`
   margin-bottom: 10px;
+  font-size: .9em;
   display: inline-block;
 `
 
@@ -54,6 +56,8 @@ export default function Index({ data: { site, allMdx } }) {
           <div
             key={post.id}
             css={css`
+              max-width: 900px;
+              margin:auto;
               margin-bottom: 40px;
             `}
           >

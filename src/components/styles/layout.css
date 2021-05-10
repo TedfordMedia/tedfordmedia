@@ -1,9 +1,13 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font: 112.5%/1.45em Helvetica,   sans-serif;
+  font: 112.5%/1.35em Helvetica,   sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
+}
+myclasss {
+  background-color: coral;
+  width:900px;
 }
 body {
   margin: 0;
@@ -121,6 +125,7 @@ sub {
 sup {
   top: -0.5em;
 }
+
 img {
   border-style: none;
   max-width: 100%;
@@ -277,7 +282,7 @@ h2 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.62671rem;
+  font-size: 1.42671rem;
   line-height: 1.1;
 }
 h3 {
@@ -294,7 +299,7 @@ h3 {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.38316rem;
+  font-size: 1.18316rem;
   line-height: 1.1;
 }
 h4 {

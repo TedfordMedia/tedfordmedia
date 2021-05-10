@@ -20,12 +20,9 @@ export default function Post({
   const date = mdx.frontmatter.date
   const title = mdx.frontmatter.title
   const banner = mdx.frontmatter.banner
-
-
+ 
   let featuredImage = mdx.frontmatter.featuredImage
   let featuredScene = mdx.frontmatter.featuredScene
-
-  
  
   let featuredImageCaption = mdx.frontmatter.featuredImageCaption
   let featuredImagePath = null
@@ -48,7 +45,7 @@ export default function Post({
           <h1
             css={css`
               text-align: center;
-              margin-bottom: 20px;
+              margin-bottom: 10px;
             `}
           >
             {title}
@@ -57,7 +54,7 @@ export default function Post({
             css={css`
               display: flex;
               justify-content: center;
-              margin-bottom: 20px;
+              margin-bottom: 0px;
               h3,
               span {
                 text-align: center;

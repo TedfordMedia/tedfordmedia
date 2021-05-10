@@ -1,5 +1,6 @@
 ### Welcome To TedfordMedia
-[square A](./images/squareA.png).
+
+![square A](./images/squareA.png).
 
 <p align="center">
   <a href="https://www.tedfordmedia.com">
