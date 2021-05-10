@@ -127,10 +127,9 @@ const MyPage = (props) => (
 ```
 
 >Did you know? This w ebsite's full source code is open source and available for you to downlaod and use at your pleasure <a href="https://github.com/TedfordMedia/tedfordmedia">here</a>
-
-<h1>Stars for a live background</h1>
-
-
+  
+![](Starsinthesk.png)
+<h1>Stars for the background !</h1>
 
 There is a super-easy way to build a nice Three.js background of STARS.  Just include the brilliant <a href="https://github.com/pmndrs/drei">@react-three/drei library</a> and add just 2 lines
 ```jsx
@@ -241,7 +240,8 @@ Notice we also added a camera specification to the canvas so we can see more of 
   
 **GLB/GLTF Model **
 
-To add an animated model, we found <a href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'>this</a>  on Sketchfab by <a  href='https://sketchfab.com/cyamahat'>**cyamahat** </a>and used here under CC Attribution License <a target='__blank' href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'></a> ![](newmodel.png)
+To add an animated model, we found <a href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'>this</a>  on Sketchfab by <a  href='https://sketchfab.com/cyamahat'>**cyamahat** </a>and used here under CC Attribution License <a target='__blank' href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'></a> 
+![](newmodel.png)
 
 To get the model ready, we downloaded the GLTF and then we have to manipulate it a little in Blender to make it a .glb.  Start with a blank Blender scene, import the gltf:
 
@@ -276,8 +276,9 @@ Great, now edit **index.js** to import the model:
 import Model from "../../helpers/Flyingmachine.js";
 ```
 
-and now we can put the "Model" in the scene after the curve ensuring to include it in Suspense tags with the Html message 'loading'.  Also note we have placed the model in a group to ensure problem free resizing that doesn't negatively effect the animation:
+and now we can put the "Model" in the scene inside Suspense tags with the Html message 'loading'.  Also note we have placed the model in a group to ensure problem free resizing that doesn't negatively effect the animation:
 - the camera and plane were moved a little too..
+- Orbitcontrols were also added (dont forget to import OrbitControls from '@react-three/drei';
 ```jsx
 <Canvas camera={{ position: [-7, 3, 20], fov: 30 }} style={{ height: "100%", width: "100%" }}>
 
@@ -299,8 +300,21 @@ and now we can put the "Model" in the scene after the curve ensuring to include 
 </Canvas>
 ```
 
+a few changes at the top now looks like this
+```javascript
+import React , {useRef, Suspense} from 'react';
+import Layout from "../../components/layoutwide"  
+import { Canvas } from "@react-three/fiber"
+import { Stars, Html, OrbitControls } from '@react-three/drei';
+import * as THREE from 'three'
+import Model from "../../helpers/Sentry.js";
+ 
+```
+
 Now our scene shows:
 
 ![](newblu.png) 
 
 >You can visit the stand-alone version of this scene <a href="/followcurvedemo">here</a>
+
+# Now, we want to make the model follow the spline path.  
