@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber"
 import { Stars, Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three'
 import Model from "../../helpers/Sentry.js";
-import Watch from "../../helpers/Watchexportedglb2.js";
+ 
 
 function TheCurveThing(){
  
