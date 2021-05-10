@@ -26,8 +26,7 @@ function Box({position, color}) {
 
 export const Testbyyy = () => (
   <div> 
-    <MyDivBox2>
-      hello MyDivBox2aa
+    <MyDivBox2> 
       <Canvas style={{ height: "100%", width: "100%" }}>
       <mesh  >
         <boxBufferGeometry args={[1, 1, 1]} attach="geometry" />

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react' 
-import Robot from "../../../../helpers/Robot6.js";
+import Robot from "../../../../helpers/Robot6dance.js";
 import { Html,   Stars   } from '@react-three/drei';
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from "@react-three/fiber"  
