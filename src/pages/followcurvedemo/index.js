@@ -1,9 +1,10 @@
-import React , {useRef} from 'react';
+import React , {useRef, Suspense} from 'react';
 import Layout from "../../components/layoutwide"  
 import { Canvas } from "@react-three/fiber"
-import { Stars } from '@react-three/drei';
+import { Stars, Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three'
-import Model from "../../components/Flybot.js";
+import Model from "../../helpers/Flyingmachine.js";
+import Watch from "../../helpers/Watchexportedglb2.js";
 
 function TheCurveThing(){
  
@@ -43,11 +44,14 @@ const MyPage = (props) => (
             <meshStandardMaterial attach="material" color="white" />
           </mesh>
           
-          <pointLight position={[-10, 10, 10]} />
+          <pointLight position={[-10, 20, 20]} intensity={1}/>
           
           <Stars/>
-          <TheCurveThing/>
-          <Model/>
+          <TheCurveThing/> 
+          <Suspense fallback={<Html>Loading...</Html>}>    
+            <Model scale={[.3, .3, .3]} position={[0, 0, 1]} rotation={[0, 1.4, 0]}/> 
+          </Suspense>
+          <OrbitControls/>
         </Canvas>
       </div> 
   </Layout> 

@@ -13,6 +13,8 @@ How to create a Three.JS scene with animated GLTF model bird that follows a path
 
 In this explainer post, we explore Gatsby.JS @React-Three/Fiber and JSX.
 
+>You can visit the stand-alone version of this scene <a href="/followcurvedemo">here</a>
+
 __***Getting Started.....***__
 
 **Make a new page to hold the scene.  **
@@ -124,9 +126,11 @@ const MyPage = (props) => (
       <div  style={{ height: "500px", width: "100%",background:"yellow" }}>  
 ```
 
->Did you know? This wwebsite's full source code is open source and available for you to downlaod and use at your pleasure <a href="https://github.com/TedfordMedia/tedfordmedia">here</a>
+>Did you know? This w ebsite's full source code is open source and available for you to downlaod and use at your pleasure <a href="https://github.com/TedfordMedia/tedfordmedia">here</a>
 
 <h1>Stars for a live background</h1>
+
+
 
 There is a super-easy way to build a nice Three.js background of STARS.  Just include the brilliant <a href="https://github.com/pmndrs/drei">@react-three/drei library</a> and add just 2 lines
 ```jsx
@@ -237,45 +241,64 @@ Notice we also added a camera specification to the canvas so we can see more of 
   
 **GLB/GLTF Model **
 
-To add an animated model, we found <a target='__blank' href='https://sketchfab.com/3d-models/veribot-9342a123c2f44661a93db71ae603d83f'> this character</a> on Sketchfab by <a target='__blank' href='https://sketchfab.com/nonlly'>**nonlly** </a>and used here under CC Attribution License
+To add an animated model, we found <a href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'>this</a>  on Sketchfab by <a  href='https://sketchfab.com/cyamahat'>**cyamahat** </a>and used here under CC Attribution License <a target='__blank' href='https://sketchfab.com/3d-models/flying-machine-40bdbc05e69b464baca9fe547280e522'></a> ![](bird.png)
 
-Go into Blender, import the gltf:
+To get the model ready, we downloaded the GLTF and then we have to manipulate it a little in Blender to make it a .glb.  Start with a blank Blender scene, import the gltf:
 
 ![](blender.png)
 
-and export it
+and export then just export it, as flyingmachine.glb
 ![](bexport.png)
 
-ensure to export as .glb 
+ensure to select to export as **glTF binary.glb**   
 
 ![](glbb.png)
 
-now, put the single glb file into the static folder (pay attention! the **static** folder)
+now, put the glb file into the static folder (pay attention! the **static** folder)
 
-![](folder.png)
+![](stat.png)
 
-In order for us to use this model in our react-three-fiber scene, we are going to use a tool to convert our flybot.glb into a special rebuilt version of itself as a Javascript object.  It is the .js file that we will be using.  To get this process done, navigate to the static folder in Terminal, and enter:
+In order for us to use this model in our react-three-fiber scene, we are going to use a tool to convert our flyingmachine.glb into a special version of itself as a Javascript object.  It is this new .js file that we will be using.  To get this process done, navigate to the static folder in Terminal, and enter:
 ```bash
-gltfjsx flybot.glb
+gltfjsx flyingmachine.glb
 ```
-Here we see that the gltfjsx command has automatically created Flybot.js..
-![](fly2.png)
+Here we see that has automatically created Flyingmachine.glb.js for us  
+
+![](flyfol.png)
  
-For future ease, let's move that file (the .js file) into our components folder:
+For future ease, let's move that file (the .js file, **not** the .glb) into our helpers folder:
 
-![]{helpers.png}
-Great, now we can use that in our scene.  First thing, edit our index.js top to import the model:
+![](help.png)  
 
-```jsx
-import Model from "../../components/Flybot.js";
-```
-
-and now we can put the "Model" in the scene after the curve:
+Great, now edit **index.js** to import the model:
 
 ```jsx
-<Stars/>
-<TheCurveThing/>
-<Model/>
+import Model from "../../helpers/Flyingmachine.js";
 ```
+
+and now we can put the "Model" in the scene after the curve, ensuring to include it in Suspense tags with the Html message 'loading':
+
+```jsx
+<Canvas camera={{ position: [-10, 0, 25], fov: 30 }} style={{ height: "100%", width: "100%" }}>
+
+  <mesh receiveShadow rotation={[5, 0, 0]} position={[0, -1, 0]}>
+    <planeBufferGeometry attach="geometry" args={[500, 500]} />
+    <meshStandardMaterial attach="material" color="white" />
+  </mesh>
+  
+  <pointLight position={[-10, 20, 20]} intensity={1}/>
+  
+  <Stars/>
+  <TheCurveThing/> 
+  <Suspense fallback={<Html>Loading...</Html>}>    
+    <Model scale={[.3, .3, .3]} position={[0, 0, 1]} rotation={[0, 1.4, 0]}/> 
+  </Suspense>
+  <OrbitControls/>
+</Canvas>
+```
+
+Now our scene shows:
+
+![](itshows.png) 
 
 >You can visit the stand-alone version of this scene <a href="/followcurvedemo">here</a>
