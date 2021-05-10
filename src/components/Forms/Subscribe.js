@@ -51,7 +51,7 @@ class SignUp extends React.Component {
       )
 
       const responseJson = await response.json()
-
+    
       this.setState({
         submitted: true,
         response: responseJson,
