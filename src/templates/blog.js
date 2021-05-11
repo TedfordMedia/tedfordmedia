@@ -47,13 +47,15 @@ const Blog = ({
                 padding: 20px;
               }
               display: flex;
+              max-width:900px;
+              margin:auto;
               flex-direction: column;
             `}
           >
             {post.frontmatter.banner && (
               <div
                 css={css`
-                  padding: 60px 60px 40px 60px;
+                  padding: 20px 20px 20px 20px;
                   ${bpMaxSM} {
                     padding: 20px;
                   }
