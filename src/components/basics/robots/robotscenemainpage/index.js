@@ -29,7 +29,7 @@ const RobotStarsSceneNew = ({ props }) => (
             <MyFloor/> 
             <Stars/>
             <Suspense fallback={<Html></Html>}>    
-                <Robot position={[0, 0, -.25]} castShadow/>  
+                <Robot position={[0, 0, -.25]} scale={[.7, .7, .7]} castShadow/>  
             </Suspense>   
         </group> 
     </Canvas>
