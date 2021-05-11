@@ -15,7 +15,8 @@ class Downarrow extends React.Component {
   }
 
   handleScroll(e) {   
-    this.setState({ hideMe: true })
+    console.log('scrolldone.... start timer 5 seconds')
+    this.setState({ hideMe: false })
   }
 
   render () {
@@ -24,7 +25,7 @@ class Downarrow extends React.Component {
     let button;
  
     if (hideMe) {
-      button = null;
+      button = <a className="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>;
     } else {
       button = <a className="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>;
     }
