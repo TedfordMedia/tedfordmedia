@@ -20,20 +20,17 @@ const RobotStarsSceneNew = ({ props }) => (
             gl.shadowMap.enabled = true;
             gl.shadowMap.type = THREE.PCFSoftShadowMap;
     }}>
-        <group position={[0, -.5, 0]} >
+        <group position={[0, -1, 0]} >
             <hemisphereLight intensity={.04} />
             <directionalLight position={[67, 19, 127]}  intensity={.2} castShadow shadow-camera-zoom={2} /> 
             <directionalLight position={[67,30,50]}  intensity={0.3} castShadow shadow-camera-zoom={2} />
             <directionalLight position={[-57, 30,40]}  intensity={0.3} castShadow shadow-camera-zoom={2} />
  
-            <MyFloor/>
-
+            <MyFloor/> 
             <Stars/>
             <Suspense fallback={<Html></Html>}>    
-                <Robot position={[0, 0, -.25]} castShadow/> 
-                {/* <Robotdance     castShadow/> */}
-            </Suspense>  
-            {/* <OrbitControls target={[0,.8,0]}/>    */}
+                <Robot position={[0, 0, -.25]} castShadow/>  
+            </Suspense>   
         </group> 
     </Canvas>
 )
