@@ -11,7 +11,7 @@ export default function SurgeonModel(props) {
   //console.dir(actions)
   
   useEffect(() => { 
-    actions.happyhands.play();
+    actions.happyidle.play();
   });
 
   return (

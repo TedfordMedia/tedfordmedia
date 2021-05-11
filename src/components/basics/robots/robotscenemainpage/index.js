@@ -7,7 +7,7 @@ import { Canvas } from "@react-three/fiber"
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
-import SurgeonModel from "../../../../helpers/Surgeon2.js"; 
+import SurgeonModel from "../../../../helpers/Surgeon2aGood2a.js"; 
   
 function Dolighting({ brightness, color }) {
   return (
@@ -16,7 +16,7 @@ function Dolighting({ brightness, color }) {
       <directionalLight position={[67, 19, 127]}  intensity={.2} castShadow shadow-camera-zoom={2} /> 
       <directionalLight position={[67,30,50]}  intensity={0.2} castShadow shadow-camera-zoom={2} />
       <directionalLight position={[-57, 30,40]}  intensity={0.2} castShadow shadow-camera-zoom={2} /> 
-      <spotLight lookAt={[0, -10, 2]} position={[-20, 0, 3]} color={'white'} intensity={.3} />
+      {/* <spotLight lookAt={[0, -10, 2]} position={[-20, 0, 3]} color={'white'} intensity={.3} /> */}
     </group>
   );
 }
@@ -41,7 +41,7 @@ const RobotStarsSceneNew = ({ props }) => (
             <Dolighting/>
 
             <Suspense fallback={null}>    
-                <Robot position={[0, 0, -.25]} scale={[.7, .7, .7]} castShadow/>  
+                <Robot position={[0, 0, -.25]} scale={[1,1,1]} castShadow/>  
             </Suspense>   
 
             <Suspense fallback={null}>   
@@ -49,7 +49,7 @@ const RobotStarsSceneNew = ({ props }) => (
             </Suspense> 
             <OrbitControls/>
             <Suspense fallback={null}>    
-               <SurgeonModel/>
+               <SurgeonModel position={[-.5, 0, -1]} />
             </Suspense>
         </group> 
     </Canvas>
