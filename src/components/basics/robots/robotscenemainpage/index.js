@@ -7,17 +7,18 @@ import { Canvas } from "@react-three/fiber"
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 
-const RobotStarsSceneNew = ({ author, noSubscribeForm }) => (
-    <Canvas style={{ height: "100%", width: "100%" }} 
-    shadowMap
-    shadows
-    gl={{ alpha: false }}
-    camera={{ position: [-3, 1.1, 5], fov: 30 }}
-    onCreated={({ gl, camera, scene }) => { 
-        // gl.toneMapping = THREE.ACESFilmicToneMapping
-        gl.outputEncoding = THREE.sRGBEncoding
-        gl.shadowMap.enabled = true;
-        gl.shadowMap.type = THREE.PCFSoftShadowMap;
+const RobotStarsSceneNew = ({ props }) => (
+    <Canvas 
+        style={{ height: "100%", width: "100%" }} 
+        shadowMap
+        shadows
+        gl={{ alpha: false }}
+        camera={{ position: [-3, 1.1, 5], fov: 30 }}
+        onCreated={({ gl, camera, scene }) => { 
+            // gl.toneMapping = THREE.ACESFilmicToneMapping
+            gl.outputEncoding = THREE.sRGBEncoding
+            gl.shadowMap.enabled = true;
+            gl.shadowMap.type = THREE.PCFSoftShadowMap;
     }}>
         <group position={[0, -.5, 0]} >
             <hemisphereLight intensity={.04} />

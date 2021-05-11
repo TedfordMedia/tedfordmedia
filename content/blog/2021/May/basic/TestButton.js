@@ -14,6 +14,6 @@ const Button = styled.button`
 
 export const Test = () => (
   <div>
-    <Button>Hello I an MDX component button</Button>
+    <Button>Hello I'm an MDX component button</Button>
   </div>
 );
