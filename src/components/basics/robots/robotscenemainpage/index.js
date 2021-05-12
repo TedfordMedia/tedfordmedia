@@ -7,8 +7,8 @@ import { Canvas } from "@react-three/fiber"
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
-import Mixabot from "../../../../helpers/Helmety2.js"; 
-import Model from "../../../../helpers/Sentry.js";
+// import Mixabot from "../../../../helpers/Helmety2.js"; 
+// import Model from "../../../../helpers/Sentry.js";
 function Dolighting({ brightness, color }) {
   return (
     <group name="lighting">
