@@ -17,7 +17,7 @@ export default function Model(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group position={[0, 0, -1.79]}>
+        <group position={[0, -0, -1.79]}>
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
               <primitive object={nodes._rootJoint} />

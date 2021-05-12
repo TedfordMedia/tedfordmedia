@@ -7,13 +7,13 @@ import { Canvas } from "@react-three/fiber"
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
-import SurgeonModel from "../../../../helpers/Surgeon2aGood2a.js"; 
-  
+import Mixabot from "../../../../helpers/Helmety2.js"; 
+import Model from "../../../../helpers/Sentry.js";
 function Dolighting({ brightness, color }) {
   return (
     <group name="lighting">
-      <hemisphereLight intensity={.02} />
-      <directionalLight position={[67, 19, 127]}  intensity={.2} castShadow shadow-camera-zoom={2} /> 
+      <hemisphereLight intensity={.1} />
+      <directionalLight position={[67, 19, 127]}  intensity={.4} castShadow shadow-camera-zoom={2} /> 
       <directionalLight position={[67,30,50]}  intensity={0.2} castShadow shadow-camera-zoom={2} />
       <directionalLight position={[-57, 30,40]}  intensity={0.2} castShadow shadow-camera-zoom={2} /> 
       {/* <spotLight lookAt={[0, -10, 2]} position={[-20, 0, 3]} color={'white'} intensity={.3} /> */}
@@ -21,6 +21,9 @@ function Dolighting({ brightness, color }) {
   );
 }
 
+function moveTheCameraTween(){
+  console.log('tween camera')
+}
 const RobotStarsSceneNew = ({ props }) => (
     <Canvas 
         style={{ height: "100%", width: "100%" }} 
@@ -33,10 +36,16 @@ const RobotStarsSceneNew = ({ props }) => (
             gl.outputEncoding = THREE.sRGBEncoding
             gl.shadowMap.enabled = true;
             gl.shadowMap.type = THREE.PCFSoftShadowMap;
+            moveTheCameraTween();
     }}>
         <group position={[0, -.6, 0]} >
            
             <MyFloor/>
+            <Suspense fallback={null}>   
+              <group position={[1.4, -7, -5.25]}>
+                {/* <Model  scale={[.03,.03,.03]} /> */}
+              </group>
+            </Suspense>
             <Stars/>
             <Dolighting/>
 
@@ -47,10 +56,13 @@ const RobotStarsSceneNew = ({ props }) => (
             <Suspense fallback={null}>   
                 <LogoTedfordMedia position={[-.57, -.045, .51]} scale={[140, 140, 140]} castShadow/>  
             </Suspense> 
-            <OrbitControls/>
-            <Suspense fallback={null}>    
-               <SurgeonModel position={[-.5, 0, -1]} />
-            </Suspense>
+
+            {/* <OrbitControls/> */}
+            {/* <Suspense fallback={null}>    
+               <Mixabot position={[-.6, 0, -.2]} />
+            </Suspense> */}
+
+ 
         </group> 
     </Canvas>
 )
