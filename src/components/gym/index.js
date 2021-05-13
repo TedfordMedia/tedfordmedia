@@ -1,10 +1,11 @@
-import React , {  useEffect,  Suspense} from 'react';
+import React , {  useEffect, Suspense, useRef} from 'react';
 import Layout from "../../components/layoutwide"  
 import { Canvas, useThree, useFrame } from "@react-three/fiber"
 import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
 //import { a, useSpring } from '@react-spring/three'
 import Model from "../../helpers/Sentry.js"; 
 import gsap from "gsap";
+import { useTransition } from '@react-spring/core';
  
  function TheCurveThing({children}){
 //  constructor(props){
@@ -12,55 +13,38 @@ import gsap from "gsap";
 //     this.myElement = null;
 //    this.myTween = TimelineLite({paused: true});
 //   }
+// const ref = useRef()
+  
+// console.dir(ref)
+ 
+   const {   scene   } = useThree() 
+   const myytexture = useTexture('./images/squareAroughbw.png') 
+   const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
+ 
+   scene.background = envMap;
+   scene.environment = envMap; 
 
  
-  const {   scene   } = useThree() 
-  const myytexture = useTexture('./images/squareAroughbw.png') 
-  const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
- 
-  scene.background = envMap;
-  scene.environment = envMap; 
 
- //
- 
-//   componentDidMount(){
-//     // use the node ref to create the animation
-//     // this.myTween = TweenLite.to(this.myElement, 1, {x: 100, y: 100});
+// //   }
+
+// useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01))
 
 
-//   // gsap.to( camera.position, {
-//   //   duration: 1,  
-//   //   x: 0,
-//   //   y: 20,
-//   //   z: 50,
+   
+//   useEffect(() => {  
+//     console.log('useEffect')
+//      // gsap.to( ref.current.position, {
+//   //   duration: 10,  
+//   //   x: 10,
+//   //   y: 10,
+//   //   z: 0,
 //   //   onUpdate: function () {
-//   //     camera.updateProjectionMatrix();
+//   //   //  camera.updateProjectionMatrix();
 //   //     // controls.update();
 //   //   }
-//   // } );
-
-// this.myElement = null;
-//   this.myTween = TimelineLite({paused: true});
-
-//   // gsap.to( camera.position, {
-//   //   duration: 1,  
-//   //   x: 0,
-//   //   y: 20,
-//   //   z: 50,
-//   //   onUpdate: function () {
-//   //     camera.updateProjectionMatrix();
-//   //     // controls.update();
-//   //   }
-//   // } );
-
-//   }
-
-
-
-
-  useEffect(() => {  
-    //actions['Take 01'].play()  
-  });
+//   // }); 
+//   });
   
 //react spring up and down perfecty  for this cube
 
@@ -76,25 +60,77 @@ import gsap from "gsap";
     </>
   )
 }
+function Box({position, color}) {
+  const ref = useRef()
 
+  useEffect(() => {  
+    console.log('useEff')
+
+    gsap.to( ref.current.position, {
+      duration: 10,  
+      x: 10,
+      y: 0,
+      z: 0,
+      onUpdate: function () {
+      //  camera.updateProjectionMatrix();
+        // controls.update();
+      }
+    }); 
+  })
+
+    // gsap.to( camera.position, {
+  //   duration: 10,  
+  //   x: 0,
+  //   y: 0,
+  //   z: 0,
+  //   onUpdate: function () {
+  //     camera.updateProjectionMatrix();
+  //     // controls.update();
+  //   }
+  // }); 
+
+
+  useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01))
+
+  return (
+    <mesh position={position} ref={ref}>
+      <boxBufferGeometry args={[1, 1, 1]} attach="geometry" />
+      <meshPhongMaterial color={color} attach="material" />
+    </mesh>
+  )
+}
 function Dolly() {
 
-
+  const ref = useRef()
  const {   camera } = useThree() 
   // This one makes the camera move in and out
 //  camera.position.z = -450
  
    
-  gsap.to( camera.position, {
-    duration: 10,  
-    x: 20,
-    y: 0,
-    z: 0,
-    onUpdate: function () {
-      camera.updateProjectionMatrix();
-      // controls.update();
-    }
-  });
+  // gsap.to( camera.position, {
+  //   duration: 10,  
+  //   x: 0,
+  //   y: 0,
+  //   z: 0,
+  //   onUpdate: function () {
+  //     camera.updateProjectionMatrix();
+  //     // controls.update();
+  //   }
+  // }); 
+                                                                                                                                         
+  //good
+  // gsap.to( camera.position, {
+  //   duration: 10,  
+  //   x: 0,
+  //   y: 0,
+  //   z: 0,
+  //   onUpdate: function () {
+  //     camera.updateProjectionMatrix();
+  //     // controls.update();
+  //   }
+  // });
+
+
  //gsap.start();
  
 //   useFrame(({ clock, camera }) => {
@@ -138,7 +174,7 @@ function MyPage(props){
                         <TheCurveThing> 
                         </TheCurveThing> 
                     </Suspense>
-
+                    <Box color="#f56f42" position={[1, 0, 3]} />  
                     <Suspense fallback={<Html>Loading...</Html>}>    
                     <group scale={[.03,.03,.03]} position={[.7, -1, -1.5]}>
                         <Model  /> 
