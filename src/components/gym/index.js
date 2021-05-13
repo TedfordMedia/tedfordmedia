@@ -1,22 +1,75 @@
-import React , {useRef, Suspense} from 'react';
+import React , {useRef, useEffect,  Suspense} from 'react';
 import Layout from "../../components/layoutwide"  
 import { Canvas, useThree } from "@react-three/fiber"
 import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
 import { a, useSpring } from '@react-spring/three'
 import Model from "../../helpers/Sentry.js"; 
+import gsap from "gsap";
+ 
+// function TheCurveThing({children}){
+//  constructor(props){
+//     super(props);
+//     this.myElement = null;
+    this.myTween = TimelineLite({paused: true});
+//   }
 
- 
-function TheCurveThing({children}){
- 
   const [ref] = useRef() 
-  const { gl, scene } = useThree() 
+  const { gl, scene, camera } = useThree() 
   const myytexture = useTexture('./images/squareAroughbw.png') 
   const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
  
   scene.background = envMap;
   scene.environment = envMap; 
 
+ 
+
+
+
+ 
+
+
+
+//   componentDidMount(){
+//     // use the node ref to create the animation
+//     // this.myTween = TweenLite.to(this.myElement, 1, {x: 100, y: 100});
+
+
+//   // gsap.to( camera.position, {
+//   //   duration: 1,  
+//   //   x: 0,
+//   //   y: 20,
+//   //   z: 50,
+//   //   onUpdate: function () {
+//   //     camera.updateProjectionMatrix();
+//   //     // controls.update();
+//   //   }
+//   // } );
+
+// this.myElement = null;
+//   this.myTween = TimelineLite({paused: true});
+
+//   // gsap.to( camera.position, {
+//   //   duration: 1,  
+//   //   x: 0,
+//   //   y: 20,
+//   //   z: 50,
+//   //   onUpdate: function () {
+//   //     camera.updateProjectionMatrix();
+//   //     // controls.update();
+//   //   }
+//   // } );
+
+//   }
+
+
+
+
+  useEffect(() => {  
+    //actions['Take 01'].play()  
+  });
   
+//react spring up and down perfecty  for this cube
+
 
   return (
     <> 
@@ -28,6 +81,25 @@ function TheCurveThing({children}){
       </group> 
     </>
   )
+}
+
+MyCameraController extends React.Component {
+
+  constructor() {
+    super();
+    this.state = { hideMe: false };
+  //  this.handleScroll = this.handleScroll.bind(this)   
+  }
+  
+  componentDidMount () {  
+    console.log('is mounted')
+  }
+ 
+  render () { 
+  
+
+    return '<></>';
+  }
 }
 
 function MyPage(props){
@@ -62,6 +134,7 @@ function MyPage(props){
                         <Model  /> 
                     </group>
                     </Suspense>
+                    <MyCameraController/>
         
                 <OrbitControls  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
                 </Canvas>
