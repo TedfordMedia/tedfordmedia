@@ -3,7 +3,7 @@ import Robotdance from "../../../../helpers/Robot6dance.js";
 import Robot from "../../../../helpers/Robot6dance.js";
 import { Html, Stars   } from '@react-three/drei';
 import { OrbitControls } from '@react-three/drei'
-import { Canvas } from "@react-three/fiber"  
+import { Canvas,useFrame } from "@react-three/fiber"  
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
@@ -21,23 +21,41 @@ function Dolighting({ brightness, color }) {
   );
 }
 
-function moveTheCameraTween(){
-  console.log('tween camera')
+function moveTheCameraTween(camera){
+  console.log('tween camera');
+
+//  position: [-3, 1.1, 4.5]
+
 }
+function Dolly() {
+  // This one makes the camera move in and out
+  useFrame(({ clock, camera }) => {
+    camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30
+  })
+  return null
+}
+
 const RobotStarsSceneNew = ({ props }) => (
     <Canvas 
         style={{ height: "100%", width: "100%" }} 
         shadowMap
         shadows
         gl={{ alpha: false }}
-        camera={{ position: [-3, 1.1, 4.5], fov: 30 }}
+        camera={{ 
+          position: [-3, 1.1, 4.5], 
+          fov: 30 ,  
+          near: 0.01,
+          far: 3000
+        }}
+        
         onCreated={({ gl, camera, scene }) => { 
             // gl.toneMapping = THREE.ACESFilmicToneMapping
             gl.outputEncoding = THREE.sRGBEncoding
             gl.shadowMap.enabled = true;
             gl.shadowMap.type = THREE.PCFSoftShadowMap;
-            moveTheCameraTween();
+          //  moveTheCameraTween(camera);
     }}>
+         {/* <Dolly /> */}
         <group position={[0, -.6, 0]} >
            
             <MyFloor/>
@@ -55,14 +73,7 @@ const RobotStarsSceneNew = ({ props }) => (
 
             <Suspense fallback={null}>   
                 <LogoTedfordMedia position={[-.57, -.045, .51]} scale={[140, 140, 140]} castShadow/>  
-            </Suspense> 
-
-            {/* <OrbitControls/> */}
-            {/* <Suspense fallback={null}>    
-               <Mixabot position={[-.6, 0, -.2]} />
-            </Suspense> */}
-
- 
+            </Suspense>   
         </group> 
     </Canvas>
 )
