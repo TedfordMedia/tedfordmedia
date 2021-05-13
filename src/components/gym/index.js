@@ -6,11 +6,11 @@ import { a, useSpring } from '@react-spring/three'
 import Model from "../../helpers/Sentry.js"; 
 import gsap from "gsap";
  
-// function TheCurveThing({children}){
+ function TheCurveThing({children}){
 //  constructor(props){
 //     super(props);
 //     this.myElement = null;
-    this.myTween = TimelineLite({paused: true});
+//    this.myTween = TimelineLite({paused: true});
 //   }
 
   const [ref] = useRef() 
@@ -83,24 +83,24 @@ import gsap from "gsap";
   )
 }
 
-MyCameraController extends React.Component {
+// MyCameraController extends React.Component {
 
-  constructor() {
-    super();
-    this.state = { hideMe: false };
-  //  this.handleScroll = this.handleScroll.bind(this)   
-  }
+//   constructor() {
+//     super();
+//     this.state = { hideMe: false };
+//   //  this.handleScroll = this.handleScroll.bind(this)   
+//   }
   
-  componentDidMount () {  
-    console.log('is mounted')
-  }
+//   componentDidMount () {  
+//     console.log('is mounted')
+//   }
  
-  render () { 
+//   render () { 
   
 
-    return '<></>';
-  }
-}
+//     return '<></>';
+//   }
+// }
 
 function MyPage(props){
     
