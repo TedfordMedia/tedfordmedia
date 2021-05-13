@@ -7,13 +7,13 @@ import Model from "../../helpers/Sentry.js";
 import gsap from "gsap";
 import { useTransition } from '@react-spring/core';
  
- function TheCurveThing({children}){
+ function TheCurveThing(){
 //  constructor(props){
 //     super(props);
 //     this.myElement = null;
 //    this.myTween = TimelineLite({paused: true});
 //   }
-// const ref = useRef()
+ const ref = useRef()
   
 // console.dir(ref)
  
@@ -24,37 +24,14 @@ import { useTransition } from '@react-spring/core';
    scene.background = envMap;
    scene.environment = envMap; 
 
- 
-
-// //   }
-
-// useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01))
-
-
-   
-//   useEffect(() => {  
-//     console.log('useEffect')
-//      // gsap.to( ref.current.position, {
-//   //   duration: 10,  
-//   //   x: 10,
-//   //   y: 10,
-//   //   z: 0,
-//   //   onUpdate: function () {
-//   //   //  camera.updateProjectionMatrix();
-//   //     // controls.update();
-//   //   }
-//   // }); 
-//   });
+   useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.002))
   
-//react spring up and down perfecty  for this cube
-
-
   return (
     <> 
-      <group position={[0, 0, 2]}> 
+      <group position={[0, 0, 2]} ref={ref}> 
         <mesh position={[-1, 0, 0]}>
             <boxBufferGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial metalness={1} roughnessMap={myytexture} roughness={.3} envMap={envMap} /> 
+            <meshStandardMaterial metalness={1} color={'green'} roughnessMap={myytexture} roughness={1} envMap={envMap} /> 
         </mesh> 
       </group> 
     </>
@@ -67,15 +44,21 @@ function Box({position, color}) {
     console.log('useEff')
 
     gsap.to( ref.current.position, {
-      duration: 10,  
+      duration: 30,  
       x: 10,
       y: 0,
-      z: 0,
-      onUpdate: function () {
-      //  camera.updateProjectionMatrix();
-        // controls.update();
-      }
+      z: 3,
+    //  repeat:-1,
     }); 
+    // gsap.to( ref.current.position, {
+    //   duration: 20,
+    //   delay: 20,  
+    //   x: 0,
+    //   y: 2,
+    //   z: 3,
+    //   repeat:-1,
+    // }); 
+    
   })
 
     // gsap.to( camera.position, {
@@ -158,7 +141,7 @@ function MyPage(props){
             <div  style={{ height: props.forcedHeight, width: "100%",background:"black" }}>  
                 <Canvas  
                 camera={{
-                    position: [0, 0, .01],
+                    position: [0, 0, -.01],
                     fov: 75,
                     near: 0.01,
                     far: 100
