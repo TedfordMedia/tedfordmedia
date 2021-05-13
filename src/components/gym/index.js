@@ -1,6 +1,6 @@
 import React , {useRef, useEffect,  Suspense} from 'react';
 import Layout from "../../components/layoutwide"  
-import { Canvas, useThree } from "@react-three/fiber"
+import { Canvas, useThree, useFrame } from "@react-three/fiber"
 import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
 import { a, useSpring } from '@react-spring/three'
 import Model from "../../helpers/Sentry.js"; 
@@ -22,13 +22,7 @@ import gsap from "gsap";
   scene.environment = envMap; 
 
  //
-
-
-
  
-
-
-
 //   componentDidMount(){
 //     // use the node ref to create the animation
 //     // this.myTween = TweenLite.to(this.myElement, 1, {x: 100, y: 100});
@@ -83,24 +77,14 @@ import gsap from "gsap";
   )
 }
 
-// MyCameraController extends React.Component {
+function Dolly() {
+  // This one makes the camera move in and out
+  useFrame(({ clock, camera }) => {
+    camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30
+  })
+  return null
+}
 
-//   constructor() {
-//     super();
-//     this.state = { hideMe: false };
-//   //  this.handleScroll = this.handleScroll.bind(this)   
-//   }
-  
-//   componentDidMount () {  
-//     console.log('is mounted')
-//   }
- 
-//   render () { 
-  
-
-//     return '<></>';
-//   }
-// }
 
 function MyPage(props){
     
@@ -134,7 +118,7 @@ function MyPage(props){
                         <Model  /> 
                     </group>
                     </Suspense>
-                    <MyCameraController/>
+                    <Dolly/>
         
                 <OrbitControls  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
                 </Canvas>
