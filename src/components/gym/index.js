@@ -1,8 +1,8 @@
-import React , {useRef, useEffect,  Suspense} from 'react';
+import React , {  useEffect,  Suspense} from 'react';
 import Layout from "../../components/layoutwide"  
 import { Canvas, useThree, useFrame } from "@react-three/fiber"
 import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
-import { a, useSpring } from '@react-spring/three'
+//import { a, useSpring } from '@react-spring/three'
 import Model from "../../helpers/Sentry.js"; 
 import gsap from "gsap";
  
@@ -13,8 +13,8 @@ import gsap from "gsap";
 //    this.myTween = TimelineLite({paused: true});
 //   }
 
-  const [ref] = useRef() 
-  const { gl, scene, camera } = useThree() 
+ 
+  const {   scene   } = useThree() 
   const myytexture = useTexture('./images/squareAroughbw.png') 
   const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
  
@@ -78,10 +78,36 @@ import gsap from "gsap";
 }
 
 function Dolly() {
+
+
+ const {   camera } = useThree() 
   // This one makes the camera move in and out
-  useFrame(({ clock, camera }) => {
-    camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30
-  })
+//  camera.position.z = -450
+ 
+   
+  gsap.to( camera.position, {
+    duration: 10,  
+    x: 20,
+    y: 0,
+    z: 0,
+    onUpdate: function () {
+      camera.updateProjectionMatrix();
+      // controls.update();
+    }
+  });
+ //gsap.start();
+ 
+//   useFrame(({ clock, camera }) => {
+//     camera.position.z = 99950 + Math.sin(clock.getElapsedTime()) * 30
+//   })
+
+
+
+
+
+
+
+
   return null
 }
 
