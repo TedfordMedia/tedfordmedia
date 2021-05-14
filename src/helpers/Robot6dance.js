@@ -7,7 +7,7 @@ export default function Model(props) {
   const { actions } = useAnimations(animations, group)
  
   useEffect(() => { 
-    actions.chicken.play();
+    actions.chicken.play();//hiphop    
   });
  
   return (
