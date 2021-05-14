@@ -7,8 +7,8 @@ import { Canvas,useFrame } from "@react-three/fiber"
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
-// import Mixabot from "../../../../helpers/Helmety2.js"; 
-// import Model from "../../../../helpers/Sentry.js";
+import TedmediaCube from "../../../../components/shinylogocube"  
+
 function Dolighting({ brightness, color }) {
   return (
     <group name="lighting">
@@ -27,13 +27,7 @@ function moveTheCameraTween(camera){
 //  position: [-3, 1.1, 4.5]
 
 }
-function Dolly() {
-  // This one makes the camera move in and out
-  useFrame(({ clock, camera }) => {
-    camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30
-  })
-  return null
-}
+ 
 
 const RobotStarsSceneNew = ({ props }) => (
     <Canvas 
@@ -54,8 +48,7 @@ const RobotStarsSceneNew = ({ props }) => (
             gl.shadowMap.enabled = true;
             gl.shadowMap.type = THREE.PCFSoftShadowMap;
           //  moveTheCameraTween(camera);
-    }}>
-         {/* <Dolly /> */}
+    }}> 
         <group position={[0, -.6, 0]} >
            
             <MyFloor/>
@@ -66,7 +59,7 @@ const RobotStarsSceneNew = ({ props }) => (
             </Suspense>
             <Stars/>
             <Dolighting/>
-
+            <TedmediaCube color={'red'} position={[0, 1, -3.25]} scale={[1,1,1] } castShadow/>
             <Suspense fallback={null}>    
                 <Robot position={[0, 0, -.25]} scale={[1,1,1]} castShadow/>  
             </Suspense>   

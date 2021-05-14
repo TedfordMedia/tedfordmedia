@@ -1,13 +1,16 @@
 import React , {  useEffect, Suspense, useRef} from 'react';
 import Layout from "../../components/layoutwide"  
+import ShinyCube from "../../components/shinylogocube"  
 import { Canvas, useThree, useFrame } from "@react-three/fiber"
 import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
 //import { a, useSpring } from '@react-spring/three'
 import Model from "../../helpers/Sentry.js"; 
 import gsap from "gsap";
 import { useTransition } from '@react-spring/core';
- 
- function TheCurveThing(){
+import * as THREE from 'three'
+
+
+ function TheShinyCube(){
 //  constructor(props){
 //     super(props);
 //     this.myElement = null;
@@ -17,8 +20,8 @@ import { useTransition } from '@react-spring/core';
   
 // console.dir(ref)
  
-   const {   scene   } = useThree() 
-   const myytexture = useTexture('./images/squareAroughbw.png') 
+   const { scene } = useThree() 
+   const myytexture = useTexture('./images/tedmedlogos/square_logo_BW.png') 
    const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
  
    scene.background = envMap;
@@ -31,7 +34,7 @@ import { useTransition } from '@react-spring/core';
       <group position={[0, 0, 2]} ref={ref}> 
         <mesh position={[-1, 0, 0]}>
             <boxBufferGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial metalness={1} color={'green'} roughnessMap={myytexture} roughness={1} envMap={envMap} /> 
+            <meshStandardMaterial metalness={1} color={'#589bcd'} roughnessMap={myytexture} roughness={1} envMap={envMap} /> 
         </mesh> 
       </group> 
     </>
@@ -39,39 +42,20 @@ import { useTransition } from '@react-spring/core';
 }
 function Box({position, color}) {
   const ref = useRef()
-
+  var startpos = new THREE.Vector3(1,1,1);
+  var endpos = new THREE.Vector3(10,.5,3);
+ 
   useEffect(() => {  
     console.log('useEff')
 
     gsap.to( ref.current.position, {
       duration: 30,  
-      x: 10,
-      y: 0,
-      z: 3,
+      x: endpos.x,
+      y: endpos.y,
+      z: endpos.z,
     //  repeat:-1,
-    }); 
-    // gsap.to( ref.current.position, {
-    //   duration: 20,
-    //   delay: 20,  
-    //   x: 0,
-    //   y: 2,
-    //   z: 3,
-    //   repeat:-1,
-    // }); 
-    
-  })
-
-    // gsap.to( camera.position, {
-  //   duration: 10,  
-  //   x: 0,
-  //   y: 0,
-  //   z: 0,
-  //   onUpdate: function () {
-  //     camera.updateProjectionMatrix();
-  //     // controls.update();
-  //   }
-  // }); 
-
+    });  
+  }) 
 
   useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01))
 
@@ -82,58 +66,10 @@ function Box({position, color}) {
     </mesh>
   )
 }
-function Dolly() {
-
-  const ref = useRef()
- const {   camera } = useThree() 
-  // This one makes the camera move in and out
-//  camera.position.z = -450
- 
-   
-  // gsap.to( camera.position, {
-  //   duration: 10,  
-  //   x: 0,
-  //   y: 0,
-  //   z: 0,
-  //   onUpdate: function () {
-  //     camera.updateProjectionMatrix();
-  //     // controls.update();
-  //   }
-  // }); 
-                                                                                                                                         
-  //good
-  // gsap.to( camera.position, {
-  //   duration: 10,  
-  //   x: 0,
-  //   y: 0,
-  //   z: 0,
-  //   onUpdate: function () {
-  //     camera.updateProjectionMatrix();
-  //     // controls.update();
-  //   }
-  // });
-
-
- //gsap.start();
- 
-//   useFrame(({ clock, camera }) => {
-//     camera.position.z = 99950 + Math.sin(clock.getElapsedTime()) * 30
-//   })
-
-
-
-
-
-
-
-
-  return null
-}
-
 
 function MyPage(props){
     
-    console.log(props.forcedHeight);
+   // console.log(props.forcedHeight);
 
     return (
       <>  
@@ -153,17 +89,23 @@ function MyPage(props){
                     <pointLight position={[-10, 20, 20]} intensity={.8}/>
                     <pointLight position={[10, 10, -10]} intensity={.8}/>
                 
-                    <Suspense fallback={null}>  
-                        <TheCurveThing> 
-                        </TheCurveThing> 
+                    <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
+                        <TheShinyCube/>  
+                        {/* <TheShinyCube  color="white" position={[2, 0, 5]} />   */}
                     </Suspense>
-                    <Box color="#f56f42" position={[1, 0, 3]} />  
+
+                    <Suspense fallback={<Html><h1 style={{color:'blue'}}>Loading...cube</h1></Html>}>  
+                        {/* <TheShinyCube/>   */}
+                        {/* <ShinyCube  color="white" position={[2, 0, 5]} />   */}
+                    </Suspense>
+
+                    <Box color="#f56f42" position={[1, 0, 3]} />   
                     <Suspense fallback={<Html>Loading...</Html>}>    
                     <group scale={[.03,.03,.03]} position={[.7, -1, -1.5]}>
                         <Model  /> 
+                        {/* <Model  />  */}
                     </group>
-                    </Suspense>
-                    <Dolly/>
+                    </Suspense> 
         
                 <OrbitControls  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
                 </Canvas>
