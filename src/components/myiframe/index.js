@@ -45,7 +45,7 @@ function MyPage(props){
                     near: 0.01,
                     far: 100
                 }}
-                pixelRatio={Math.min(window.devicePixelRatio, 2)}
+                //pixelRatio={Math.min(window.devicePixelRatio, 2)}
                  
                 style={{ height: "100%", width: "100%" }}>
         
