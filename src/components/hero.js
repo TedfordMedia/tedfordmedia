@@ -1,6 +1,3 @@
- 
- 
- 
 import { Canvas, useFrame } from "@react-three/fiber"
 import React, { useRef, useState } from "react"
  
@@ -32,15 +29,13 @@ const Box = props => {
     </mesh>
   )
 }
+
 const Hero = props => {
   const isSSR = typeof window === "undefined"
 
-  return (
-    
-    <section  >
-      <div  >
-      
-      <span /> 
+  return ( 
+    <section>
+      <div>  
         <h1>{props.title}</h1>
         <p>{props.description}</p>
         <Canvas id="aaaa">
