@@ -1,7 +1,7 @@
 import React from 'react' 
 import Layout from "../../components/layoutwide" 
 import RobotStarsScene from "../../components/basics/robots/twogltfcammove" 
-import TedmediaCube from "../../components/shinylogocube"  
+ 
 
 const IndexPage = (props) =>  {
 

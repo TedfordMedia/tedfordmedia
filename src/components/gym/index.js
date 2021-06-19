@@ -1,12 +1,10 @@
 import React , {  useEffect, Suspense, useRef} from 'react';
-import Layout from "../../components/layoutwide"  
-import ShinyCube from "../../components/shinylogocube"  
+import Layout from "../../components/layoutwide"   
 import { Canvas, useThree, useFrame } from "@react-three/fiber"
 import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
 //import { a, useSpring } from '@react-spring/three'
 import Model from "../../helpers/Sentry.js"; 
-import gsap from "gsap";
-import { useTransition } from '@react-spring/core';
+import gsap from "gsap"; 
 import * as THREE from 'three'
 
 

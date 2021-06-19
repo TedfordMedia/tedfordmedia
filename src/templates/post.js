@@ -24,12 +24,12 @@ export default function Post({
   let featuredImage = mdx.frontmatter.featuredImage
   let featuredScene = mdx.frontmatter.featuredScene
  
-  let featuredImageCaption = mdx.frontmatter.featuredImageCaption
-  let featuredImagePath = null
+  // let featuredImageCaption = mdx.frontmatter.featuredImageCaption
+  // let featuredImagePath = null
   let featuredImageFluid = null 
   if (featuredImage) {
     featuredImageFluid = featuredImage.childImageSharp.fluid
-    featuredImagePath = featuredImageFluid.src
+    // featuredImagePath = featuredImageFluid.src
   }
  
   return (

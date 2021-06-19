@@ -3,10 +3,9 @@ import Layout from "../../components/layoutwide"
 import { Canvas } from "@react-three/fiber"
 import { Stars, Html, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three'
-import Model from "../../helpers/Sentry.js";
-import { Flow } from "three/examples/jsm/modifiers/CurveModifier.js";
+import Model from "../../helpers/Sentry.js"; 
 
-var flow;
+ 
 function TheCurveThing({children, scene}){
  
   const [ref] = useRef() 

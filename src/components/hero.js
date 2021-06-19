@@ -31,7 +31,7 @@ const Box = props => {
 }
 
 const Hero = props => {
-  const isSSR = typeof window === "undefined"
+  // const isSSR = typeof window === "undefined"
 
   return ( 
     <section>

@@ -1,13 +1,7 @@
-import React, { Suspense } from 'react' 
-import Robotdance from "../../../../helpers/Robot6dance.js";
-import Robot from "../../../../helpers/Robot6dance.js";
-import { Html, Stars   } from '@react-three/drei';
-import { OrbitControls } from '@react-three/drei'
-import { Canvas,useFrame } from "@react-three/fiber"  
-import * as THREE from 'three'
-import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
-import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
-import TedmediaCube from "../../../../components/shinylogocube"  
+import React, { Suspense } from 'react'  
+import { Canvas } from "@react-three/fiber"  
+import * as THREE from 'three' 
+import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js";  
 
 function Dolighting({ brightness, color }) {
   return (

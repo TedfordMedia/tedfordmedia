@@ -1,9 +1,7 @@
-import React, { Suspense } from 'react' 
-import Robotdance from "../../../../helpers/Robot6dance.js";
+import React, { Suspense } from 'react'  
 import Robot from "../../../../helpers/Robot6dance.js";
-import { Html, Stars   } from '@react-three/drei';
-import { OrbitControls } from '@react-three/drei'
-import { Canvas,useFrame } from "@react-three/fiber"  
+import { Stars } from '@react-three/drei'; 
+import { Canvas } from "@react-three/fiber"  
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
 import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
@@ -15,20 +13,11 @@ function Dolighting({ brightness, color }) {
       <hemisphereLight intensity={.1} />
       <directionalLight position={[67, 19, 127]}  intensity={.4} castShadow shadow-camera-zoom={2} /> 
       <directionalLight position={[67,30,50]}  intensity={0.2} castShadow shadow-camera-zoom={2} />
-      <directionalLight position={[-57, 30,40]}  intensity={0.2} castShadow shadow-camera-zoom={2} /> 
-      {/* <spotLight lookAt={[0, -10, 2]} position={[-20, 0, 3]} color={'white'} intensity={.3} /> */}
+      <directionalLight position={[-57, 30,40]}  intensity={0.2} castShadow shadow-camera-zoom={2} />  
     </group>
   );
 }
-
-function moveTheCameraTween(camera){
-  console.log('tween camera');
-
-//  position: [-3, 1.1, 4.5]
-
-}
  
-
 const RobotStarsSceneNew = ({ props }) => (
     <Canvas 
         style={{ height: "100%", width: "100%" }} 
@@ -42,21 +31,14 @@ const RobotStarsSceneNew = ({ props }) => (
           far: 3000
         }}
         
-        onCreated={({ gl, camera, scene }) => { 
-            // gl.toneMapping = THREE.ACESFilmicToneMapping
+        onCreated={({ gl, camera, scene }) => {  
             gl.outputEncoding = THREE.sRGBEncoding
             gl.shadowMap.enabled = true;
-            gl.shadowMap.type = THREE.PCFSoftShadowMap;
-          //  moveTheCameraTween(camera);
+            gl.shadowMap.type = THREE.PCFSoftShadowMap; 
     }}> 
         <group position={[0, -.6, 0]} >
            
-            <MyFloor/>
-            <Suspense fallback={null}>   
-              <group position={[1.4, -7, -5.25]}>
-                {/* <Model  scale={[.03,.03,.03]} /> */}
-              </group>
-            </Suspense>
+            <MyFloor/> 
             <Stars/>
             <Dolighting/>
             <TedmediaCube color={'red'} position={[0, 1, -3.25]} scale={[1,1,1] } castShadow/>

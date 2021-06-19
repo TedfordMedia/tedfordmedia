@@ -1,6 +1,5 @@
-import React, { Suspense,  useRef, useState, useEffect} from 'react' 
-import { useFrame  } from "@react-three/fiber"
-import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
+import React, { Suspense,  useRef, useState, useEffect} from 'react'  
+import { Html } from '@react-three/drei';
 
 const TedmediaCube = props => {
 
