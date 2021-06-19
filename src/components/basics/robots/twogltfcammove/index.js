@@ -20,7 +20,7 @@ function Dolighting({ brightness, color }) {
     </group>
   );
 }
- 
+ //aasdas
 
 const RobotStarsSceneNew = ({ props }) => (
   <Canvas 

@@ -7,7 +7,7 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/models/watchexportedglb2.glb')
+  const { nodes, materials, animations } = useGLTF('/watchexportedglb2.glb')
   const { actions } = useAnimations(animations, group)
   //actions[0].play();
   console.dir(actions)
