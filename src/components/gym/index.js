@@ -20,7 +20,7 @@ import * as THREE from 'three'
  
    const { scene } = useThree() 
    const myytexture = useTexture('./images/tedmedlogos/square_logo_BW.png') 
-   const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
+   const envMap = useCubeTexture(['./images/gym/px.png', './images/gym/nx.png', './images/gym/py.png', './images/gym/ny.png', './images/gym/pz.png', './images/gym/nz.png'] )
  
    scene.background = envMap;
    scene.environment = envMap; 
@@ -40,7 +40,7 @@ import * as THREE from 'three'
 }
 function Box({position, color}) {
   const ref = useRef()
-  var startpos = new THREE.Vector3(1,1,1);
+  // var startpos = new THREE.Vector3(1,1,1);
   var endpos = new THREE.Vector3(10,.5,3);
  
   useEffect(() => {  
