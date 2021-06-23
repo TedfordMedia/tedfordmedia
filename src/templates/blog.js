@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { css } from '@emotion/core'
 import Container from 'components/Container'
-import SEO from '../components/SEO'
+import Seo from '../components/SEO'
 import Layout from '../components/Layout'
 import Link from '../components/Link'
 import { bpMaxSM, bpMaxMD } from '../lib/breakpoints'
@@ -20,7 +20,7 @@ const Blog = ({
 
   return (
     <Layout noSubscribeForm site={site}>
-      <SEO />
+      <Seo />
       <Container noVerticalPadding>
         {posts.map(({ node: post }) => (
           <div
