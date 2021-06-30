@@ -1,33 +1,23 @@
 import React , {  useEffect, Suspense, useRef} from 'react';
 import Layout from "../../components/layoutwide"   
 import { Canvas, useThree, useFrame } from "@react-three/fiber"
-import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei';
-//import { a, useSpring } from '@react-spring/three'
+import { Html, OrbitControls, useCubeTexture, useTexture } from '@react-three/drei'; 
 import Model from "../../helpers/Sentry.js"; 
 import gsap from "gsap"; 
 import * as THREE from 'three'
 
 
- function TheShinyCube(){
-//  constructor(props){
-//     super(props);
-//     this.myElement = null;
-//    this.myTween = TimelineLite({paused: true});
-//   }
- const ref = useRef()
-  
-// console.dir(ref)
- 
-   const { scene } = useThree() 
-   const myytexture = useTexture('./images/tedmedlogos/square_logo_BW.png') 
-   //const envMap = useCubeTexture(['./images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png'] )
-    const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
- 
-   scene.background = envMap;
-   scene.environment = envMap; 
+function TheShinyCube(){ 
+  const ref = useRef()  
+  const { scene } = useThree() 
+  const myytexture = useTexture('./images/tedmedlogos/square_logo_BW.png')  
+  const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
 
-   useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.002))
-  
+  scene.background = envMap;
+  scene.environment = envMap; 
+
+  useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.002))
+
   return (
     <> 
       <group position={[0, 0, 2]} ref={ref}> 
@@ -40,8 +30,7 @@ import * as THREE from 'three'
   )
 }
 function Box({position, color}) {
-  const ref = useRef()
-  // var startpos = new THREE.Vector3(1,1,1);
+  const ref = useRef() 
   var endpos = new THREE.Vector3(10,.5,3);
  
   useEffect(() => {  
@@ -51,12 +40,11 @@ function Box({position, color}) {
       duration: 30,  
       x: endpos.x,
       y: endpos.y,
-      z: endpos.z,
-    //  repeat:-1,
+      z: endpos.z, 
     });  
   }) 
 
-  useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.01))
+  useFrame(() => (ref.current.rotation.x = ref.current.rotation.x += 0.01))
 
   return (
     <mesh position={position} ref={ref}>
@@ -67,9 +55,7 @@ function Box({position, color}) {
 }
 
 function MyPage(props){
-    
-   // console.log(props.forcedHeight);
-
+     
     return (
       <>  
         <Layout displayHero={false}>    
@@ -81,28 +67,20 @@ function MyPage(props){
                     near: 0.01,
                     far: 100
                 }}
-               // pixelRatio={Math.min(window.devicePixelRatio, 2)}
-                 
+                
                 style={{ height: "100%", width: "100%" }}>
         
                     <pointLight position={[-10, 20, 20]} intensity={.8}/>
                     <pointLight position={[10, 10, -10]} intensity={.8}/>
                 
                     <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-                        <TheShinyCube/>  
-                        {/* <TheShinyCube  color="white" position={[2, 0, 5]} />   */}
-                    </Suspense>
-
-                    <Suspense fallback={<Html><h1 style={{color:'blue'}}>Loading...cube</h1></Html>}>  
-                        {/* <TheShinyCube/>   */}
-                        {/* <ShinyCube  color="white" position={[2, 0, 5]} />   */}
-                    </Suspense>
+                        <TheShinyCube/>   
+                    </Suspense> 
 
                     <Box color="#f56f42" position={[1, 0, 3]} />   
                     <Suspense fallback={<Html>Loading...</Html>}>    
                     <group scale={[.03,.03,.03]} position={[.7, -1, -1.5]}>
-                        <Model  /> 
-                        {/* <Model  />  */}
+                        <Model  />  
                     </group>
                     </Suspense> 
         
