@@ -20,7 +20,8 @@ import * as THREE from 'three'
  
    const { scene } = useThree() 
    const myytexture = useTexture('./images/tedmedlogos/square_logo_BW.png') 
-   const envMap = useCubeTexture(['./images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png'] )
+   //const envMap = useCubeTexture(['./images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png', './images/tedmedlogos/square_logo_BW.png'] )
+    const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
  
    scene.background = envMap;
    scene.environment = envMap; 

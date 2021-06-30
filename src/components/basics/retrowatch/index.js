@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react' 
  
-import Watch from "../../../helpers/Watchexportedglb2.js";
+// import Watch from "../../../helpers/Watchexportedglb2.js";
 import { Html,   Stars   } from '@react-three/drei';
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from "@react-three/fiber"  
@@ -32,7 +32,7 @@ const WatchScene = ({ author, noSubscribeForm }) => (
             <Stars/>
             
             <Suspense fallback={<Html></Html>}>    
-                <Watch scale={[0.001,0.001,0.001]} position={[0,0.51,.3]}  /> 
+                {/* <Watch scale={[0.001,0.001,0.001]} position={[0,0.51,.3]}  />  */}
             </Suspense> 
             <OrbitControls target={[0,.8,0]}/>   
         </group> 
