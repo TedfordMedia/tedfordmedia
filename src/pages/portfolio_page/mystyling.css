@@ -1,33 +1,30 @@
-/* .row {
-  background-color: blueviolet !important;
-  border: #fff !important;
-    max-width: '100%'  
-}
-.container {
-  max-width: '100%'   
-} */
-
-.mycardpart{
-    -moz-box-shadow: 10px 10px 5px #ccc;
-    -webkit-box-shadow: 10px 10px 5px #ccc;
-    box-shadow: 10px 10px 5px #ccc;
-    -moz-border-radius:20;
-    -webkit-border-radius:20px;
-    border-radius:20px;
-    padding-bottom:1em;
-}
-.mycardbottombit{
-  padding-left: 16px; 
-}
-.mytoppadding{
-  padding-top: 16px; 
+.portfolioheader {
+  padding: 1em;
+  padding-top: .5em;
 }
 
-.mycardbody{
-  padding:0;
+.mycardpart {
+  -webkit-box-shadow: 10px 10px 5px #ccc;
+  box-shadow: 10px 10px 5px #ccc;
+  border-radius: 15px;
+  padding-bottom: 1em;
+  background-color: #edf2f6;
 }
-.zthecard_image{
-  -moz-border-radius:20px 20px 7px 7px ;
-  -webkit-border-radius:20px 20px 7px 7px ;
-  border-radius:20px 20px 7px 7px ;
+
+.mycardbottombit {
+  padding-left: 16px;
 }
+
+.mytoppadding {
+  padding-top: 16px;
+  font-size: 26px;
+}
+
+.mycardbody {
+  padding: 0;
+}
+
+.zthecard_image {
+  border-radius: 15px 15px 0px 0px;
+}
+/*# sourceMappingURL=mystyling.css.map */

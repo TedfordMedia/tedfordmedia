@@ -1,11 +1,12 @@
 import React from 'react' 
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
+import { css } from '@emotion/core'
 import { Container, Row, Col, Card } from 'react-bootstrap'
-import Layout from "../../components/layoutwide"  
+import Layout from "../../components/Layout"  
 import styled from '@emotion/styled'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './mystyling.css'
+import './mystyling.scss'
 import { useTheme } from '../../components/Theming'
 import Image from 'gatsby-image' 
  
@@ -19,8 +20,23 @@ export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout noSubscribeForm site={site}>  
         {/* <Hero /> */}
-    <h2>Portfolio</h2>
-        <Container>
+
+        <Container> 
+            <div className="portfolioheader">
+                <h2   css={css`
+                  width: 100%;
+                  flex-shrink: 0;
+                  background: none;
+                  padding: 20px 0;
+                  padding-bottom: 10px;
+                  font-weight: bold;
+                  font-size: 38px;
+                  color: ${theme.colors.headerBg};
+                `}>
+                  Portfolio
+                </h2>  
+                Browse through these samples and demos.. 
+            </div>
             <Row>  
             {allMdx.edges.map(({ node: post }) => ( 
                 <Col key={post.id} lg={6}> 
@@ -41,10 +57,11 @@ export default function Index({ data: { site, allMdx } }) {
                                 <StyledLink
                                     to={'../'+post.frontmatter.slug}
                                     aria-label={`View ${post.frontmatter.title}`}
-                                >{post.frontmatter.title}
+                                >
+                                  {post.frontmatter.title}
                                 </StyledLink>
                             </Card.Title>
-                            <Card.Text className="mycardbottombit">
+                            <Card.Text className="mycardbottombit  ">
                                 {post.frontmatter.description}{' '}
                             </Card.Text>
                         </Card.Body> 
@@ -92,9 +109,9 @@ export const pageQuery = graphql`
                 fluid(maxWidth: 2000, quality: 100) {
                     ...GatsbyImageSharpFluid
                 }    
-fixed(width: 300, height: 300) {
-        ...GatsbyImageSharpFixed
-    }
+                fixed(width: 300, height: 300) {
+                    ...GatsbyImageSharpFixed
+                }
               }
             }
             slug

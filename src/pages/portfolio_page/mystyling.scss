@@ -1,0 +1,36 @@
+$color-mainfordiv: #edf2f6;
+ 
+.portfolioheader{ 
+    padding: 1em;
+    padding-top: .5em;
+}
+
+.mycardpart{
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-border-radius:20;
+    -webkit-border-radius:20px;
+    border-radius:15px;
+    padding-bottom:1em;
+    background-color: $color-mainfordiv;
+}
+
+.mycardbottombit{
+  padding-left: 16px; 
+}
+
+.mytoppadding{
+  padding-top: 16px; 
+    font-size: 26px;
+}
+
+.mycardbody{
+  padding:0;
+}
+
+.zthecard_image{
+  -moz-border-radius:15px 15px 0px 0px ;
+  -webkit-border-radius:15px 15px 0px 0px ;
+  border-radius:15px 15px 0px 0px ;
+}

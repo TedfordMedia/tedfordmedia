@@ -92,7 +92,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "rm -rf .cache/caches/gatsby-plugin-mdx && gatsby develop --inspect",
+    "develop": "rm -rf .cache/caches/gatsby-plugin-mdx && gatsby develop", 
     "start": "serve public/",
     "now-build": "npm run build"
   }

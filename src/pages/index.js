@@ -53,9 +53,38 @@ export default function Index({ data: { site, allMdx } }) {
           padding-bottom: 0;
         `}
       >
-        {allMdx.edges.map(({ node: post }) => (
-          <div
-            key={post.id}
+
+        <div className="portfolioheader">
+            <h2   css={css`
+              width: 100%;
+              flex-shrink: 0;
+              background: none;
+              padding: 20px 0;
+              padding-bottom: 10px;
+              font-weight: bold;
+              font-size: 38px;
+              color: ${theme.colors.headerBg};
+            `}>
+              Portfolio
+            </h2>  
+            Browse through these samples and demos.. 
+        </div>
+        {/* <Row>  
+     
+                <Col key={'asdasdasdasdasd'} lg={6}> 
+                    <Card className="mycardpart mb-2 mt-2"> 
+                        <Card.Body className="mycardbody"> 
+                            <Card.Text className="mycardbottombit  ">
+                                {'poasdfsadfsadf st.sadfasdf  .descsadfsadfription'}{' '}
+                            </Card.Text>
+                        </Card.Body> 
+                    </Card>    
+                </Col>   
+        
+          </Row> */}
+ 
+        <div
+            key={'mydivvaa'}
             css={css`
               max-width: 900px;
               margin:auto;
@@ -67,31 +96,45 @@ export default function Index({ data: { site, allMdx } }) {
                 marginBottom: rhythm(0.3),
                 transition: 'all 150ms ease',
                 ':hover': {
-                  color: theme.colors.primary,
+                  color: theme.colors.blue,
                 },
               })}
             >
               <Link
-                to={post.frontmatter.slug}
-                aria-label={`View ${post.frontmatter.title}`}
+                to={'/portfolio_page'}
+                aria-label={`View ${'Portfolio Page'}`}
               >
-                {post.frontmatter.title}
+                {'Portfolio Page'}
               </Link>
-            </h2>
-            <Description>
-              {post.excerpt}{' '}
-              <Link
-                to={post.frontmatter.slug}
-                aria-label={`View ${post.frontmatter.title}`}
-              >
-                Read Article →
-              </Link>
-            </Description>
+            </h2> 
           </div>
-        ))}
-        <Link to="/blog" aria-label="Visit blog page">
-          View all articles
-        </Link>
+
+          <div
+            key={'mydivv'}
+            css={css`
+              max-width: 900px;  
+              margin:auto;
+              margin-bottom: 40px;
+            `}
+          >
+            <h2
+              css={css({
+                marginBottom: rhythm(0.3),
+                transition: 'all 150ms ease',
+                ':hover': {
+                  color: theme.colors.secondary,
+                },
+              })}
+            >
+              <Link
+                to={'/blog'}
+                aria-label={`View ${'post.frontmatter.title'}`}
+              >
+                {'Temporary Blog Page'}
+              </Link>
+            </h2> 
+          </div>
+  
         <hr />
       </Container>
     </Layout>

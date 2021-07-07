@@ -21,15 +21,13 @@ function TheCurveThing({children, scene}){
   
   const points = curve.getPoints( 50 );
   const lineGeometry = new THREE.BufferGeometry().setFromPoints( points ); 
-
-
-console.dir(children)
- // flow = new Flow( {children});
+ 
+  //console.dir(children)
+  //UNFINISHED
+  // flow = new Flow( {children});
   // flow.updateCurve( 0, curve );
   // scene.add( flow.object3D );
-
-
-
+ 
   return (
     <> 
       <group position={[0, 0, -1]}> 
