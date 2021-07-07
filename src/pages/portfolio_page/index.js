@@ -19,32 +19,32 @@ export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout noSubscribeForm site={site}>  
         {/* <Hero /> */}
+    <h2>Portfolio</h2>
         <Container>
             <Row>  
             {allMdx.edges.map(({ node: post }) => ( 
                 <Col key={post.id} lg={6}> 
                     <Card className="mycardpart mb-2 mt-2"> 
-                        <Card.Body>
+                        <Card.Body className="mycardbody">
                             {post.frontmatter.banner && (
                                 <Link
                                     aria-label={`View ${post.frontmatter.title} article`}
                                     to={`/${post.fields.slug}`}
                                     >
                                     <Image   
-                                        className="mycardimage"
-                                        src={post.frontmatter.banner.childImageSharp.fluid} 
-                                    /><br/>
+                                        className="zthecard_image" 
+                                        fluid={post.frontmatter.banner.childImageSharp.fluid}  
+                                    />
                                 </Link>
                             )}
-                            <Card.Title>
+                            <Card.Title className="mycardbottombit mytoppadding">
                                 <StyledLink
                                     to={'../'+post.frontmatter.slug}
                                     aria-label={`View ${post.frontmatter.title}`}
-                                >
-                                    {post.frontmatter.title}
+                                >{post.frontmatter.title}
                                 </StyledLink>
                             </Card.Title>
-                            <Card.Text>
+                            <Card.Text className="mycardbottombit">
                                 {post.frontmatter.description}{' '}
                             </Card.Text>
                         </Card.Body> 
@@ -71,8 +71,7 @@ export const pageQuery = graphql`
       filter: { frontmatter: { published: { ne: false } } }
     ) {
       edges {
-        node {
-          excerpt(pruneLength: 190)
+        node { 
           id
           fields {
             title
@@ -92,7 +91,10 @@ export const pageQuery = graphql`
               childImageSharp {
                 fluid(maxWidth: 2000, quality: 100) {
                     ...GatsbyImageSharpFluid
-                }
+                }    
+fixed(width: 300, height: 300) {
+        ...GatsbyImageSharpFixed
+    }
               }
             }
             slug

@@ -16,8 +16,17 @@
     border-radius:20px;
     padding-bottom:1em;
 }
+.mycardbottombit{
+  padding-left: 16px; 
+}
+.mytoppadding{
+  padding-top: 16px; 
+}
 
-.mycardimage{
+.mycardbody{
+  padding:0;
+}
+.zthecard_image{
   -moz-border-radius:20px 20px 7px 7px ;
   -webkit-border-radius:20px 20px 7px 7px ;
   border-radius:20px 20px 7px 7px ;
