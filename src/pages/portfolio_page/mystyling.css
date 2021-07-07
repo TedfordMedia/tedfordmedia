@@ -11,6 +11,10 @@
   background-color: #edf2f6;
 }
 
+.mypoint {
+  cursor: pointer;
+}
+
 .mycardbottombit {
   padding-left: 16px;
 }

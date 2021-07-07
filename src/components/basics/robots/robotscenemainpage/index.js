@@ -4,7 +4,7 @@ import { Stars } from '@react-three/drei';
 import { Canvas } from "@react-three/fiber"  
 import * as THREE from 'three'
 import MyFloor from "../../../../components/basics/flooring/bluecubeish"; 
-import LogoTedfordMedia from "../../../../helpers/Tedmedialogotedb.js"; 
+import LogoTedfordMedia from "../../../../helpers/Tedmedialogosilver"; 
 import TedmediaCube from "../../../../components/shinylogocube"  
 
 function Dolighting({ brightness, color }) {
