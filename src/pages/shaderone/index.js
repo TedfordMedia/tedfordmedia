@@ -1,4 +1,4 @@
-import React from 'react' 
+import React , {Suspense} from 'react';
 import Layout from "../../components/layoutwide"  
 import LogoTedfordMedia from "../../helpers/Tedmedialogotedb.js";  
 
