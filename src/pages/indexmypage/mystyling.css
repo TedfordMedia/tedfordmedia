@@ -6,3 +6,19 @@
 .container {
   max-width: '100%'   
 } */
+
+.mycardpart{
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-border-radius:25px;
+    -webkit-border-radius:25px;
+    border-radius:25px;
+    padding-bottom:1em;
+}
+
+.mycardimage{
+  -moz-border-radius:25px 25px 7px 7px ;
+  -webkit-border-radius:25px 25px 7px 7px ;
+  border-radius:25px 25px 7px 7px ;
+}
