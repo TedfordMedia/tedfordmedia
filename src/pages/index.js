@@ -8,7 +8,7 @@ import { useTheme } from '../components/Theming'
 import { rhythm } from '../lib/typography'
 import RobotStarsSceneNew from "../components/basics/robots/robotscenemainpage" 
 import { Container, Row, Col, Card } from 'react-bootstrap'
-
+import LogoTedfordMedia from "../../../../helpers/Tedmedialogosilver"; 
 //     height: calc(100vh - 82.73px); 
  
 const Hero = () => {
