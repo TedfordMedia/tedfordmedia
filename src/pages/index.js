@@ -1,16 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
-import Layout from '../components/Layout'
-import Link from '../components/Link' 
-import { useTheme } from '../components/Theming' 
-import { rhythm } from '../lib/typography'
-import RobotStarsSceneNew from "../components/basics/robots/robotscenemainpage" 
-import { Container, Row, Col, Card } from 'react-bootstrap'
-import LogoTedfordMedia from "../../../../helpers/Tedmedialogosilver"; 
-//     height: calc(100vh - 82.73px); 
- 
+import { css } from '@emotion/core' 
+import Layout from '../components/Layout' 
+import { useTheme } from '../components/Theming'  
+import RobotStarsSceneNew from "../components/basics/robots/robotscenemainpage"  
+  
 const Hero = () => {
   const theme = useTheme()
   return (
