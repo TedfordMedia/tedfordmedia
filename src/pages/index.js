@@ -8,6 +8,9 @@ import { useTheme } from '../components/Theming'
 import { rhythm } from '../lib/typography'
 import RobotStarsSceneNew from "../components/basics/robots/robotscenemainpage" 
 import { Container, Row, Col, Card } from 'react-bootstrap'
+
+//     height: calc(100vh - 82.73px); 
+ 
 const Hero = () => {
   const theme = useTheme()
   return (
@@ -15,6 +18,7 @@ const Hero = () => {
       css={css`
         color: ${theme.colors.white};
         width: 100%;
+        height: 100%; max-height:100%;
         background: ${theme.colors.primary};
         padding: 0px 0 0px 0;
         display: flex;
@@ -22,7 +26,7 @@ const Hero = () => {
     > 
       <div
         css={css`
-          height: calc(100vh   - 82.7344px); 
+          height: calc(100vh - 82.73px);  
           width: 100%;
           background: ${theme.colors.blue};
           overflow: hidden;
@@ -34,64 +38,48 @@ const Hero = () => {
   )
 }
 
-const Description = styled.p`
-  margin-bottom: 10px;
-  font-size: .9em;
-  display: inline-block;
-`
-
+ 
 export default function Index({ data: { site, allMdx } }) {
   const theme = useTheme()
   return (
-    <Layout noSubscribeForm site={site}>
- 
-      <Hero />
-      <Container
-        css={css`
-          padding-bottom: 0;
-        `}
-      >
- 
-          <Row>  
-              <Col  key={'asdasdasdasdasd'} lg={6}> 
-                  <Card className="mycardpart mb-2 mt-2 "> 
-                      <Card.Body className="mytemppp"> 
-                          <Card.Text  >
-                           
-                              <Link
-                                to={'/blog'}
-                                aria-label={`View ${'post.frontmatter.title'}`}
-                              >
-                                {'Temporary Blog Page'}
-                              </Link>
-                   
-                          </Card.Text>
-                      </Card.Body> 
-                  </Card>    
-              </Col>   
+    <Layout noSubscribeForm noFooter site={site}> 
+      <Hero /> 
+        <Row className="myroww">  
 
-              <Col key={'asdasdasdassdasd'} lg={6}> 
-                  <Card className="mycardpart mb-2 mt-2"> 
-                      <Card.Body className="mytemppp">    
-                        <Link
-                            to={'/portfolio_page'}
-                            aria-label={`View ${'Portfolio Page'}`}
-                          >
-                          <Card.Text className="mycardbottombit  ">
-                           
-                            
-                                {'Portfolio Page'}
-                      
-                           
-                            
-                          </Card.Text>  
-                        </Link>
-                      </Card.Body> 
-                  </Card>    
-              </Col>  
-          </Row> 
-        <hr />
-      </Container>
+            <Col  key={'nothing123'} lg={6}> 
+                <Card className="mycardpart mb-2 mt-2 "> 
+                    <Card.Body className="mytemppp"> 
+                        <Card.Text  >
+                          
+                            <Link
+                              to={'/blog'}
+                              aria-label={`View ${'post.frontmatter.title'}`}
+                            >
+                              {'Temporary Blog Page'}
+                            </Link>
+                  
+                        </Card.Text>
+                    </Card.Body> 
+                </Card>    
+            </Col>   
+
+            <Col key={'asdasdasdassdasd'} lg={6}> 
+                <Card className="mycardpart mb-2 mt-2"> 
+                    <Card.Body className="mytemppp">    
+                      <Link
+                          to={'/portfolio_page'}
+                          aria-label={`View ${'Portfolio Page'}`}
+                        >
+                        <Card.Text className="mycardbottombit  "> 
+                              {'Portfolio Page'} 
+                        </Card.Text>  
+                      </Link>
+                    </Card.Body> 
+                </Card>    
+            </Col>  
+
+        </Row> 
+        <hr /> 
     </Layout>
   )
 }

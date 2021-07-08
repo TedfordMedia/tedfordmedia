@@ -176,10 +176,9 @@ export default ({
         <Global styles={getGlobalStyles(theme)} />
         <div
           css={css`
-            display: flex;
-            flex-direction: column;
+            
             width: 100%;
-            min-height: 100vh;
+            height: calc(100vh - 132.73px);
           `}
         >
           <Helmet
