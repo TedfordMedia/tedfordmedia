@@ -44,7 +44,7 @@ export default function Index({ data: { site, allMdx } }) {
   return (
     <Layout noSubscribeForm noFooter site={site}> 
       <Hero /> 
-        <Row className="myroww">  
+        {/* <Row className="myroww">  
 
             <Col  key={'nothing123'} lg={6}> 
                 <Card className="mycardpart mb-2 mt-2 "> 
@@ -78,7 +78,7 @@ export default function Index({ data: { site, allMdx } }) {
                 </Card>    
             </Col>  
 
-        </Row> 
+        </Row>  */}
         <hr /> 
     </Layout>
   )

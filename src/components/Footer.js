@@ -8,7 +8,7 @@ const Footer = ({ author, noSubscribeForm }) => (
   <footer>
     <Container
       css={css`
-        padding-top: 0;
+        padding-top: 60;
         ${bpMaxSM} {
           padding-top: 0;
         }
