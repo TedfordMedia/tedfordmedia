@@ -37,43 +37,7 @@ export default function Index({ data: { site, allMdx } }) {
   const theme = useTheme()
   return (
     <Layout noSubscribeForm noFooter site={site}> 
-      <Hero /> 
-        {/* <Row className="myroww">  
-
-            <Col  key={'nothing123'} lg={6}> 
-                <Card className="mycardpart mb-2 mt-2 "> 
-                    <Card.Body className="mytemppp"> 
-                        <Card.Text  >
-                          
-                            <Link
-                              to={'/blog'}
-                              aria-label={`View ${'post.frontmatter.title'}`}
-                            >
-                              {'Temporary Blog Page'}
-                            </Link>
-                  
-                        </Card.Text>
-                    </Card.Body> 
-                </Card>    
-            </Col>   
-
-            <Col key={'asdasdasdassdasd'} lg={6}> 
-                <Card className="mycardpart mb-2 mt-2"> 
-                    <Card.Body className="mytemppp">    
-                      <Link
-                          to={'/portfolio_page'}
-                          aria-label={`View ${'Portfolio Page'}`}
-                        >
-                        <Card.Text className="mycardbottombit  "> 
-                              {'Portfolio Page'} 
-                        </Card.Text>  
-                      </Link>
-                    </Card.Body> 
-                </Card>    
-            </Col>  
-
-        </Row>  */}
-        <hr /> 
+      <Hero />   
     </Layout>
   )
 }

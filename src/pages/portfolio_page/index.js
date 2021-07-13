@@ -35,7 +35,7 @@ export default function Index({ data: { site, allMdx } }) {
                 `}>
                   Portfolio
                 </h2>  
-                Browse through these samples and demos.. 
+                This site is currently under construction; keep an eye out over the coming days for a new portfolio items.... 
             </div>
             <Row>  
             {allMdx.edges.map(({ node: post }) => ( 
