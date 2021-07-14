@@ -15,7 +15,7 @@ const MyPage = (props) => (
           <Stars/>
  
           <Suspense fallback={null}>   
-              <LogoTedfordMedia position={[0, 0, 0]} scale={[140, 140, 140]} rotation={[90, 0, 0]} castShadow/>  
+              <LogoTedfordMedia position={[0, 0, 0]} scale={[140, 140, 140]} rotation={[90, 0, 0]} castShadow useShaderOne/>  
           </Suspense>   
 
           <OrbitControls/>
