@@ -13,7 +13,7 @@ export default function Model(props) {
   useEffect(() => { 
     actions['Take 001'].play();
   });
-
+  
   return (
     <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
@@ -21,47 +21,47 @@ export default function Model(props) {
           <group rotation={[Math.PI / 2, 0, 0]}>
             <group position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
               <primitive object={nodes._rootJoint} />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_01_-_Default_0'].geometry}
                 material={materials['01_-_Default']}
                 skeleton={nodes['G_HeliBlade_01_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_02_-_Default_0'].geometry}
                 material={materials['02_-_Default']}
                 skeleton={nodes['G_HeliBlade_02_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_03_-_Default_0'].geometry}
                 material={materials['03_-_Default']}
                 skeleton={nodes['G_HeliBlade_03_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_07_-_Default_0'].geometry}
                 material={materials['07_-_Default']}
                 skeleton={nodes['G_HeliBlade_07_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_08_-_Default_0'].geometry}
                 material={materials['08_-_Default']}
                 skeleton={nodes['G_HeliBlade_08_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_09_-_Default_0'].geometry}
                 material={materials['09_-_Default']}
                 skeleton={nodes['G_HeliBlade_09_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_13_-_Default_0'].geometry}
                 material={materials['13_-_Default']}
                 skeleton={nodes['G_HeliBlade_13_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes['G_HeliBlade_14_-_Default_0'].geometry}
                 material={materials['14_-_Default']}
                 skeleton={nodes['G_HeliBlade_14_-_Default_0'].skeleton}
               />
-              <skinnedMesh
+              <skinnedMesh frustumCulled={false}
                 geometry={nodes.G_HeliBlade_Mat_ModMat_0.geometry}
                 material={materials.Mat_ModMat}
                 skeleton={nodes.G_HeliBlade_Mat_ModMat_0.skeleton}

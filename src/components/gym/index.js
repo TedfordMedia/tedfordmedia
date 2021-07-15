@@ -61,12 +61,12 @@ function MyPage(props){
         <Layout displayHero={false}>    
             <div  style={{ height: props.forcedHeight, width: "100%",background:"black" }}>  
                 <Canvas  
-                camera={{
-                    position: [0, 0, -.01],
-                    fov: 75,
-                    near: 0.01,
-                    far: 100
-                }}
+                  camera={{
+                      position: [0, 0, -.01],
+                      fov: 75,
+                      near: 0.01,
+                      far: 100
+                  }}
                 
                 style={{ height: "100%", width: "100%" }}>
         
