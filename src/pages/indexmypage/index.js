@@ -5,7 +5,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 import Layout from "../../components/layoutwide"  
 import styled from '@emotion/styled'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './mystyling.css'
+import '../mystyling.scss'
 import { useTheme } from '../../components/Theming'
 import Image from 'gatsby-image' 
  

@@ -51,7 +51,8 @@ export default function Index({ data: { site, allMdx } }) {
                                         className="zthecard_image" 
                                         fluid={post.frontmatter.banner.childImageSharp.fluid}  
                                     />
-                                </Link>
+                                </Link> 
+
                             )}
                             <Card.Title className="mycardbottombit mytoppadding">
                                 <StyledLink

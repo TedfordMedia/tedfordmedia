@@ -42,6 +42,13 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-redirect-to`,
+      options: {
+        force: true,
+        isPermanent: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: ['.mdx', '.md', '.markdown'],

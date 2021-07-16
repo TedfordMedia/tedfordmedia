@@ -10,6 +10,7 @@ banner: './images/banner.jpg'
 published: false
 author: 'author'
 featuredScene: true
+redirect: '/loadagltf'
 redirects:
   - '/invisible-post-423123'
 ---

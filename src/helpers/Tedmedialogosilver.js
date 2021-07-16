@@ -14,7 +14,7 @@ export default function Model(props) {
     <group name="Tedmedialogo" ref={group} {...props} dispose={null}>
       <group position={[0, 0, 0]} scale={[200, 200, 200]}>
         <group position={[0, 0, 0]} scale={[200, 200, 200]}>
-          <mesh castShadow receiveShadow fr
+          <mesh castShadow receiveShadow 
             geometry={nodes.Curve027.geometry}
             material={nodes.Curve027.material}
             position={[0, 0, 0]}
