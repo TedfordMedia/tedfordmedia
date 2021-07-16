@@ -74,6 +74,7 @@ export default function Post({
             <div
               css={css`
                 padding: 30px;
+                padding-bottom: 5px;
                 ${bpMaxSM} {
                   padding: 0;
                 }
@@ -90,8 +91,7 @@ export default function Post({
                   </div>
                 )}
             </div>
-          )}
-          <br />
+          )} 
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </Container>
         {/* <SubscribeForm /> */}
@@ -101,8 +101,7 @@ export default function Post({
           url={`${config.siteUrl}/${mdx.frontmatter.slug}/`}
           title={title}
           twitterHandle={config.twitterHandle}
-        />
-        <br />
+        /> 
       </Container>
     </Layout>
   )

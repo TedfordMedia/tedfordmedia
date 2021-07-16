@@ -65,7 +65,7 @@ const Blog = ({
                   aria-label={`View ${post.frontmatter.title} article`}
                   to={`/${post.fields.slug}`}
                 >
-                  {/* <Img sizes={post.frontmatter.banner.childImageSharp.fluid} /> */}
+                  <Img sizes={post.frontmatter.banner.childImageSharp.fluid} />
                 </Link>
               </div>
             )}
