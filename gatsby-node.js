@@ -11,7 +11,7 @@ const createPosts = (createPage, createRedirect, edges) => {
     const pagePath = node.fields.slug
 
     if (node.fields.redirects) { 
-
+console.log('red from '+pagePath+' '+node.fields.redirects)
         createRedirect({
           pagePath,
           toPath: node.fields.redirects,
