@@ -46,6 +46,7 @@ module.exports = {
       options: {
         force: true,
         isPermanent: true,
+      redirectInBrowser: true,
       },
     },
     {
