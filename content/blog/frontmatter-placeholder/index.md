@@ -11,8 +11,7 @@ published: false
 author: 'author'
 featuredScene: true
 redirect: '/loadagltf'
-redirects:
-  - '/invisible-post-423123'
+redirects: '/'
 ---
 
 This exists to populate GraphQL fields and avoid null errors. It should contain all of the available frontmatter.
