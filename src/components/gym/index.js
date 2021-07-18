@@ -68,7 +68,7 @@ function MyPage(props){
                       far: 100
                   }}
                 
-                style={{ height: "100%", width: "100%" }}>
+                style={{ height: "100%", width:  "100%" }}>
         
                     <pointLight position={[-10, 20, 20]} intensity={.8}/>
                     <pointLight position={[10, 10, -10]} intensity={.8}/>
