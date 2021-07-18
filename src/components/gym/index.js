@@ -78,8 +78,8 @@ function MyPage(props){
                     </Suspense> 
 
                     <Box color="#f56f42" position={[1, 0, 3]} />   
-                    <Suspense fallback={<Html>Loading...</Html>}>    
-                    <group scale={[.03,.03,.03]} position={[.7, -1, -1.5]}>
+                    <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>    
+                    <group scale={[.03,.03,.03]} rotation={[0,180,0]} position={[1, -1, 5]}>
                         <Model  />  
                     </group>
                     </Suspense> 
