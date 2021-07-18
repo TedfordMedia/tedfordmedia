@@ -12,7 +12,8 @@ featuredScene: false
 ---
 import { Message } from "theme-ui" 
 import { Test } from './TestButton.js' 
- 
+import Layout from "../../../../../src/components/textholder.js"  
+
 <Layout>  
 
 Welcome to our new site, built with React-Three-Fiber and Gatsby.  React-Three-Fiber brings the world of 3D and Gatsby enables the fastest possible React+WebGL experience available.  
@@ -28,6 +29,19 @@ Gatsby uses R3F in a slightly different way to regular React, so building this s
 Some sample markdown components imported from Javascript into MDX.
 </Layout>
 
+ 
+</br>
+
 <Layout>  
-    <Test/> 
-</Layout> 
+    <Test/>
+    </br>
+
+    <Message>
+        Hi, I am from MDX markdown!    
+    </Message>     
+    </br> 
+</Layout>
+
+
+
+ 
