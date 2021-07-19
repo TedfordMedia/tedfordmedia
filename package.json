@@ -36,6 +36,7 @@
     "gatsby-image": "^2.2.29",
     "gatsby-link": "^2.2.22",
     "gatsby-plugin-catch-links": "^2.1.15",
+    "gatsby-plugin-client-side-redirect": "^1.1.0",
     "gatsby-plugin-css-literal-loader": "^1.0.0",
     "gatsby-plugin-emotion": "^4.1.12",
     "gatsby-plugin-feed": "^2.3.19",
