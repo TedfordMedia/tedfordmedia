@@ -9,8 +9,8 @@ const createPosts = (createPage, createRedirect, edges) => {
     const prev = i === 0 ? null : edges[i - 1].node
     const next = i === edges.length - 1 ? null : edges[i + 1].node
     const pagePath = node.fields.slug
-    const pathfrom = 'unitymarsvideos';
-    const topath = 'aframevideos';
+    const pathfrom = '/unitymarsvideos'.toString();
+    const topath = '/aframevideos'.toString();
 
     if (node.fields.redirects) { 
         console.log('red from '+pagePath+' '+node.fields.redirects)
