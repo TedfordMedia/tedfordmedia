@@ -11,13 +11,13 @@ const createPosts = (createPage, createRedirect, edges) => {
     const pagePath = node.fields.slug
 
     if (node.fields.redirects) { 
-console.log('red from '+pagePath+' '+node.fields.redirects)
-        createRedirect({
-          pagePath,
-          toPath: node.fields.redirects,
-          redirectInBrowser: true,
-          isPermanent: true,
-        })
+        console.log('red from '+pagePath+' '+node.fields.redirects)
+        // createRedirect({
+        //   pagePath,
+        //   toPath: node.fields.redirects,
+        //   redirectInBrowser: true,
+        //   isPermanent: true,
+        // })
 
       // node.fields.redirects.forEach(fromPath => {
       //   createRedirect({
