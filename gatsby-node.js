@@ -9,15 +9,17 @@ const createPosts = (createPage, createRedirect, edges) => {
     const prev = i === 0 ? null : edges[i - 1].node
     const next = i === edges.length - 1 ? null : edges[i + 1].node
     const pagePath = node.fields.slug
+    const pathfrom = 'unitymarsvideos';
+    const topath = 'aframevideos';
 
     if (node.fields.redirects) { 
         console.log('red from '+pagePath+' '+node.fields.redirects)
-        // createRedirect({
-        //   pagePath,
-        //   toPath: node.fields.redirects,
-        //   redirectInBrowser: true,
-        //   isPermanent: true,
-        // })
+        createRedirect({
+          pathfrom,
+          toPath: topath,
+          redirectInBrowser: true,
+          isPermanent: true,
+        })
 
       // node.fields.redirects.forEach(fromPath => {
       //   createRedirect({
