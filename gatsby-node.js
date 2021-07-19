@@ -74,8 +74,8 @@ exports.createPages = ({ actions, graphql }) =>
 
     const { edges } = data.allMdx
     const { createRedirect, createPage } = actions
-
-
+console.log('------------')
+        createRedirect({ fromPath: '/unitymarsvideos', toPath: '/aframevideos', isPermanent: true });
     //  createRedirect({
     //       fromPath,
     //       toPath: pagePath,

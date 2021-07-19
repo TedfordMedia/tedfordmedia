@@ -169,5 +169,6 @@ module.exports = {
       options: { extension: '.module.scss' },
     },
     `gatsby-plugin-client-side-redirect`, // keep it in last in list,
+    'gatsby-plugin-meta-redirect' ,
   ],
 }
