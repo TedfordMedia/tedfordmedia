@@ -15,7 +15,7 @@ const createPosts = (createPage, createRedirect, edges) => {
     if (node.fields.redirects) { 
         console.log('red from '+pagePath+' '+node.fields.redirects);
 
-        //createRedirect({ fromPath: '/old-url', toPath: '/new-url', isPermanent: true });
+        createRedirect({ fromPath: '/unitymarsvideos', toPath: '/aframevideos', isPermanent: true });
         // createRedirect({
         //   pathfrom,
         //   toPath: topath,
