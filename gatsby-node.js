@@ -13,22 +13,15 @@ const createPosts = (createPage, createRedirect, edges) => {
     const topath = '/aframevideos'.toString();
 
     if (node.fields.redirects) { 
-        console.log('red from '+pagePath+' '+node.fields.redirects)
+        console.log('red from '+pagePath+' '+node.fields.redirects);
+
+        //createRedirect({ fromPath: '/old-url', toPath: '/new-url', isPermanent: true });
         // createRedirect({
         //   pathfrom,
         //   toPath: topath,
         //   redirectInBrowser: true,
         //   isPermanent: true,
-        // })
-
-      // node.fields.redirects.forEach(fromPath => {
-      //   createRedirect({
-      //     fromPath,
-      //     toPath: pagePath,
-      //     redirectInBrowser: true,
-      //     isPermanent: true,
-      //   })
-      // })
+        // }) 
     }
  
     createPage({
