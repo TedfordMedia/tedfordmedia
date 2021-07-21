@@ -5,8 +5,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 import Layout from "../../components/layoutwide"  
 import styled from '@emotion/styled'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '../mystyling.scss'
-import { useTheme } from '../../components/Theming'
+import '../mystyling.scss' 
 import Image from 'gatsby-image' 
  
 const StyledLink = styled(props => <Link {...props} />)`
@@ -15,7 +14,7 @@ const StyledLink = styled(props => <Link {...props} />)`
 `;
 
 export default function Index({ data: { site, allMdx } }) {
-  const theme = useTheme()
+ 
   return (
     <Layout noSubscribeForm site={site}>  
         {/* <Hero /> */}
