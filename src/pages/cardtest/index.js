@@ -1,5 +1,5 @@
 import React from 'react' 
-import Layout from "../../components/layoutwide" 
+import Layout from "../../components/Layout" 
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { graphql, Link } from 'gatsby' 
 import Img from 'gatsby-image';
@@ -27,9 +27,9 @@ const IndexPage = ({data}) => (
                   font-weight: bold;
                   font-size: 38px; 
                 `}>
-                  Portfolio
+                  Pixi demo
                 </h2>  
-                <h1>This site is currently under construction;</h1> keep an eye out over the coming days for a new portfolio items.... 
+                <h1>Under construction;</h1> 
             </div>
             <Row>   
                 <Col key={'asdasdasd'} lg={6}> 
@@ -58,7 +58,7 @@ const IndexPage = ({data}) => (
                             <Card.Title className="mycardbottombit mytoppadding">
                                 <StyledLink
                                     to={'../unitymarsvideos'}
-                                    aria-label={`View ${'ss.frontmatter.title'}`}
+                                    aria-label={`View Unity Mars Videos`}
                                 >
                                   {'MarsVxideos'}
                                 </StyledLink>

@@ -1,5 +1,6 @@
 ---
 slug: invisible-post
+goto: null
 date: 2019-01-01
 title: 'this post is a ghost'
 featuredImage: './images/banner.jpg'

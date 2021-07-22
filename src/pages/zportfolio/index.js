@@ -9,8 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '../mystyling.scss'
 import { useTheme } from '../../components/Theming'
 import Image from 'gatsby-image' 
-import Header from '../../components/Header'
-
+ import Header from '../../components/Header'
 const StyledLink = styled(props => <Link {...props} />)`
     color: black;
     text-decoration: none;
@@ -46,7 +45,7 @@ export default function Index({ data: { site, allMdx } }) {
                             {post.frontmatter.banner && (
                                 <Link
                                     aria-label={`View ${post.frontmatter.title} article`}
-                                    to={`/${post.frontmatter.goto}`}
+                                    to={`/z${post.fields.slug}`}
                                     >
                                     <Image   
                                         className="zthecard_image" 
@@ -56,7 +55,7 @@ export default function Index({ data: { site, allMdx } }) {
                             )}
                             <Card.Title className="mycardbottombit mytoppadding">
                                 <StyledLink
-                                    to={'../'+post.frontmatter.goto}
+                                    to={'../'+post.frontmatter.slug}
                                     aria-label={`View ${post.frontmatter.title}`}
                                 >
                                   {post.frontmatter.title}
@@ -86,7 +85,7 @@ export const pageQuery = graphql`
     allMdx(
       limit: 5
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { goto: { ne: null } } }
+      filter: { frontmatter: { featuredScene: { ne: false } } }
     ) {
       edges {
         node { 
@@ -116,7 +115,6 @@ export const pageQuery = graphql`
               }
             }
             slug
-            goto
             keywords
           }
         }

@@ -163,6 +163,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
 
     createNodeField({
+      name: 'goto',
+      node,
+      value: node.frontmatter.goto,
+    })
+
+    createNodeField({
       name: 'title',
       node,
       value: node.frontmatter.title,
