@@ -33,19 +33,20 @@ const IndexPage = ({data}) => (
             </div>
             <Row>   
                 <Col key={'asdasdasd'} lg={6}> 
-                      <Card className="mycardpart mb-2 mt-2  " css={css`
-                  padding:0px;     -moz-box-shadow: 10px 10px 5px #ccc;
-    -webkit-box-shadow: 10px 10px 5px #ccc;
-    box-shadow: 10px 10px 5px #ccc;
-    -moz-border-radius:20;
-    -webkit-border-radius:20px;
-    border-radius:15px;
-    padding-bottom:1em;
-    background-color:#edf2f6;
-                `}> 
+                    <Card className="mycardpart mb-2 mt-2  " 
+                          css={css`
+                          padding:0px;     -moz-box-shadow: 10px 10px 5px #ccc;
+                          -webkit-box-shadow: 10px 10px 5px #ccc;
+                          box-shadow: 10px 10px 5px #ccc;
+                          -moz-border-radius:20;
+                          -webkit-border-radius:20px;
+                          border-radius:15px;
+                          padding-bottom:1em;
+                          background-color:#edf2f6;
+                      `}> 
                         <Card.Body className="mycardbody"  css={css`
-                  padding:0px; 
-                `}>
+                          padding:0px; 
+                        `}>
                             <Link
                                 aria-label={`View article`}
                                 to={`/unitymarsvideos`}
