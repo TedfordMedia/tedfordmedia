@@ -8,8 +8,8 @@ import LogoTedfordMedia from "../../helpers/Tedmedia3dlogoshaderone";
 
 const MyPage = (props) => (   
   <Layout displayHero={false}>    
-      <div  style={{ height: "100vh", width: "100%",background:"black" }}>  
-        <Canvas camera={{ position: [0, 0, 4], fov: 30 }} style={{ height: "100%", width: "100%" }}>
+      <div  style={{ height: "100vh", width: "100%",background:"yellow" }}>  
+        <Canvas camera={{ position: [0, 0, 4], fov: 30 }} style={{ height: "80%", width: "100%" }}>
   
           <pointLight position={[-10, 20, 20]} intensity={1}/>
           {/* <pointLight position={[10, -10, -10]} intensity={1}/> */}

@@ -17,7 +17,7 @@ import {
   return (
   <Layout displayHero={false}>    
       <div  style={{ height: "100vh", width: "100%",background:"black" }}>  
-        <Canvas camera={{ position: [0, 0, 14], fov: 30 }} style={{ height: "100%", width: "100%" }}>
+        <Canvas camera={{ position: [0, 0, 14], fov: 30 }} style={{ height: "80%", width: "100%" }}>
             <mesh
                 visible // object gets render if true
                 userData={{ test: "hello" }} // An object that can be used to store custom data about the Object3d
@@ -45,7 +45,7 @@ import {
             <pointLight position={[0, -10, 5]} intensity={1} />
 
             {/* We can use the drei Sphere which has a simple API. This sphere has a wobble material attached to it */}
-            <Sphere visible position={[-3, 0, 0]} args={[1, 16, 200]}>
+            <Sphere visible position={[-1, 1, 0]} args={[1, 16, 200]}>
                 <MeshWobbleMaterial
                 attach="material"
                 color="#EB1E99"
@@ -56,7 +56,7 @@ import {
             </Sphere>
 
             {/* This sphere has a distort material attached to it */}
-            <Sphere visible position={[3, 0, 0]} args={[1, 16, 200]}>
+            <Sphere visible position={[1, -1, -1]} args={[1, 16, 200]}>
                 <MeshDistortMaterial
                 color="#00A38D"
                 attach="material"
