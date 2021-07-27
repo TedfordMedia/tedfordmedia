@@ -178,7 +178,8 @@ export default ({
           css={css`
             
             width: 100%;
-            height: calc(100vh - 132.73px);
+         
+       height: calc(100% - 82.73px);
           `}
         >
           <Helmet

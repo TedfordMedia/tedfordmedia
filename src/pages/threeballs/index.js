@@ -56,8 +56,7 @@ const MyPage = (props) => (
  <Layout  css={css`  
       `}>    
       <div  className={'mydiv'}       
-        css={css`
-        background-color: pink; 
+        css={css` 
         height: 100%;
         overflow: hidden;
       `}>  

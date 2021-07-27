@@ -12,7 +12,7 @@ const Hero = () => {
       css={css`
         color: ${theme.colors.white};
         width: 100%;
-        height: 100%; max-height:100%;
+        height: 100%; 
         background: ${theme.colors.primary};
         padding: 0px 0 0px 0;
         display: flex;
@@ -20,7 +20,7 @@ const Hero = () => {
     > 
       <div
         css={css`
-          height: calc(100vh - 82.73px);  
+          height: 100%;  
           width: 100%;
           background: ${theme.colors.blue};
           overflow: hidden;
