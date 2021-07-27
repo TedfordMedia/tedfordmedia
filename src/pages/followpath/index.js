@@ -6,7 +6,8 @@ import * as THREE from 'three'
 import Flamingo from "../../helpers/Flamingo.js"; 
 import img from '../../images/logo.png'
 import gsap from "gsap"; 
-import LogoFloor from "../../components/layoutwidebb"  
+import LogoFloor from "../../components/layoutwidebb"   
+import Robot from "../../helpers/Robot6"; 
  
 const Torus = (props) => {
   const groupRef = useRef();
@@ -263,6 +264,13 @@ const MyPage = (props) => (
   
                 <TheFollowCube/>   
  
+            </Suspense> 
+ 
+
+            <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
+              <group position={[3, -.89, 0]} scale={[1.5, 1.5, 1.5]}>
+                <Robot/>   
+             </group>
             </Suspense> 
   
             <group position={[3, 3, 0]} scale={[1.02,1.02,1.02]}>
