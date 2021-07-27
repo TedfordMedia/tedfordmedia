@@ -9,11 +9,7 @@ import { useGLTF } from '@react-three/drei'
 export default function Model(props) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/tedmedia3dlogo.glb')
-
-  
-
-  alert(props.useShaderOne);
-
+ 
 
   return (
     <group ref={group} {...props} dispose={null}>
