@@ -3,14 +3,18 @@ import React, { Suspense, useRef, useMemo } from 'react'
 import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { OrbitControls, Sky } from '@react-three/drei'
 import { Water } from 'three-stdlib'
-import { css } from '@emotion/core' 
-import Layout from "../../components/layoutwidellh"  
+import { css } from '@emotion/core'
 
+
+ 
+ import Layout from "../../components/layoutwidellh"  
 // import { Canvas, useFrame} from "@react-three/fiber"
 // import { Stars, Html, OrbitControls, useLoader, useTexture, Text } from '@react-three/drei';
 // import * as THREE from 'three'
 
- 
+
+
+
 extend({ Water })
 
 function Ocean() {
