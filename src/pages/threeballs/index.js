@@ -22,7 +22,7 @@ const MyPage = (props) => (
         css={css`
         background-color: pink; 
         height: 100%;
- 
+     overflow: hidden;
       `}>  
           HELLO
       </div>

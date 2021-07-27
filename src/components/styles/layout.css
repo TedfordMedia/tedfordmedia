@@ -11,6 +11,7 @@ myclasss {
 }
 .mydiv {
     height: 100%;
+    overflow: hidden;
 }
 .mycolor{
 background-color: azure;
