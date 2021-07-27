@@ -9,16 +9,13 @@ import gsap from "gsap";
 import LogoFloor from "../../components/layoutwidebb"   
 import Robot from "../../helpers/Robot6"; 
  import { useSpring } from "@react-spring/core";
-import Ball from "./ball";
-import Ground from "./ground";
+ 
 import { Physics, useBox } from "@react-three/cannon";
 import "./style.css";
 import { Global, css } from '@emotion/core'
 
 const MyPage = (props) => (   
- <Layout  css={css` 
-        height: 100%;
- 
+ <Layout  css={css`  
       `}>   
  
       <div  className={'mydiv'}       
