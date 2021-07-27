@@ -8,6 +8,7 @@ import img from '../../images/logo.png'
 import gsap from "gsap"; 
 import LogoFloor from "../../components/layoutwidebb"   
 import Robot from "../../helpers/Robot6"; 
+import Samba from "../../helpers/Samba"; 
  
 const Torus = (props) => {
   const groupRef = useRef();
@@ -46,8 +47,25 @@ function TheFollowCube(){
 
     const points = curve.getPoints( 50 );
     const lineGeometry = new THREE.BufferGeometry().setFromPoints( points ); 
-   
-//   useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.002))
+    
+    useFrame(() => { 
+      // const ref = useRef()  
+      //  gsap.to( ref.position, {
+      //                 duration: .5,  
+      //                 x: 1,
+      //                 y: 3,
+      //                 z: 40, 
+      //               }); 
+      // const ref = useRef()  
+      // var currentTime = Date.now();
+      // // uniforms.iGlobalTime.value = (currentTime - startTime) * 0.001; 
+
+      // if (ref){
+      //  // ref.position.copy( position );	
+      //   // ref.matrix.lookAt( splineCamera.position, lookAt, normal );
+      //   // ref.quaternion.setFromRotationMatrix( splineCamera.matrix );
+      // }
+    });
 
   return (
     <> 
@@ -217,12 +235,7 @@ const MyPage = (props) => (
                 // scene.fog = new THREE.Fog(fogColor, 9.0025, 80);
                 scene.background = new THREE.Color( 0xa0a0a0 );
 
-                gsap.to( camera.position, {
-                duration: 30,  
-                x: 1,
-                y: 3,
-                z: 40, 
-                });  
+              
 
             }}
             style={{ height: "100%", width: "100%" }}
@@ -265,10 +278,10 @@ const MyPage = (props) => (
                 <TheFollowCube/>   
  
             </Suspense> 
- 
+  
 
             <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-              <group position={[3, -.89, 0]} scale={[1.5, 1.5, 1.5]}>
+              <group position={[3, -.89, 0]}  >
                 <Robot/>   
              </group>
             </Suspense> 

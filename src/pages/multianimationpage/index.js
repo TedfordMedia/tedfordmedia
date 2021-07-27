@@ -8,7 +8,12 @@ import img from '../../images/logo.png'
 import gsap from "gsap"; 
 import LogoFloor from "../../components/layoutwidebb"   
 import Robot from "../../helpers/Robot6"; 
- 
+ import { useSpring } from "@react-spring/core";
+import {
+  MeshDistortMaterial,
+  MeshWobbleMaterial,
+  Sphere
+} from "@react-three/drei";
 const Torus = (props) => {
   const groupRef = useRef();
 
@@ -57,31 +62,16 @@ function TheFollowCube(){
             <lineBasicMaterial attach="material" color={'red'} linewidth={1} linecap={'round'} linejoin={'round'} />
         </line> 
 
-        <mesh castShadow receiveShadow position={[0, 0, 0]}>
+        <mesh castShadow receiveShadow position={[0, 2, 0]}>
             <boxBufferGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial    map={myytexture}   roughness={1}   /> 
+            <MeshWobbleMaterial    map={myytexture}   roughness={1}   /> 
         </mesh> 
+  
       </group> 
     </>
   )
 }
-function TheNormalCube(){ 
-  const ref = useRef()   
-  const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
  
-  useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.002))
-
-  return (
-    <> 
-      <group position={[0, 0, 2]} ref={ref}>  
-        <mesh position={[-1, 0, 0]}>
-            <boxBufferGeometry args={[4, 4, 4]} />
-            <meshStandardMaterial metalness={1}  map={myytexture}   roughness={1}   /> 
-        </mesh> 
-      </group> 
-    </>
-  )
-}
 const TheNormalCubeB = (props) => {
   const groupRef = useRef();
   const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
@@ -132,19 +122,20 @@ function Dolighting({ brightness, color }) {
   return (
     <group name="lighting">
         <hemisphereLight intensity={.1} />
-        <ambientLight intensity={.1} />
-        {/* <pointLight castShadow position={[20, 80, 3]} intensity={.9}/>  */}
+        <ambientLight intensity={.1} /> 
  
         <pointLight castShadow 
                 shadow-mapSize-height={512}
                 shadow-mapSize-width={512}
-                position={[-10, 10, 20]} intensity={1}/>
+                position={[-50, 150, 200]} intensity={.8}/>
 
-       {/* <TheNormalCubeB 
-            castShadow  
-            position={[-10, 100, 20]}  /> */}
+        <pointLight castShadow 
+                shadow-mapSize-height={512}
+                shadow-mapSize-width={512}
+                position={[50, 100, 150]} intensity={.35}/>
+ 
 
-        {/* <directionalLight position={[67, 19, 127]}  intensity={.2} castShadow shadow-camera-zoom={2} />  */}
+        <directionalLight position={[67, 49, -127]}  intensity={.1} castShadow shadow-camera-zoom={2} /> 
         {/* <directionalLight position={[67,30,50]}  intensity={0.3} castShadow shadow-camera-zoom={2} /> */}
        
         {/* <directionalLight position={[67, 69, 7]}  intensity={.4} castShadow shadow-camera-zoom={2} />  */}
@@ -204,7 +195,7 @@ const MyPage = (props) => (
             shadows
             gl={{ alpha: false }}
             camera={{ 
-            position: [-3, 20.1, 80.5], 
+            position: [1, 3, 40], 
             fov: 30 ,  
             near: 0.01,
             far: 1100
@@ -217,12 +208,12 @@ const MyPage = (props) => (
                 // scene.fog = new THREE.Fog(fogColor, 9.0025, 80);
                 scene.background = new THREE.Color( 0xa0a0a0 );
 
-                gsap.to( camera.position, {
-                duration: 30,  
-                x: 1,
-                y: 3,
-                z: 40, 
-                });  
+                // gsap.to( camera.position, {
+                // duration: 5,  
+                //   x: 1,
+                //   y: 3,
+                //   z: 40, 
+                // });  
 
             }}
             style={{ height: "100%", width: "100%" }}
@@ -230,13 +221,13 @@ const MyPage = (props) => (
  
             <Dolighting/>
 
-            <Suspense fallback={<Html>Loading...</Html>}>  
+            <Suspense fallback={<Html></Html>}>  
                 <LogoFloor/>
             </Suspense>
             
             <TheBoxbricks/> 
 
-            <Suspense fallback={<Html>Loading...</Html>}>    
+            <Suspense fallback={<Html> </Html>}>    
                 <group position={[20, 16, 10]} scale={[.025,.025,.025]}>
                 <Flamingo  /> 
                 </group>
@@ -247,27 +238,42 @@ const MyPage = (props) => (
                 <Flamingo  /> 
                 </group>
             </Suspense> 
-
-            <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-                <group position={[3, 8, 0]} scale={[1.02,1.02,1.02]}>
-                    <TheNormalCube/>   
-                </group>
-            </Suspense> 
  
-            <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
+ 
+            <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
   
                 <TheNormalCubeB  position={[0,10,-10]}/>   
  
             </Suspense> 
 
-            <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
+            <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
   
                 <TheFollowCube/>   
  
             </Suspense> 
  
+            <Sphere visible position={[1.7, 3, -2]} args={[1, 16, 200]}>
+                <MeshDistortMaterial
+                color="#00A38D"
+                attach="material"
+                distort={0.4} // Strength, 0 disables the effect (default=1)
+                speed={2} // Speed (default=1)
+                roughness={0}
+                />
+            </Sphere>
 
-            <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
+            <Sphere visible position={[-1.7, 5, 2]} args={[1, 32, 400]}>
+                <MeshDistortMaterial
+                color="#00438D"
+                attach="material"
+                distort={.7} // Strength, 0 disables the effect (default=1)
+                speed={1} // Speed (default=1)
+                roughness={0}
+                />
+            </Sphere>
+
+
+            <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
               <group position={[3, -.89, 0]} scale={[1.5, 1.5, 1.5]}>
                 <Robot/>   
              </group>
@@ -277,7 +283,7 @@ const MyPage = (props) => (
                 <Torus />
             </group>
            
-            <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/>
+            <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-.8}/>
         </Canvas>
       </div> 
   </Layout> 
