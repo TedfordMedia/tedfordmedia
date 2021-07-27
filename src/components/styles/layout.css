@@ -9,10 +9,20 @@ myclasss {
   background-color: coral;
   width:900px;
 }
+.mydiv {
+    height: 100%;
+}
+.mycolor{
+background-color: azure;
+}
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+}
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grsayscale;
   color: hsla(0, 0%, 0%, 0.8);
   font-family: Helvetica, sans-serif;
   font-weight: normal;

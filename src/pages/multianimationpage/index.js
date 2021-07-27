@@ -85,7 +85,7 @@ const TheNormalCubeB = (props) => {
     <group ref={groupRef}>
       <mesh {...props}>
         <boxBufferGeometry args={[4, 4, 4]} />
-        <meshStandardMaterial color={"red"} map={myytexture}  />
+        <meshStandardMaterial color={"white"} map={myytexture}  />
         <Html>
           <div className="label">Cubetest</div>
         </Html>
@@ -135,12 +135,7 @@ function Dolighting({ brightness, color }) {
                 position={[50, 100, 150]} intensity={.35}/>
  
 
-        <directionalLight position={[67, 49, -127]}  intensity={.1} castShadow shadow-camera-zoom={2} /> 
-        {/* <directionalLight position={[67,30,50]}  intensity={0.3} castShadow shadow-camera-zoom={2} /> */}
-       
-        {/* <directionalLight position={[67, 69, 7]}  intensity={.4} castShadow shadow-camera-zoom={2} />  */}
-        {/* <directionalLight position={[67,50,50]}  intensity={0.1} castShadow shadow-camera-zoom={2} /> */}
-        {/* <directionalLight position={[-57, 40,40]}  intensity={0.1} castShadow shadow-camera-zoom={2} />   */}
+        <directionalLight position={[67, 49, -127]}  intensity={.1} castShadow shadow-camera-zoom={2} />  
     </group>
   );
 }
@@ -203,18 +198,8 @@ const MyPage = (props) => (
             onCreated={({ gl, camera, scene }) => {  
                 gl.outputEncoding = THREE.sRGBEncoding
                 gl.shadowMap.enabled = true;
-                gl.shadowMap.type = THREE.PCFSoftShadowMap; 
-                // const fogColor = new THREE.Color(0x00ff00);
-                // scene.fog = new THREE.Fog(fogColor, 9.0025, 80);
-                scene.background = new THREE.Color( 0xa0a0a0 );
-
-                // gsap.to( camera.position, {
-                // duration: 5,  
-                //   x: 1,
-                //   y: 3,
-                //   z: 40, 
-                // });  
-
+                gl.shadowMap.type = THREE.PCFSoftShadowMap;  
+                scene.background = new THREE.Color( 0xa0a0a0 ); 
             }}
             style={{ height: "100%", width: "100%" }}
         >
@@ -288,8 +273,5 @@ const MyPage = (props) => (
       </div> 
   </Layout> 
 )
- 
-// scene.background = new THREE.Color( 0xa0a0a0 );
-// scene.fog = new THREE.Fog( 0xa0a0a0,100	, 5000 );
- 
+  
 export default MyPage  
