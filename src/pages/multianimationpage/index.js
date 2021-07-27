@@ -268,7 +268,7 @@ const MyPage = (props) => (
                 <Torus />
             </group>
            
-            <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-.8}/>
+            {/* <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-.8}/> */}
         </Canvas>
       </div> 
   </Layout> 
