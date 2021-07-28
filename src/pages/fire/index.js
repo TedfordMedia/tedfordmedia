@@ -21,7 +21,7 @@ extend({ Water })
 function Box() {
   const ref = useRef()
   useFrame((state, delta) => {
-    ref.current.position.y = 10 + Math.sin(state.clock.elapsedTime) * 20
+    ref.current.position.y = 10 + Math.sin(state.clock.elapsedTime) * 200
     ref.current.rotation.x = ref.current.rotation.y = ref.current.rotation.z += delta
   })
   return (
