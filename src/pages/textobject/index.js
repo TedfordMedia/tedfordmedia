@@ -8,38 +8,30 @@ import Layout from "../../components/layoutwidellh"
 import Roboto from '/static/helvetiker_regular.typeface.json';
  
 const DISPLAY_TEXT = 'TedfordMedia';
+  
+function MyTextGeom({ clicked, ...props }) { 
+  const font = new THREE.FontLoader().parse(Roboto);
+  const DISPLAY_TEXT = 'TedfordMedia 3D';
  
-
-function MyThing2({ clicked, ...props }) { 
-   const font = new THREE.FontLoader().parse(Roboto);
-
- const textOptions = {
+  const textOptions = {
     font,
     size: 5,
     height: 1
-  };
-  // const Myfont = useLoader(
-  //   THREE.FontLoader,
-  //   'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/fonts/helvetiker_regular.typeface.json'
-  // );
+  }; 
 
-//  const Myfont = useLoader(
-//     THREE.FontLoader,
-//     './Inter-Bold.woff'
-//   );
-  // useFrame((state, delta) => (ref.current.material.uniforms.time.value += delta))
-    return ( 
+  return ( 
 
-   <mesh>
-        <textGeometry attach='geometry' args={['three.js', textOptions]} />
-        <meshStandardMaterial attach='material' />
-      </mesh>
+    <mesh>
+      <textGeometry attach='geometry' args={[DISPLAY_TEXT, textOptions]} />
+      <meshStandardMaterial attach='material' color={"lightblue"}/>
+    </mesh>
 
   )
 }
-function MyThding2({ clicked, ...props }) {  
+
+function MyflatText({ clicked, ...props }) {  
     return (
-       <Text font="/Inther-Bold.woff" fontSize={3} letterSpacing={-0.06} {...props}>
+       <Text font="/Inter-Bold.woff" fontSize={3} letterSpacing={-0.06} {...props}>
       Drei 2d text I am
       <meshBasicMaterial color="green" > 
       </meshBasicMaterial>
@@ -47,11 +39,18 @@ function MyThding2({ clicked, ...props }) {
   )
 }
 
-const MyPage = (props) => {
-  const DISPLAY_TEXT = 'TedfordMedia';
-
+function Dolighting({ brightness, color }) {
+  return (
+    <group name="lighting">
+      <hemisphereLight intensity={.1} />
+      <directionalLight position={[67, 19, 127]}  intensity={.4} castShadow shadow-camera-zoom={2} /> 
+      <directionalLight position={[67,30,50]}  intensity={0.2} castShadow shadow-camera-zoom={2} />
+      <directionalLight position={[-57, 30,40]}  intensity={0.2} castShadow shadow-camera-zoom={2} />  
+    </group>
+  );
+}
  
-
+const MyPage = (props) => {
 
   return(
     <Layout  css={css`  
@@ -65,11 +64,11 @@ const MyPage = (props) => {
             style={{ height: "100%", width: "100%" }}
             camera={{ position: [0, 5, 100], fov: 55, near: 1, far: 20000 }}>
           <Suspense fallback={null}>
-            <MyThing2/>            
+            <MyTextGeom/>            
           </Suspense>
- 
+          <Dolighting/>
           <Suspense fallback={null}>
-            <MyThding2/>            
+            <MyflatText/>            
           </Suspense> 
 
           <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/>
