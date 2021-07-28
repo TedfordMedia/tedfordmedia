@@ -6,22 +6,47 @@ import { Water } from 'three-stdlib'
 import { css } from '@emotion/core'
 import Layout from "../../components/layoutwidellh"   
 import Roboto from '/static/helvetiker_regular.typeface.json';
-import { gsap } from "gsap"; 
+import { gsap } from "gsap";  
+import { useSpring, animated } from 'react-spring/three'
 
-const DISPLAY_TEXT = 'TedfordMedia';
-  
+
 function MyTextGeom({ clicked, ...props }) { 
   const font = new THREE.FontLoader().parse(Roboto);
-  const DISPLAY_TEXT = '3D Text!';
+  const DISPLAY_TEXT = '3D Text!';  
+  const ref = useRef() 
  
   const textOptions = {
     font,
     size: 5,
     height: 1
   }; 
+  
+  useFrame((state, delta) => { 
+    if (props.isAlt){
+      ref.current.rotation.y += 0.001
+    } 
+   
+  
+  })
+
+  useEffect((state, delta) => { 
+
+    var tl = gsap.timeline();
+ 
+    if (props.isAlt){
+      tl 
+        .to( ref.current.rotation, {
+          duration: 140,  
+          x: Math.PI, 
+          y: Math.PI, 
+          z: Math.PI,
+      })
+    }  
+  
+  })
 
   return ( 
-    <group name="xxx"  position={[-10,0,0]}> 
+    <group name="xxx"  ref={ref}  {...props}> 
     <mesh>
       <textGeometry attach='geometry' args={[DISPLAY_TEXT, textOptions]} />
       <meshStandardMaterial attach='material' color={"lightblue"}/>
@@ -32,70 +57,20 @@ function MyTextGeom({ clicked, ...props }) {
 
 function MyflatText({ clicked, ...props }) {  
   const ref = useRef()
-
-  useEffect((state, delta) => {
-    // ref.current.position.y = 10 + Math.sin(state.clock.elapsedTime) * 20
-   // ref.current.rotation.x = ref.current.rotation.y = ref.current.rotation.z += delta;
- 
-   gsap.to( ref.current.position, {
-      duration: 30,  
-      x: ref.current.position.x,
-      y: ref.current.position.y+10,
-      z: ref.current.position.z+0, 
-    }).reverse();;  
-
+  
+  useEffect((state, delta) => { 
+    gsap
+      .to( ref.current.rotation, {
+        duration: 240,  
+        x: 0, 
+        y: Math.PI/3,   
+        z: 0,
+    })    
 
   })
-
-
-
-  // useEffect(() => {
-  //   if (texture && curve && curve.points && tube && tube.current) {
-  //     //timeline animation
-  //     gsap.registerPlugin(TimelineMax)
-  //     const hyperSpace = new TimelineMax({ repeat: -1 })
-  //     hyperSpace.to(texture, 4, { repeatX: 0.3, ease: Power1.easeInOut })
-  //     hyperSpace.to(textureParams, 4, { repeatX: 0.3, ease: Power1.easeInOut })
-  //     hyperSpace.to(textureParams, 12, { offsetX: 8, ease: Power2.easeInOut }, 0)
-  //     hyperSpace.to(textureParams, 6, { repeatX: 10, ease: Power2.easeInOut }, "-=5")
-  //     const shake = new TimelineMax({ repeat: -1, repeatDelay: 5 })
-  //     shake.to(
-  //       cameraShake,
-  //       2,
-  //       {
-  //         x: -0.01,
-  //         ease: RoughEase.ease.config({
-  //           template: Power0.easeNone,
-  //           strength: 0.5,
-  //           points: 100,
-  //           taper: "none",
-  //           randomize: true,
-  //           clamp: false,
-  //         }),
-  //       },
-  //       4,
-  //     )
-  //     shake.to(cameraShake, 2, {
-  //       x: 0,
-  //       ease: RoughEase.ease.config({
-  //         template: Power0.easeNone,
-  //         strength: 0.5,
-  //         points: 100,
-  //         taper: "none",
-  //         randomize: true,
-  //         clamp: false,
-  //       }),
-  //     })
-  //   }
-  // }, [])
-
-
-
-
-
-
-    return (
-    <group name="xxx"  ref={ref} position={[0,-10,0]}>
+ 
+  return (
+    <group name="xxx"  ref={ref} {...props}>
        <Text font="/Inter-Bold.woff" fontSize={2} letterSpacing={-0.06} {...props}>
         2D Text from react-three/drei
         <meshBasicMaterial color="green" />  
@@ -114,7 +89,14 @@ function Dolighting({ brightness, color }) {
     </group>
   );
 }
- 
+
+function Dolly() {
+  // This one makes the camera move in and out
+  useFrame(({ clock, camera }) => {
+    camera.position.z = 30 + Math.sin(clock.getElapsedTime()) * 2
+  })
+  return null
+}
 const MyPage = (props) => {
 
   return(
@@ -128,15 +110,19 @@ const MyPage = (props) => {
         <Canvas 
             style={{ height: "100%", width: "100%" }}
             camera={{ position: [0, 5, 80], fov: 55, near: 1, far: 20000 }}>
+
           <Suspense fallback={null}>
-            <MyTextGeom/>            
+            <MyTextGeom position={[-15,0,0]}/>   
+            <MyTextGeom isAlt={true} position={[15,10,0]}/>            
           </Suspense>
           <Dolighting/>
+
           <Suspense fallback={null}>
-            <MyflatText/>            
+            <MyflatText position={[0,0,0]} />            
           </Suspense> 
 
-          <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/>
+          {/* <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/> */}
+          <Dolly />
         </Canvas>
       </div> 
   </Layout> 
