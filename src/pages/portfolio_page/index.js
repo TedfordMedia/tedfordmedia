@@ -36,7 +36,7 @@ export default function Index({ data: { site, allMdx } }) {
                 `}>
                   Portfolio
                 </h2>  
-                <h1>This site is currently under construction;</h1> keep an eye out over the coming days for a new portfolio items.... 
+                <h21>This site is currently under construction;</h2>Keep an eye out over the coming days for a new portfolio items.... 
             </div>
             <Row>  
             {allMdx.edges.map(({ node: post }) => ( 
