@@ -6,13 +6,11 @@ import { Water } from 'three-stdlib'
 import { css } from '@emotion/core'
 import Layout from "../../components/layoutwidellh"   
 import Roboto from '/static/helvetiker_regular.typeface.json';
-import { gsap } from "gsap";  
-import { useSpring, animated } from 'react-spring/three'
-
-
+import { gsap } from "gsap";   
 function MyTextGeom({ clicked, ...props }) { 
   const font = new THREE.FontLoader().parse(Roboto);
   const DISPLAY_TEXT = '3D Text!';  
+ 
   const ref = useRef() 
  
   const textOptions = {
@@ -25,22 +23,22 @@ function MyTextGeom({ clicked, ...props }) {
     if (props.isAlt){
       ref.current.rotation.y += 0.001
     } 
-   
-  
+    
   })
 
   useEffect((state, delta) => { 
 
     var tl = gsap.timeline();
- 
+
     if (props.isAlt){
       tl 
         .to( ref.current.rotation, {
-          duration: 140,  
+          duration: 10,  
+          repeat: 9999,
           x: Math.PI, 
           y: Math.PI, 
           z: Math.PI,
-      })
+      }) 
     }  
   
   })
@@ -49,7 +47,7 @@ function MyTextGeom({ clicked, ...props }) {
     <group name="xxx"  ref={ref}  {...props}> 
     <mesh>
       <textGeometry attach='geometry' args={[DISPLAY_TEXT, textOptions]} />
-      <meshStandardMaterial attach='material' color={"lightblue"}/>
+      <meshStandardMaterial attach='material' color={props.color}/>
     </mesh>
     </group>
   )
@@ -61,11 +59,12 @@ function MyflatText({ clicked, ...props }) {
   useEffect((state, delta) => { 
     gsap
       .to( ref.current.rotation, {
-        duration: 240,  
+        duration: 4, 
+        delay: 0,
         x: 0, 
         y: Math.PI/3,   
         z: 0,
-    })    
+    })     
 
   })
  
@@ -91,9 +90,9 @@ function Dolighting({ brightness, color }) {
 }
 
 function Dolly() {
-  // This one makes the camera move in and out
+  //  makes the camera move in and out
   useFrame(({ clock, camera }) => {
-    camera.position.z = 30 + Math.sin(clock.getElapsedTime()) * 2
+    camera.position.z = 30 + Math.sin(clock.getElapsedTime()) * 4
   })
   return null
 }
@@ -112,16 +111,15 @@ const MyPage = (props) => {
             camera={{ position: [0, 5, 80], fov: 55, near: 1, far: 20000 }}>
 
           <Suspense fallback={null}>
-            <MyTextGeom position={[-15,0,0]}/>   
-            <MyTextGeom isAlt={true} position={[15,10,0]}/>            
+            <MyTextGeom color="purple" position={[-15,0,0]}/>   
+            <MyTextGeom color="lightblue" isAlt={true} position={[4,6,-18]}/>            
           </Suspense>
           <Dolighting/>
 
           <Suspense fallback={null}>
-            <MyflatText position={[0,0,0]} />            
+            <MyflatText position={[0,-1,0]} />            
           </Suspense> 
-
-          {/* <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/> */}
+ 
           <Dolly />
         </Canvas>
       </div> 
