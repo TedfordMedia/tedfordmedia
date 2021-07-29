@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import React, { Suspense, useRef, useMemo } from 'react'
 import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
-import { OrbitControls, Sky } from '@react-three/drei'
+import { OrbitControls, Sky, useTexture } from '@react-three/drei'
 import { Water } from 'three-stdlib'
 import { css } from '@emotion/core'
 
@@ -42,6 +42,8 @@ function Ocean() {
 }
 
 function Box() {
+  const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
+ 
   const ref = useRef()
   useFrame((state, delta) => {
     ref.current.position.y = 10 + Math.sin(state.clock.elapsedTime) * 20
@@ -50,7 +52,7 @@ function Box() {
   return (
     <mesh ref={ref} scale={20}>
       <boxGeometry />
-      <meshStandardMaterial />
+      <meshStandardMaterial  color={"white"} map={myytexture} />
     </mesh>
   )
 }
