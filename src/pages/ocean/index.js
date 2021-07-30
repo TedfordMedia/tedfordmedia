@@ -5,7 +5,7 @@ import { OrbitControls, Sky, useTexture, Html } from '@react-three/drei'
 import { Water } from 'three-stdlib'
 import { css } from '@emotion/core'
 
-import Sub from "../../helpers/submarine.js"; 
+import Sub from "../../helpers/Submarine.js"; 
  
  import Layout from "../../components/layoutwidellh"  
 // import { Canvas, useFrame} from "@react-three/fiber"
@@ -71,7 +71,7 @@ const MyPage = (props) => (
             camera={{ position: [0, 35, 150], fov: 55, near: 1, far: 20000 }}>
             <pointLight position={[100, 100, 100]} />
             <pointLight position={[-100, -100, -100]} />
-          <ambientLight intensity={.5} />
+            <ambientLight intensity={.5} />
 
             <Suspense fallback={<Html><h1 style={{color:'blue'}}>Loading...</h1></Html>}>  
                 <Ocean />
@@ -79,9 +79,9 @@ const MyPage = (props) => (
             </Suspense>
 
             <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-               <group scale={[2,2,2]}>
-         <Sub/> 
-    </group>
+              <group scale={[2,2,2]}>
+                <Sub/> 
+              </group>
             </Suspense>
 
             <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} />
