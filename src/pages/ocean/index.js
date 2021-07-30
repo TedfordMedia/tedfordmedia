@@ -79,7 +79,7 @@ const MyPage = (props) => (
             </Suspense>
 
             <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-              <group scale={[2,2,2]}>
+              <group scale={[8,8,8]}>
                 <Sub/> 
               </group>
             </Suspense>
