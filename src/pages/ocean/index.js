@@ -50,7 +50,7 @@ function Box() {
   //   ref.current.rotation.x = ref.current.rotation.y = ref.current.rotation.z += delta
   // })
   return (
-    <mesh position={[63,10,0]} ref={ref} scale={30}>
+    <mesh position={[63,20,0]} ref={ref} scale={30}>
       <boxGeometry />
       <meshStandardMaterial  color={"white"} map={myytexture} />
     </mesh>
@@ -79,7 +79,9 @@ const MyPage = (props) => (
             </Suspense>
 
             <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-              <Sub/>
+               <group scale={[2,2,2]}>
+         <Sub/> 
+    </group>
             </Suspense>
 
             <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} />
