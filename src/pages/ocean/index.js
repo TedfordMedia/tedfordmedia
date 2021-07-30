@@ -5,7 +5,7 @@ import { OrbitControls, Sky, useTexture, Html } from '@react-three/drei'
 import { Water } from 'three-stdlib'
 import { css } from '@emotion/core'
 
-// import Sub from "../../helpers/Steampunk_submarine"; 
+import Sub from "../../helpers/submarine.js"; 
  
  import Layout from "../../components/layoutwidellh"  
 // import { Canvas, useFrame} from "@react-three/fiber"
@@ -79,7 +79,7 @@ const MyPage = (props) => (
             </Suspense>
 
             <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-              {/* <Sub/> */}
+              <Sub/>
             </Suspense>
 
             <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} />
