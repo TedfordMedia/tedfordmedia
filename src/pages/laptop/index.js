@@ -23,7 +23,7 @@ const MyPage = (props) => (
                 scene.fog = new THREE.Fog(fogColor, .0025, 80);
                 // scene.background = new THREE.Color( 0xa0a0a0 ); 
             }}
-            style={{ height: "100%", width: "100%" }}  lookAt={[0, -10, 2]} 
+            style={{ height: "100%", width: "100%" }}  
             camera={{ position: [0, 200, 400], fov: 40, near: 1, far: 100 }}> 
             <pointLight position={[5, 45, 10]} />
             <pointLight position={[55, 45, -50]} />
@@ -34,7 +34,7 @@ const MyPage = (props) => (
             <ambientLight intensity={.8} />
   
             <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-              <group scale={[.08, .08, .08]}  rotation={[0, -Math.PI , 0]} position={[0, -1, 0]} > 
+              <group scale={[.08, .08, .08]}  rotation={[0, -Math.PI , 0]} position={[0, -1, -1]} > 
                 <Laptop/> 
               </group>
             </Suspense>
