@@ -8,9 +8,6 @@ import Layout from "../../components/layoutwidellh"
 import * as THREE from 'three'
 
 import url from "/static/arintro.mp4";
-
-
-
  
 const TV = () => {
   const { nodes } = useGLTF("tv.gltf");
