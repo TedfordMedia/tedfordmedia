@@ -1,4 +1,4 @@
-import React , {useRef, Suspense} from 'react';
+import React , {useRef, Suspense, useEffect} from 'react';
 import Layout from "../../components/layoutwide"  
 import { Canvas, useFrame} from "@react-three/fiber"
 import { Stars, Html, OrbitControls, useLoader, useTexture } from '@react-three/drei';
@@ -9,27 +9,8 @@ import gsap from "gsap";
 import LogoFloor from "../../components/layoutwidebb"   
 import Robot from "../../helpers/Robot6"; 
 import Samba from "../../helpers/Samba"; 
+ import Roboto from '/static/helvetiker_regular.typeface.json';
  
-const Torus = (props) => {
-  const groupRef = useRef();
-
-  useFrame(() => {
-    groupRef.current.rotation.x += 0.01;
-    groupRef.current.rotation.y += 0.01;
-  });
-
-  return (
-    <group ref={groupRef}>
-      <mesh {...props}>
-        <torusGeometry args={[1, 0.2, 12, 36]} />
-        <meshStandardMaterial color={"red"} />
-        <Html>
-          <div className="label">Torus</div>
-        </Html>
-      </mesh>
-    </group>
-  );
-};
 function TheFollowCube(){ 
     const ref = useRef()   
     const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
@@ -47,25 +28,7 @@ function TheFollowCube(){
 
     const points = curve.getPoints( 50 );
     const lineGeometry = new THREE.BufferGeometry().setFromPoints( points ); 
-    
-    useFrame(() => { 
-      // const ref = useRef()  
-      //  gsap.to( ref.position, {
-      //                 duration: .5,  
-      //                 x: 1,
-      //                 y: 3,
-      //                 z: 40, 
-      //               }); 
-      // const ref = useRef()  
-      // var currentTime = Date.now();
-      // // uniforms.iGlobalTime.value = (currentTime - startTime) * 0.001; 
-
-      // if (ref){
-      //  // ref.position.copy( position );	
-      //   // ref.matrix.lookAt( splineCamera.position, lookAt, normal );
-      //   // ref.quaternion.setFromRotationMatrix( splineCamera.matrix );
-      // }
-    });
+  
 
   return (
     <> 
@@ -83,29 +46,7 @@ function TheFollowCube(){
     </>
   )
 }
- 
-const TheNormalCubeB = (props) => {
-  const groupRef = useRef();
-  const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
- 
-//   useFrame(() => {
-//     groupRef.current.rotation.x += 0.01;
-//     groupRef.current.rotation.y += 0.01;
-//   });
-
-  return (
-    <group ref={groupRef}>
-      <mesh {...props}>
-        <boxBufferGeometry args={[4, 4, 4]} />
-        <meshStandardMaterial color={"red"} map={myytexture}  />
-        <Html>
-          <div className="label">Cubetest</div>
-        </Html>
-      </mesh>
-    </group>
-  );
-};
-
+  
  const TheBoxbricks = (props) => {
    const groupRef = useRef();
 
@@ -129,26 +70,49 @@ const TheNormalCubeB = (props) => {
 
   );
 };
+
+function MyText({ clicked, ...props }) { 
+  const font = new THREE.FontLoader().parse(Roboto);
+  const DISPLAY_TEXT = 'TEDFORDMEDIA';  
+ 
+  const ref = useRef() 
+ 
+  const textOptions = {
+
+    font,
+    size: 2,
+    height: 1
+  }; 
+  
+  useFrame((state, delta) => { 
+   
+  })
+
+  useEffect((state, delta) => { 
+ 
+  })
+
+  return ( 
+    <group name="xxx"  ref={ref}  {...props}> 
+    <mesh castShadow>
+      <textGeometry attach='geometry'  args={[DISPLAY_TEXT, textOptions]} />
+      <meshStandardMaterial attach='material' color={props.color}/>
+    </mesh>
+    </group>
+  )
+}
+ 
 function Dolighting({ brightness, color }) {
 
   return (
     <group name="lighting">
         <hemisphereLight intensity={.1} />
-        <ambientLight intensity={.1} />
-        {/* <pointLight castShadow position={[20, 80, 3]} intensity={.9}/>  */}
+        <ambientLight intensity={.1} /> 
  
         <pointLight castShadow 
                 shadow-mapSize-height={512}
                 shadow-mapSize-width={512}
-                position={[-10, 10, 20]} intensity={1}/>
- 
-
-        {/* <directionalLight position={[67, 19, 127]}  intensity={.2} castShadow shadow-camera-zoom={2} />  */}
-        {/* <directionalLight position={[67,30,50]}  intensity={0.3} castShadow shadow-camera-zoom={2} /> */}
-       
-        {/* <directionalLight position={[67, 69, 7]}  intensity={.4} castShadow shadow-camera-zoom={2} />  */}
-        {/* <directionalLight position={[67,50,50]}  intensity={0.1} castShadow shadow-camera-zoom={2} /> */}
-        {/* <directionalLight position={[-57, 40,40]}  intensity={0.1} castShadow shadow-camera-zoom={2} />   */}
+                position={[-10, 10, 20]} intensity={1}/> 
     </group>
   );
 }
@@ -215,46 +179,29 @@ const MyPage = (props) => (
                 // const fogColor = new THREE.Color(0x00ff00);
                 // scene.fog = new THREE.Fog(fogColor, 9.0025, 80);
                 scene.background = new THREE.Color( 0xa0a0a0 );
-
-              
-
+  
             }}
             style={{ height: "100%", width: "100%" }}
         >
- 
-            <Dolighting/>
- 
-            
-            <TheBoxbricks/> 
- 
-            <Suspense fallback={<Html>Loading...</Html>}>    
-                <group position={[0, 1, -2]} scale={[.02,.02,.02]}>
-                <Flamingo  /> 
-                </group>
-            </Suspense> 
- 
- 
-            {/* <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
+          <Dolighting/>
   
-                <TheNormalCubeB  position={[0,10,-10]}/>   
+          <TheBoxbricks/> 
  
-            </Suspense>  */}
+          <Suspense fallback={<Html>Loading...</Html>}>    
+              <group position={[0, 1, -2]} scale={[.02,.02,.02]}>
+              <Flamingo  /> 
+              </group>
+          </Suspense>  
 
-            <Suspense fallback={<Html><h1 style={{color:'white'}}>Loading...</h1></Html>}>  
-  
-                <TheFollowCube/>   
- 
-            </Suspense> 
-   
-   
-           
-            <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/>
+          <Suspense fallback={<Html><h1 style={{color:'#99e600'}}>Loading...</h1></Html>}>   
+              <TheFollowCube/>   
+              <MyText color={'#b1d049'} position={[0, -1, 0]}/>
+          </Suspense> 
+    
+          <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/>
         </Canvas>
       </div> 
   </Layout> 
 )
- 
-// scene.background = new THREE.Color( 0xa0a0a0 );
-// scene.fog = new THREE.Fog( 0xa0a0a0,100	, 5000 );
- 
+  
 export default MyPage  
