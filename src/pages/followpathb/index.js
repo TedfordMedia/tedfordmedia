@@ -1,6 +1,6 @@
 import React , {useRef, Suspense, useEffect} from 'react';
 import Layout from "../../components/layoutwide"  
-import { Canvas, useFrame} from "@react-three/fiber"
+import { Canvas, useFrame, useMemo} from "@react-three/fiber"
 import { Stars, Html, OrbitControls, useLoader, useTexture } from '@react-three/drei';
 import * as THREE from 'three'
 import Flamingo from "../../helpers/Flamingo.js"; 
@@ -9,8 +9,98 @@ import gsap from "gsap";
 import LogoFloor from "../../components/layoutwidebb"   
 import Robot from "../../helpers/Robot6"; 
 import Samba from "../../helpers/Samba"; 
- import Roboto from '/static/helvetiker_regular.typeface.json';
+import Roboto from '/static/helvetiker_regular.typeface.json';
+import { CurveModifier, CurveModifierRef } from '@react-three/drei';
+
+
  
+ 
+
+
+
+ 
+const CurveModifierScene = (props) => {   
+  const curveRef = useRef()
+  const geomRef = useRef() 
+  const font = new THREE.FontLoader().parse(Roboto);
+  const handlePos = React.useMemo(
+    () =>
+      [
+        { x: 80, y: 0, z: -80 },
+        { x: 80, y: 0, z: 80 },
+        { x: -80, y: 0, z: 80 },
+        { x: -80, y: 0, z: -80 },
+      ].map((hand) => new THREE.Vector3(...Object.values(hand))),
+    []
+  )
+
+  const curve = React.useMemo(() => new THREE.CatmullRomCurve3(handlePos, true, 'centripetal'), [handlePos])
+
+
+
+  const line = React.useMemo(
+    () => 
+     new THREE.LineLoop(
+        new THREE.BufferGeometry().setFromPoints(curve.getPoints(50)),
+        new THREE.LineBasicMaterial({ color: 0x00ff00 })
+      ),
+    [curve]
+  )
+ 
+
+//   useFrame(() => {
+//     if (curveRef.current) {
+//       curveRef.current?.moveAlongCurve(0.001)
+//     }
+//   })
+ 
+//  useEffect(() => {   
+//     geomRef.current.rotateX(Math.PI)
+//   }) 
+
+  return (
+    <>
+      {/* <CurveModifier ref={curveRef} curve={curve}> */}
+        <mesh position={[0,3,0]}>
+          <textGeometry
+            args={[
+              'Welcome',
+              {
+                font,
+                size: 4.5,
+                height: .5,
+              },
+            ]}
+            ref={geomRef}
+          />
+          <meshNormalMaterial attach="material" />
+        </mesh>
+      {/* </CurveModifier> */}
+      <primitive object={line} />
+    </>
+  )
+};
+ 
+
+
+
+
+
+function TheFollowCubeCurve(){ 
+    const ref = useRef()   
+     
+  
+
+  return (
+    <> 
+      <group position={[0, 0, 0]} ref={ref}>  
+ 
+      </group> 
+    </>
+  )
+}
+
+
 function TheFollowCube(){ 
     const ref = useRef()   
     const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
@@ -57,12 +147,12 @@ function TheFollowCube(){
             <boxBufferGeometry args={[2, 2, 2]}  attach="geometry" />
             <meshPhongMaterial color={'#4e7ea4'} attach="material" />
         </mesh> 
-        <mesh castShadow receiveShadow position={[25, -6, -30]} rotation={[Math.PI/2, 0, 0]} >
+        <mesh castShadow receiveShadow position={[0, -6, -30]} rotation={[Math.PI/2, 0, 0]} >
             <boxBufferGeometry args={[100, 75, 10]}  attach="geometry" />
             <meshPhongMaterial color={'#4e7ea4'} attach="material" />
         </mesh>  
 
-        <mesh castShadow receiveShadow position={[25, -6, 45]} rotation={[Math.PI/2, 0, 0]} >
+        <mesh castShadow receiveShadow position={[0, -6, 45]} rotation={[Math.PI/2, 0, 0]} >
             <boxBufferGeometry args={[100, 75, 10]}  attach="geometry" />
             <meshPhongMaterial color={'#b1d049'} attach="material" />
         </mesh>   
@@ -192,6 +282,12 @@ const MyPage = (props) => (
               <Flamingo  /> 
               </group>
           </Suspense>  
+ 
+          <Suspense fallback={<Html><h1 style={{color:'#99e600'}}>Loading...</h1></Html>}>   
+              <group position={[0, 0, 0]} scale={[.3,.3,.3]}>
+                <CurveModifierScene /> 
+              </group>
+          </Suspense> 
 
           <Suspense fallback={<Html><h1 style={{color:'#99e600'}}>Loading...</h1></Html>}>   
               <TheFollowCube/>   
