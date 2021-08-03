@@ -205,12 +205,20 @@ const MyPage = (props) => (
         >
  
             <Dolighting/>
-
+{/* 
             <Suspense fallback={<Html></Html>}>  
                 <LogoFloor/>
             </Suspense>
             
             <TheBoxbricks/> 
+
+
+            <Suspense fallback={<Html>Loading...</Html>}>    
+                <group position={[0, 1, -2]} scale={[.02,.02,.02]}>
+                <Flamingo  /> 
+                </group>
+            </Suspense> 
+  */}
 
             <Suspense fallback={<Html> </Html>}>    
                 <group position={[20, 16, 10]} scale={[.025,.025,.025]}>
@@ -218,26 +226,7 @@ const MyPage = (props) => (
                 </group>
             </Suspense>
 
-            <Suspense fallback={<Html>Loading...</Html>}>    
-                <group position={[0, 1, -2]} scale={[.02,.02,.02]}>
-                <Flamingo  /> 
-                </group>
-            </Suspense> 
- 
- 
-            <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
-  
-                <TheNormalCubeB  position={[0,10,-10]}/>   
- 
-            </Suspense> 
-
-            <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
-  
-                <TheFollowCube/>   
- 
-            </Suspense> 
- 
-            <Sphere visible position={[1.7, 3, -2]} args={[1, 16, 200]}>
+              <Sphere visible position={[1.7, 3, -2]} args={[1, 16, 200]}>
                 <MeshDistortMaterial
                 color="#00A38D"
                 attach="material"
@@ -247,6 +236,17 @@ const MyPage = (props) => (
                 />
             </Sphere>
 
+            <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
+  
+                <TheFollowCube/>   
+ 
+            </Suspense> 
+
+            <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
+              <group position={[3, -.89, 0]} scale={[1.5, 1.5, 1.5]}>
+                <Robot/>   
+             </group>
+            </Suspense>
             <Sphere visible position={[-1.7, 5, 2]} args={[1, 32, 400]}>
                 <MeshDistortMaterial
                 color="#00438D"
@@ -257,18 +257,16 @@ const MyPage = (props) => (
                 />
             </Sphere>
 
-
             <Suspense fallback={<Html><h1 style={{color:'white'}}></h1></Html>}>  
-              <group position={[3, -.89, 0]} scale={[1.5, 1.5, 1.5]}>
-                <Robot/>   
-             </group>
-            </Suspense> 
   
+                <TheNormalCubeB  position={[0,10,-10]}/>   
+ 
+            </Suspense> 
             <group position={[3, 3, 0]} scale={[1.02,1.02,1.02]}>
                 <Torus />
             </group>
            
-            {/* <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-.8}/> */}
+            <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-.8}/>
         </Canvas>
       </div> 
   </Layout> 

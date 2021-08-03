@@ -1,5 +1,12 @@
 $color-mainfordiv: #edf2f6;
- 
+ .picker {
+  position: absolute !important;
+  top: 74px;
+  left: 70px;
+  width: 200px !important;
+  height: 200px !important;
+}
+
 .portfolioheader{ 
     padding: 1em;
     padding-top: .5em;
@@ -27,6 +34,10 @@ $color-mainfordiv: #edf2f6;
 }
 .mycardbottombit{
   padding-left: 16px; 
+
+}
+.card-text{
+  min-height:77px;
 }
 
 .mytoppadding{
