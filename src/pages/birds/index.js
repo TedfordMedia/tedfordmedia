@@ -5,7 +5,7 @@ import { OrbitControls, Sky, useTexture, Html } from '@react-three/drei'
 import { css } from '@emotion/core'
  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
  import Layout from "../../components/layoutwidellh"   
-
+import Robot from "../../helpers/Robot6dance.js";
  var i = 0;
 function Box() {
   const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
@@ -69,7 +69,7 @@ const MyPage = (props) => (
         <Canvas 
             style={{ height: "100%", width: "100%" }}  lookAt={[0, -10, 2]} 
             camera={{ position: [0, 2, 50], fov: 75, near: 1, far: 400 }}>
-            <pointLight position={[100, 100, 100]} />
+            <pointLight position={[100, 100, 100]} intensity={0.1}/>
             <pointLight position={[-100, -100, -100]} />
             <ambientLight intensity={.5} />
 
@@ -77,7 +77,9 @@ const MyPage = (props) => (
                 <Birds/>
                 <Box /> 
             </Suspense>
-
+            <Suspense fallback={null}>    
+                <Robot position={[0, 10, -0]} scale={[10,10,10]} castShadow/>  
+            </Suspense>   
             <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} />
             <OrbitControls  maxDistance={50} maxPolarAngle={Math.PI / 2} autoRotate autoRotateSpeed={-.8}/>
         </Canvas>
