@@ -8,8 +8,7 @@ import styled from '@emotion/styled'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../mystyling.scss'
 import { useTheme } from '../../components/Theming'
-import Image from 'gatsby-image' 
- import Header from '../../components/Header'
+import Image from 'gatsby-image'  
 const StyledLink = styled(props => <Link {...props} />)`
     color: black;
     text-decoration: none;
