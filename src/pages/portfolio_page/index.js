@@ -84,7 +84,7 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      limit: 5
+      limit: 500
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { goto: { ne: null } } }
     ) {

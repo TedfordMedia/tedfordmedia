@@ -220,7 +220,7 @@ const MyPage = (props) => (
             </Suspense> 
   */}
 
-            <Suspense fallback={<Html> </Html>}>    
+            {/* <Suspense fallback={<Html> </Html>}>    
                 <group position={[20, 16, 10]} scale={[.025,.025,.025]}>
                 <Flamingo  /> 
                 </group>
@@ -261,7 +261,7 @@ const MyPage = (props) => (
   
                 <TheNormalCubeB  position={[0,10,-10]}/>   
  
-            </Suspense> 
+            </Suspense>  */}
             <group position={[3, 3, 0]} scale={[1.02,1.02,1.02]}>
                 <Torus />
             </group>
