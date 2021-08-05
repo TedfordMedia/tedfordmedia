@@ -202,6 +202,7 @@ function Dolighting({ brightness, color }) {
         <pointLight castShadow 
                 shadow-mapSize-height={512}
                 shadow-mapSize-width={512}
+shadow-bias={-0.0000000001}
                 position={[-10, 10, 20]} intensity={1}/> 
     </group>
   );
@@ -276,13 +277,7 @@ const MyPage = (props) => (
           <Dolighting/>
   
           <TheBoxbricks/> 
- 
-          <Suspense fallback={<Html>Loading...</Html>}>    
-              <group position={[0, 1, -2]} scale={[.02,.02,.02]}>
-              <Flamingo  /> 
-              </group>
-          </Suspense>  
- 
+  
           <Suspense fallback={<Html><h1 style={{color:'#99e600'}}>Loading...</h1></Html>}>   
               <group position={[0, 0, 0]} scale={[.3,.3,.3]}>
                 <CurveModifierScene /> 
@@ -293,7 +288,7 @@ const MyPage = (props) => (
               <TheFollowCube/>   
               <MyText color={'#b1d049'} position={[0, -1, 0]}/>
           </Suspense> 
-    
+   
           <OrbitControls  maxDistance={650} maxPolarAngle={Math.PI / 2}/>
         </Canvas>
       </div> 
