@@ -13,21 +13,21 @@ export default function Model(props) {
     <group ref={group} {...props} dispose={null}>
       <group position={[0, 3, 0]} rotation={[-1.41, 0.51, 1.25]}>
         <group position={[6.26, -5.46, 2.24]} rotation={[1.04, -1.29, 0]}>
-          <mesh
+          <mesh castShadow receiveShadow
             geometry={nodes.hours.geometry}
             material={nodes.hours.material}
             position={[0.01, -0.05, -0.04]}
             rotation={[0, 0, -0.61]}
             scale={[0.93, 0.93, 0.93]}
           />
-          <mesh
+          <mesh castShadow receiveShadow
             geometry={nodes.minutes.geometry}
             material={nodes.minutes.material}
             position={[0.01, -0.05, -0.03]}
             rotation={[0, 0, Math.PI / 4]}
             scale={[0.93, 0.93, 0.93]}
           />
-          <mesh
+          <mesh castShadow receiveShadow
             geometry={nodes.numbers.geometry}
             material={nodes.numbers.material}
             position={[0.01, 0.42, 0.03]}
@@ -39,7 +39,7 @@ export default function Model(props) {
             <mesh geometry={nodes.door_1.geometry} material={nodes.door_1.material} />
             <mesh geometry={nodes.door_2.geometry} material={nodes.door_2.material} />
             <mesh geometry={nodes.door_3.geometry} material={nodes.door_3.material} />
-            <mesh
+            <mesh castShadow receiveShadow
               name="handle"
               geometry={nodes.handle.geometry}
               material={nodes.handle.material}
@@ -48,7 +48,7 @@ export default function Model(props) {
               scale={[0.8, 0.8, 0.8]}
             />
           </group>
-          <mesh
+          <mesh castShadow receiveShadow
             name="door_frame"
             geometry={nodes.door_frame.geometry}
             material={nodes.door_frame.material}
@@ -71,7 +71,7 @@ export default function Model(props) {
             />
           </group>
           <mesh
-            name="door_frame001"
+            name="door_frame001" castShadow receiveShadow
             geometry={nodes.door_frame001.geometry}
             material={nodes.door_frame001.material}
             position={[0, 1.28, 0.1]}
@@ -80,15 +80,15 @@ export default function Model(props) {
         </group>
         <group position={[9.18, -7.17, 2.49]} rotation={[1.04, 0.28, 0]}>
           <group name="Door_1001" position={[-0.89, -0.17, 0.05]} scale={[2.54, 2.54, 2.54]}>
-            <mesh geometry={nodes.Door_1_1.geometry} material={nodes.Door_1_1.material} />
-            <mesh geometry={nodes.Door_1_2.geometry} material={nodes.Door_1_2.material} />
+            <mesh  castShadow receiveShadowgeometry={nodes.Door_1_1.geometry} material={nodes.Door_1_1.material} />
+            <mesh  castShadow receiveShadowgeometry={nodes.Door_1_2.geometry} material={nodes.Door_1_2.material} />
           </group>
           <group name="Door_2001" position={[0.96, -0.17, 0]} scale={[2.54, 2.54, 2.54]}>
-            <mesh geometry={nodes.Door_2_1.geometry} material={nodes.Door_2_1.material} />
-            <mesh geometry={nodes.Door_2_2.geometry} material={nodes.Door_2_2.material} />
+            <mesh  castShadow receiveShadowgeometry={nodes.Door_2_1.geometry} material={nodes.Door_2_1.material} />
+            <mesh  castShadow receiveShadowgeometry={nodes.Door_2_2.geometry} material={nodes.Door_2_2.material} />
           </group>
           <mesh
-            geometry={nodes.door_frame002.geometry}
+             castShadow receiveShadowgeometry={nodes.door_frame002.geometry}
             material={nodes.door_frame002.material}
             position={[0, -0.14, 0.07]}
             scale={[2.54, 2.54, 2.54]}
@@ -97,9 +97,9 @@ export default function Model(props) {
         <group position={[10.47, -5.9, 1.44]} rotation={[-2.1, 1.35, -Math.PI]} scale={[0.2, 0.2, 0.2]}>
           <group position={[1.07, 0.97, 3.54]} rotation={[1.57, 0, -0.07]} scale={[20000002, 20000000, 20000000]}>
             <group scale={[200, 200, 200]}>
-              <mesh geometry={nodes.Curve.geometry} material={nodes.Curve.material} scale={[1.42, 1.42, 1.42]} />
-              <mesh geometry={nodes.Curve001.geometry} material={nodes.Curve001.material} scale={[1.42, 1.42, 1.42]} />
-              <mesh geometry={nodes.Curve002.geometry} material={nodes.Curve002.material} scale={[1.42, 1.42, 1.42]} />
+              <mesh  castShadow receiveShadowgeometry={nodes.Curve.geometry} material={nodes.Curve.material} scale={[1.42, 1.42, 1.42]} />
+              <mesh  castShadow receiveShadowgeometry={nodes.Curve001.geometry} material={nodes.Curve001.material} scale={[1.42, 1.42, 1.42]} />
+              <mesh  castShadow receiveShadowgeometry={nodes.Curve002.geometry} material={nodes.Curve002.material} scale={[1.42, 1.42, 1.42]} />
               <mesh geometry={nodes.Curve003.geometry} material={nodes.Curve003.material} scale={[1.42, 1.42, 1.42]} />
               <mesh geometry={nodes.Curve004.geometry} material={nodes.Curve004.material} scale={[1.42, 1.42, 1.42]} />
               <mesh geometry={nodes.Curve005.geometry} material={nodes.Curve005.material} scale={[1.42, 1.42, 1.42]} />
@@ -160,39 +160,39 @@ export default function Model(props) {
             </group>
           </group>
         </group>
-        <mesh
+        <mesh castShadow receiveShadow
           geometry={nodes.Floor.geometry}
           material={materials['WOOD-FLOORS-Parquet-dark-Textures-ARCHITECTURE-Dark-parquet-flo']}
           position={[7.8, -3.79, -1.28]}
           rotation={[1.04, -1.29, 0]}
         />
-        <mesh
+        <mesh castShadow receiveShadow
           geometry={nodes.Wall_1.geometry}
           material={nodes.Wall_1.material}
           position={[5.45, -3.62, 0.39]}
           rotation={[1.04, -1.29, 0]}
         />
-        <mesh
+        <mesh castShadow receiveShadow
           geometry={nodes.Wall_2.geometry}
           material={materials['table 1']}
           position={[6.43, 1.14, -2.41]}
           rotation={[-2.1, -0.28, -Math.PI]}
         />
-        <mesh
+        <mesh castShadow receiveShadow
           geometry={nodes.Wall_3.geometry}
           material={nodes.Wall_3.material}
           position={[10.2, -2.42, -0.32]}
           rotation={[1.04, -1.29, 0]}
         />
-        <mesh
+        <mesh castShadow receiveShadow
           geometry={nodes.Wall_4.geometry}
           material={nodes.Wall_4.material}
           position={[9.19, -7.17, 2.48]}
           rotation={[1.04, 0.28, 0]}
         />
         <group position={[4.58, -1.03, -1.13]} rotation={[1.04, -1.29, 0]}>
-          <mesh geometry={nodes.Window_1.geometry} material={nodes.Window_1.material} />
-          <mesh geometry={nodes.Window_2.geometry} material={nodes.Window_2.material} />
+          <mesh  castShadow receiveShadowgeometry={nodes.Window_1.geometry} material={nodes.Window_1.material} />
+          <mesh  castShadow receiveShadowgeometry={nodes.Window_2.geometry} material={nodes.Window_2.material} />
         </group>
       </group>
     </group>
