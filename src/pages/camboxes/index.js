@@ -3,33 +3,12 @@ import React, { Suspense, useRef, useMemo , useState,useEffect} from 'react'
 import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
 import { OrbitControls, Stars, useTexture, Html } from '@react-three/drei' 
 import { css } from '@emotion/core'
- import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
- import Layout from "../../components/layoutwidellh"   
-import Picframe from "../../helpers/Picturecanvas.js";
-import { Plane } from 'three'
- var i = 0;
-  
-function Mypic(props){
-    
-    console.log(props.forcedHeight);
  
-    const diffuseTex = useLoader(THREE.TextureLoader, './images/tedmedlogos/square_logo.png')   
- 
-    const ref = useRef() 
-    return (
-        <mesh {...props}>
-            <mesh castShadow receiveShadow position={[0, 0, .51]}>
-                <boxBufferGeometry args={[.3,.3,.02]}   /> 
-                <meshStandardMaterial roughness={0} bumpScale={1} color={"grey"}  /> 
+import Layout from "../../components/layoutwidellh"   
+import Picframe from "./Pictureandframe";
+import { gsap } from "gsap";  
 
-                <mesh scale={.27} receiveShadow rotation={[Math.PI, Math.PI, Math.PI]} position={[0,0,.011]}>
-                    <planeBufferGeometry attach="geometry" args={[1, 1]} />
-                    <meshStandardMaterial attach="material" map={diffuseTex}  />
-                </mesh>  
-            </mesh>  
-        </mesh>
-    )
-}
+ 
  
 function Brickwall({ ...props }) {
   
@@ -44,8 +23,8 @@ function Brickwall({ ...props }) {
                     <boxBufferGeometry args={[1,1,1]}   /> 
                     <meshPhysicalMaterial roughness={0} bumpScale={.3} color={"white"} map={diffuseTex} bumpMap={bumpTex}/>
                 </mesh>  
-                <Mypic position={[.2,.1,0]}/>
-                <Mypic position={[-.2,.1,0]}/> 
+                <Picframe position={[.2,.1,0]}/>
+                <Picframe position={[-.2,.1,0]}/> 
                 {/* <mesh castShadow receiveShadow position={[-.25, 0, .51]}>
                     <boxBufferGeometry args={[.3,.3,.02]}   /> 
                     <meshStandardMaterial roughness={0} bumpScale={.3} color={"pink"}  />
@@ -77,7 +56,7 @@ const MyPage = (props) => (
             </Suspense>
            
             <Stars />
-            <OrbitControls  maxDistance={50} maxPolarAngle={1.2}  />
+            <OrbitControls  maxDistance={50} maxPolarAngle={2}  />
         </Canvas>
       </div>
   
