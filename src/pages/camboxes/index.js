@@ -13,16 +13,15 @@ function Brickwall({ ...props }) {
     const diffuseTex = useLoader(THREE.TextureLoader, './textures/brick_diffuse.jpg')
     const bumpTex = useLoader(THREE.TextureLoader, './textures/brick_bump.jpg')
     const ref = useRef()  
- 
- 
+  
     return (
         <group  ref={ref} position={[0, 0, 0]} > 
             <mesh castShadow receiveShadow position={[0, 0, 0]}>
                 <boxBufferGeometry args={[1,1,1]}   /> 
                 <meshPhysicalMaterial roughness={0} bumpScale={.3} color={"white"} map={diffuseTex} bumpMap={bumpTex}/>
             </mesh>  
-            <Picframe position={[.2,.1,0]} camposition={[.2,.1,.6]}/>
-            <Picframe position={[-.2,.1,0]} camposition={[.2,.1,.7]}/>
+            <Picframe position={[.2,.1,0]} isAlt camposition={[0,0,1]}/>
+            <Picframe position={[-.2,.1,0]} camposition={[0,0,1]}/>
         </group>
     )
 }
