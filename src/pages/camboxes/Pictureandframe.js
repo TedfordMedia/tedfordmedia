@@ -1,7 +1,8 @@
-import React, { Suspense, useRef, useMemo , useState,useEffect} from 'react'
-import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber' 
+import React, { useRef, useState,useEffect, useFrame} from 'react'
+import { useLoader } from '@react-three/fiber' 
 import * as THREE from 'three'
 import { gsap } from "gsap";  
+
 const Picframe = props => { 
 
     const [hovered, setHover] = useState(false)
@@ -13,16 +14,24 @@ const Picframe = props => {
         document.body.style.cursor = hovered ? 'pointer' : 'auto'
     }, [hovered])
 
-   var tl = gsap.timeline();
+    if (props.camposition){
+        // alert('campos'+JSON.stringify(props.camposition))
+    }
 
-    // if (props.isAlt){
-    //   tl 
+    // var tl = gsap.timeline();
+    // tl 
     //     .to( ref.current.rotation, {
-    //       duration: 1,   
-    //       x: Math.PI,  
-    //   }) 
-    // }  
- 
+    //     duration: 1,   
+    //     x: Math.PI,  
+    // }) 
+//   useFrame(({ clock, camera }) => {
+// // need to trigger state cchange ?!
+//     camera.position.z = 30 + Math.sin(clock.getElapsedTime()) * 4
+//   })
+    function moveCamera(e, zprops){
+        alert('move'+zprops.camposition)
+    }
+  
     return (
         <mesh ref={ref} {...props}>
             <mesh castShadow receiveShadow position={[0, 0, .51]}>
@@ -31,7 +40,9 @@ const Picframe = props => {
 
                 <mesh        
                     onClick={(e) => {
+ 
                         console.log('click')
+                        moveCamera(e, props);
                         e.stopPropagation() 
                     }} 
                     onPointerOut={(e) => {

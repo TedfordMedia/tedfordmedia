@@ -1,44 +1,37 @@
 import * as THREE from 'three'
-import React, { Suspense, useRef, useMemo , useState,useEffect} from 'react'
-import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
-import { OrbitControls, Stars, useTexture, Html } from '@react-three/drei' 
+import React, { Suspense, useRef} from 'react'
+import { Canvas, useLoader } from '@react-three/fiber'
+import { OrbitControls, Stars, Html } from '@react-three/drei' 
 import { css } from '@emotion/core'
- 
 import Layout from "../../components/layoutwidellh"   
-import Picframe from "./Pictureandframe";
-import { gsap } from "gsap";  
-
+import Picframe from "./Pictureandframe"; 
+import { a, useSpring } from '@react-spring/three'
  
- 
+ import { gsap } from "gsap";   
 function Brickwall({ ...props }) {
-  
-    // walls
-    const diffuseTex = useLoader(THREE.TextureLoader, './textures/brick_diffuse.jpg')
-    
-    const bumpTex = useLoader(THREE.TextureLoader, './textures/brick_bump.jpg')
    
+    const diffuseTex = useLoader(THREE.TextureLoader, './textures/brick_diffuse.jpg')
+    const bumpTex = useLoader(THREE.TextureLoader, './textures/brick_bump.jpg')
+    const ref = useRef()  
+ 
+ 
     return (
-        <group position={[0, 0, 0]} > 
-                <mesh castShadow receiveShadow position={[0, 0, 0]}>
-                    <boxBufferGeometry args={[1,1,1]}   /> 
-                    <meshPhysicalMaterial roughness={0} bumpScale={.3} color={"white"} map={diffuseTex} bumpMap={bumpTex}/>
-                </mesh>  
-                <Picframe position={[.2,.1,0]}/>
-                <Picframe position={[-.2,.1,0]}/> 
-                {/* <mesh castShadow receiveShadow position={[-.25, 0, .51]}>
-                    <boxBufferGeometry args={[.3,.3,.02]}   /> 
-                    <meshStandardMaterial roughness={0} bumpScale={.3} color={"pink"}  />
-                </mesh>  
-
-                <Picframe position={[-.2,.2,.51]}   rotation={[0, Math.PI, 0]} scale={.3}>        <meshPhysicalMaterial roughness={0} bumpScale={.3} color={"white"} map={diffuseTex} bumpMap={bumpTex}/></Picframe> */}
+        <group  ref={ref} position={[0, 0, 0]} > 
+            <mesh castShadow receiveShadow position={[0, 0, 0]}>
+                <boxBufferGeometry args={[1,1,1]}   /> 
+                <meshPhysicalMaterial roughness={0} bumpScale={.3} color={"white"} map={diffuseTex} bumpMap={bumpTex}/>
+            </mesh>  
+            <Picframe position={[.2,.1,0]} camposition={[.2,.1,.6]}/>
+            <Picframe position={[-.2,.1,0]} camposition={[.2,.1,.7]}/>
         </group>
     )
 }
 
 const MyPage = (props) => (   
- <Layout  css={css`  
-      `}>    
-      <div  className={'mydiv'}       
+ <Layout  
+    css={css`  
+    `}>    
+     <div  className={'mydiv'}       
         css={css` 
         height: 100%;
         overflow: hidden;
