@@ -6,8 +6,8 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass'
-import { CrtShader } from './CrtShader.js'
-
+ 
+ 
 extend({ EffectComposer, ShaderPass, RenderPass, UnrealBloomPass })
 
 export default function Effects() {
@@ -18,8 +18,7 @@ export default function Effects() {
   useFrame(() => composer.current.render(), 1)
   return (
     <effectComposer ref={composer} args={[gl]}>
-      <renderPass attachArray="passes" scene={scene} camera={camera} />
-      {/* <shaderPass attachArray="passes" args={[CrtShader]} scene={scene} camera={camera} /> */}
+      <renderPass attachArray="passes" scene={scene} camera={camera} /> 
       <unrealBloomPass attachArray="passes" args={[aspect, 2, 0.8, 0]} />
     </effectComposer>
   )
