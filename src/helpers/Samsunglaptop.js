@@ -20,7 +20,7 @@ export default function Model(props) {
               <mesh geometry={nodes.lid_samsung_0.geometry} material={materials.samsung} />
               <mesh geometry={nodes.lid_scr_0.geometry} material={materials.material_2} />
               <group position={[-.5, -.3, .5]}  >      
-                  <Html className="html-story-label" occlude={group} >
+                  <Html className="html-story-label" occlude={group} occlude>
                     <div className="label labeldiv">222222</div>
                   </Html>
               </group>
@@ -28,7 +28,7 @@ export default function Model(props) {
             <group position={[0, 1.72, -25.79]} rotation={[-Math.PI / 2, 0, 0]} scale={[100, 100, 100]}>
               <mesh geometry={nodes.body_alum_0.geometry} material={nodes.body_alum_0.material} />
               <group position={[0.9, -0.2, 0]}  >      
-                  <Html>
+                  <Html occlude>
                     <div className="label labeldiv">Test Label!</div>
                   </Html>
               </group>
