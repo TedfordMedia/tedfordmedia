@@ -26,17 +26,31 @@ const MyPage = (props) => (
         height: 100%;
         overflow: hidden;
       `}>  
-        <Canvas lookAt={[0, 2, 0]}
-            onCreated={({ gl, camera, scene }) => {  
-                gl.outputEncoding = THREE.sRGBEncoding
-                gl.shadowMap.enabled = true;
-                gl.shadowMap.type = THREE.PCFSoftShadowMap; 
-                // const fogColor = new THREE.Color(0x000000);
-                // scene.fog = new THREE.Fog(fogColor, .0025, 80);
-                // scene.background = new THREE.Color( 0xa0a0a0 ); 
-            }}
-            style={{ height: "100%", width: "100%" }}  
-            camera={{ position: [0, 1, 3], fov: 40, near: 1, far: 100 }}>  
+        {/* <Canvas lookAt={[0, 2, 0]} */}
+          
+ 
+         
+
+
+             <Canvas  
+                  camera={{
+                      position: [0, 0, -.01],
+                      fov: 75,
+                      near: 0.01,
+                      far: 100
+                  }}
+                  onCreated={({ gl, camera, scene }) => {  
+                    gl.outputEncoding = THREE.sRGBEncoding
+                    gl.shadowMap.enabled = true;
+                    gl.shadowMap.type = THREE.PCFSoftShadowMap; 
+                    // const fogColor = new THREE.Color(0x000000);
+                    // scene.fog = new THREE.Fog(fogColor, .0025, 80);
+                    // scene.background = new THREE.Color( 0xa0a0a0 ); 
+                }}
+                style={{ height: "100%", width:  "100%" }}>
+
+
+
 
             <pointLight position={[-8, 3, 4]} />
             <ambientLight intensity={.3} />
@@ -52,7 +66,7 @@ const MyPage = (props) => (
             </Suspense>
             
             <Sky scale={1000} sunPosition={[500, 150, -1000]} turbidity={0.1} />
-            <OrbitControls  maxDistance={20} maxPolarAngle={Math.PI / 2}   />
+                  <OrbitControls  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
         </Canvas>
       </div>
   
