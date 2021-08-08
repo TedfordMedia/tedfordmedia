@@ -19,7 +19,7 @@ const StyledLink = styled(props => <Link {...props} />)`
 export default function Index({ data: { site, allMdx } }) {
   const theme = useTheme()
  
-  document.body.style.cursor = "auto";
+  // document.body.style.cursor = "auto";
 
   return (
     <Layout noSubscribeForm site={site}>  
