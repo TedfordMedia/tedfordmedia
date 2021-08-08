@@ -1,7 +1,7 @@
 import React , {useRef, Suspense, useEffect} from 'react';
 import Layout from "../../components/layoutwide"  
 import { Canvas, useFrame, useMemo} from "@react-three/fiber"
-import { Html, OrbitControls, useLoader, useTexture, Stars } from '@react-three/drei';
+import { Html, OrbitControls, useLoader, useTexture, useGLTF } from '@react-three/drei';
 import * as THREE from 'three'
 import Flamingo from "../../helpers/Flamingo.js"; 
 import img from '../../images/logo.png'
@@ -11,37 +11,19 @@ import Robot from "../../helpers/Robot6";
 import Samba from "../../helpers/Samba"; 
 import Roboto from '/static/helvetiker_regular.typeface.json';
 import { CurveModifier, CurveModifierRef, Plane, Sphere, softShadows } from '@react-three/drei';
- 
+import { proxy, useSnapshot } from "valtio"
 import LogoTedfordMedia from "../../helpers/Tedmedialogosilver"; 
  
+
 function TheFollowCube(){ 
-    const ref = useRef()   
-    const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
-  
-    const curve = new THREE.CatmullRomCurve3( [
-        new THREE.Vector3( -10, 2, 10 ),
-        new THREE.Vector3( -10, 2, 0 ), 
-        new THREE.Vector3( -5, 4, -10 ),    
-        new THREE.Vector3( 5, 4, -10 ),
-        new THREE.Vector3( 10, 2, 0 ),
-        new THREE.Vector3( 10, 2, 10 )
-    ] );
-    curve.curveType = 'catmullrom';
-    curve.closed = true;
-
-    const points = curve.getPoints( 50 );
-    const lineGeometry = new THREE.BufferGeometry().setFromPoints( points ); 
-  
-
+  const ref = useRef()   
+  const myytexture = useTexture('./images/tedmedlogos/square_logo.png')   
+   
   return (
     <> 
-      <group position={[0, 0, 0]} ref={ref}>  
-
-        <line position={[0, 0, 0]} ref={ref} geometry={lineGeometry}>
-            <lineBasicMaterial attach="material" color={'red'} linewidth={1} linecap={'round'} linejoin={'round'} />
-        </line> 
-
-        <mesh castShadow receiveShadow position={[-2, 0, 0]}>
+      <group position={[6, 0, 0]} ref={ref}>  
+  
+        <mesh castShadow receiveShadow position={[-4, 0, 0]}>
             <boxBufferGeometry args={[1, 1, 1]} />
             <meshStandardMaterial    map={myytexture}   roughness={1}   /> 
         </mesh> 
@@ -49,50 +31,13 @@ function TheFollowCube(){
     </>
   )
 }
-function MyText({ clicked, ...props }) { 
-  const font = new THREE.FontLoader().parse(Roboto);
-  const DISPLAY_TEXT = 'TEDFORDMEDIA';  
  
-  const ref = useRef() 
- 
-  const textOptions = { 
-    font,
-    size: 2,
-    height: 1
-  }; 
-  
-  useFrame((state, delta) => { 
-   
-  })
-
-  useEffect((state, delta) => { 
- 
-  })
-
-  return ( 
-    <group name="xxx"  ref={ref}  {...props}> 
-        <mesh castShadow>
-        <textGeometry attach='geometry'  args={[DISPLAY_TEXT, textOptions]} />
-        <meshStandardMaterial attach='material' color={props.color}/>
-        </mesh>
-    </group>
-  )
-}
-function Light() {
-  const ref = useRef()
-  const random = Math.random() * 100000
-  useFrame(() => {
-    const timer = random + Date.now() * 0.00025
-    ref.current.position.set(Math.sin(timer * 7) * 300, Math.cos(timer * 5) * 400, Math.cos(timer * 3) * 300)
-  })
-  return <pointLight ref={ref} intensity={1} />
-}
-
 function SoftShadowsScene() {
   const sphere = useRef()
 
   useFrame(({ clock }) => {
-    sphere.current.position.y = Math.sin(clock.getElapsedTime()) + 2
+    sphere.current.position.y = Math.sin(clock.getElapsedTime()) + 1.8
+    sphere.current.position.x = 2
   })
 
   return (
@@ -101,8 +46,8 @@ function SoftShadowsScene() {
       <ambientLight intensity={0.4} />
       <directionalLight
         castShadow
-        position={[2.5, 8, 5]}
-        intensity={1.5}
+        position={[7.5, 6, 9]}
+        intensity={.5}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}
@@ -111,12 +56,15 @@ function SoftShadowsScene() {
         shadow-camera-top={10}
         shadow-camera-bottom={-10}
       />
-      <pointLight position={[-10, 0, -20]} color="red" intensity={2.5} />
-      <pointLight position={[0, -10, 0]} intensity={1.5} />
 
-      <Sphere ref={sphere} castShadow receiveShadow args={[1, 24, 24]}>
-        <meshPhongMaterial color="royalblue" attach="material" />
-      </Sphere>
+      {/* <pointLight position={[-10, 0, -20]} color="red" intensity={2.5} />
+      <pointLight position={[0, -10, 0]} intensity={1.5} /> */}
+
+      <group position={[-3,-.5, 0]}>
+        <Sphere ref={sphere}  castShadow receiveShadow args={[.4, 24, 24]}>
+          <meshStandardMaterial color="royalblue" attach="material" />
+        </Sphere>
+      </group>
 
       <Plane receiveShadow rotation-x={-Math.PI / 2} position={[0, -0.5, 0]} args={[10, 10, 4, 4]}>
         <shadowMaterial attach="material" opacity={0.5} />
@@ -126,14 +74,20 @@ function SoftShadowsScene() {
       </Plane>
 
         <Suspense fallback={<Html><h1 style={{color:'#99e600'}}>Loading...</h1></Html>}>   
-            <TheFollowCube/>   
-            <MyText color={'red'} position={[-3, 1, -2]} scale={[.5,.5,.5]}/>
+            <TheFollowCube/>    
         </Suspense> 
-        <Light/>
+        {/* <Light/> */}
         <Suspense fallback={null}>   
-            <LogoTedfordMedia position={[-5,10,-5]} scale={[2000, 2000, 2000]} rotation={[0, 0, 0]} castShadow/>  
+            <LogoTedfordMedia position={[-5,10,-5]} scale={[2000, 2000, 2000]} rotation={[2, 0, 0]} castShadow/>  
         </Suspense>  
-        <OrbitControls  maxDistance={20} maxPolarAngle={Math.PI / 2}  autoRotate autoRotateSpeed={-.8} /> 
+
+        <Suspense fallback={<Html><h1 style={{color:'#99e600'}}>Loading...</h1></Html>}>   
+          <group position={[0,-.5, 0]}>
+              <Samba/>
+          </group> 
+        </Suspense> 
+
+        <OrbitControls  maxDistance={20} maxPolarAngle={Math.PI / 2}    /> 
     </>
 
   )
@@ -151,16 +105,16 @@ const MyPage = (props) => {
             shadows
             gl={{ alpha: false }}
             camera={{ 
-            position: [0,3,13], 
+            position: [0,1,6], 
             fov: 30 ,  
             near: 0.01,
-            far: 1100
+            far: 250
             }}
             onCreated={({ gl, camera, scene }) => {  
                 gl.outputEncoding = THREE.sRGBEncoding
                 gl.shadowMap.enabled = true;
                 gl.shadowMap.type = THREE.PCFSoftShadowMap; 
- gl.toneMapping = THREE.ACESFilmicToneMapping
+                // gl.toneMapping = THREE.ACESFilmicToneMapping
                 // const fogColor = new THREE.Color(0x00ff00);
                 // scene.fog = new THREE.Fog(fogColor, 9.0025, 80);
                 //  scene.background = new THREE.Color( 0x000000 ); 

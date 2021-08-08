@@ -79,11 +79,13 @@ function Shoe() {
       <mesh receiveShadow castShadow geometry={nodes.shoe_5.geometry} occlude={[ref]} material={materials.stripes} material-color={snap.items.stripes} > 
                 </mesh>
       <mesh receiveShadow castShadow geometry={nodes.shoe_6.geometry} material={materials.band} material-color={snap.items.band} />
-      <mesh receiveShadow castShadow geometry={nodes.shoe_7.geometry} material={materials.patch} material-color={snap.items.patch} >  
-                          
-                <group position={[-1,0,0]}  >   <Html>
-                    <div className="label labeldiv">Click To Color!</div>
-                  </Html> </group></mesh>
+      <mesh receiveShadow castShadow geometry={nodes.shoe_7.geometry} material={materials.patch} material-color={snap.items.patch} >              
+        <group position={[-1,0,0]}  >   
+          <Html>
+            <div className="label labeldiv">Click To Color!</div>
+          </Html> 
+        </group>
+      </mesh>
     </group>
   )
 }

@@ -205,12 +205,13 @@ const MyPage = (props) => (
         >
  
             <Dolighting/>
+    <TheBoxbricks/> 
 {/* 
             <Suspense fallback={<Html></Html>}>  
                 <LogoFloor/>
             </Suspense>
             
-            <TheBoxbricks/> 
+        
 
 
             <Suspense fallback={<Html>Loading...</Html>}>    
