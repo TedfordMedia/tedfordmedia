@@ -11,6 +11,7 @@ const Picframe = props => {
     const [active, setActive] = useState(false)
     const ref = useRef() 
     const { camera } = useThree();
+    const { controls } = useThree();
     const diffuseTex = useLoader(THREE.TextureLoader, './images/boxpic1.png')  
     const diffuseTex2 = useLoader(THREE.TextureLoader, './images/tedmedlogos/square_logo.png')   
     var theTexture = diffuseTex;
@@ -34,14 +35,13 @@ const Picframe = props => {
                     y: zprops.camposition[1],  
                     z: zprops.camposition[2],  
                 }
-            )  
-
-
+            )    
         } 
         
     }
     function isCompletedd(){
-        alert('Launch Overlay - unfinished!'); 
+        // alert('Launch Overlay - unfinished!'); 
+// controls.lookat
     }
   
     return (

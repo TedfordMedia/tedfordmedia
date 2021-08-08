@@ -48,25 +48,25 @@ const RobotStarsSceneNew = ({ props }) => (
             gl.outputEncoding = THREE.sRGBEncoding
             gl.shadowMap.enabled = true;
             gl.shadowMap.type = THREE.PCFSoftShadowMap; 
-    }}> 
-         <Suspense>
-           <TheCurveThing/>
-         </Suspense>
+      }}> 
+        <Suspense>
+          <TheCurveThing/>
+        </Suspense>
  
         <group position={[0, -.6, 0]} >
            
-            <MyFloor/>
-            <Suspense fallback={null}> 
-              <Environment preset="dawn"   background /> 
-            </Suspense>
- 
-            <Dolighting/>
- 
-            <Suspense fallback={null}>   
-                <LogoTedfordMedia position={[-.57, -.045, .51]} scale={[140, 140, 140]} castShadow/>  
-            </Suspense> 
+          <MyFloor/>
+          <Suspense fallback={null}> 
+            <Environment preset="dawn"   background /> 
+          </Suspense>
 
-            <OrbitControls/> 
+          <Dolighting/>
+
+          <Suspense fallback={null}>   
+              <LogoTedfordMedia position={[-.57, -.045, .51]} scale={[140, 140, 140]} castShadow/>  
+          </Suspense> 
+
+          <OrbitControls/> 
         </group> 
     </Canvas>
 )
