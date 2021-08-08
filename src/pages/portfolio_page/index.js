@@ -1,4 +1,4 @@
-import React from 'react' 
+import React , {  useEffect } from 'react';
 import { graphql } from 'gatsby'
 import { Link } from "gatsby"
 import { css } from '@emotion/core'
