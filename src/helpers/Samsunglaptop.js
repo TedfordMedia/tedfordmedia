@@ -21,7 +21,7 @@ export default function Model(props) {
               <mesh geometry={nodes.lid_scr_0.geometry} material={materials.material_2} />
               <group position={[-.5, -.3, .5]}  >      
                   <Html className="html-story-label" occlude={group} occlude>
-                    <div className="label labeldiv">222222</div>
+                    <div className="label labeldiv">Second test label</div>
                   </Html>
               </group>
             </group>
