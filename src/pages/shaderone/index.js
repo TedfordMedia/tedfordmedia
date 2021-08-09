@@ -2,7 +2,7 @@ import React , {Suspense, useRef} from 'react';
 import Layout from "../../components/layoutwide"  
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Stars,   OrbitControls } from '@react-three/drei';
-import LogoTedfordMedia from "../../helpers/Tedmedia3dlogo"; 
+import LogoTedfordMedia from "../../helpers/Tedmedia3dlogoshaderone"; 
  import * as THREE from 'three'
  
 
