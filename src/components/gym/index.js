@@ -11,10 +11,7 @@ function TheShinyCube(){
   const ref = useRef()  
   const { scene } = useThree() 
   const myytexture = useTexture('./images/tedmedlogos/square_logo_BW.png')  
-  const envMap = useCubeTexture(['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'], { path: './images/gym/' })
-
-  scene.background = envMap;
-  scene.environment = envMap; 
+ 
 
   useFrame(() => (ref.current.rotation.x = ref.current.rotation.y += 0.002))
 
@@ -23,7 +20,7 @@ function TheShinyCube(){
       <group position={[0, 0, 2]} ref={ref}> 
         <mesh position={[-1, 0, 0]}>
             <boxBufferGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial metalness={1} color={'#589bcd'} roughnessMap={myytexture} roughness={1} envMap={envMap} /> 
+            <meshStandardMaterial metalness={1} color={'#589bcd'} roughnessMap={myytexture} roughness={1}  /> 
         </mesh> 
       </group> 
     </>

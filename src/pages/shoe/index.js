@@ -12,12 +12,7 @@ import '../mystyling.scss'
 import Layout from "../../components/layoutwide"  
 // import { Canvas, useFrame} from "@react-three/fiber"
 // import { Stars, Html, OrbitControls, useLoader, useTexture } from '@react-three/drei';
-import * as THREE from 'three'
-import Flamingo from "../../helpers/Flamingo.js"; 
-import img from '../../images/logo.png'
-import gsap from "gsap"; 
-import LogoFloor from "../../components/layoutwidebb"   
-import Robot from "../../helpers/Robot6"; 
+import * as THREE from 'three' 
 
 
 // Using a Valtio state model to bridge reactivity between
