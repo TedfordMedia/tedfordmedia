@@ -7,6 +7,10 @@ $color-mainfordiv: #edf2f6;
   height: 200px !important;
 }
 
+.mirrorX {
+  transform: rotateY(180deg);
+}
+
 .portfolioheader{ 
     padding: 1em;
     padding-top: .5em;

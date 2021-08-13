@@ -3,14 +3,8 @@
  
 import styled from '@emotion/styled'
 // // import 'bootstrap/dist/css/bootstrap.min.css'
-import '../mystyling.scss'
-// // import main script and neural network model from Jeeliz FaceFilter NPM package
-import { JEELIZFACEFILTER, NN_4EXPR } from 'facefilter'
-
-// // import THREE.js helper, useful to compute pose 
-import { JeelizThreeFiberHelper } from '../contrib/faceFilter/JeelizThreeFiberHelper.js'
-
-
+// import '../mystyling.scss'
+// // // import main script and neural network model from Jeeliz FaceFilter NPM package
  
 
 import * as THREE from 'three'
