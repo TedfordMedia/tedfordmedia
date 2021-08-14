@@ -277,10 +277,10 @@ const compute_sizing = () => {
   // compute  size of the canvas:
   var height =500// window.innerHeight
   var wWidth = 500//window.innerWidth
-  if(typeof window !== undefined){
-    height = window.innerHeight
-    wWidth = window.innerWidth
-  }
+  // if(typeof window !== undefined){
+  //   height = window.innerHeight
+  //   wWidth = window.innerWidth
+  // }
 
   const width = Math.min(wWidth, height)
 
