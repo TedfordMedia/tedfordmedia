@@ -79,6 +79,7 @@
     "react-live": "^2.2.1",
     "react-markdown": "^4.2.2",
     "react-pixi-fiber": "^0.14.3",
+    "react-redux": "^7.2.4",
     "react-scripts": "^4.0.3",
     "react-share": "^3.0.1",
     "react-typography": "^0.16.20",
