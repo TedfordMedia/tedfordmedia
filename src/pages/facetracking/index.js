@@ -275,8 +275,13 @@ const DirtyHook = (props) => {
 
 const compute_sizing = () => {
   // compute  size of the canvas:
-  const height = window.innerHeight
-  const wWidth = window.innerWidth
+  var height =500// window.innerHeight
+  var wWidth = 500//window.innerWidth
+  if(typeof window !== undefined){
+    height = window.innerHeight
+    wWidth = window.innerWidth
+  }
+
   const width = Math.min(wWidth, height)
 
   // compute position of the canvas:
