@@ -284,11 +284,11 @@ if (typeof window === `undefined`) {
     height = window.innerHeight
     wWidth = window.innerWidth
 }
-   if(typeof window !== undefined){
-console.dir(window)
-  //   height = window.innerHeight
-  //   wWidth = window.innerWidth
-  }
+//    if(typeof window !== undefined){
+// console.dir(window)
+//   //   height = window.innerHeight
+//   //   wWidth = window.innerWidth
+//   }
 
   const width = Math.min(wWidth, height)
 
