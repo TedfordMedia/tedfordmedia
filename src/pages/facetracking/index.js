@@ -277,6 +277,13 @@ const compute_sizing = () => {
   // compute  size of the canvas:
   var height =500// window.innerHeight
   var wWidth = 500//window.innerWidth
+
+if (typeof window === `undefined`) {
+   //
+} else {
+    height = window.innerHeight
+    wWidth = window.innerWidth
+}
    if(typeof window !== undefined){
 console.dir(window)
   //   height = window.innerHeight
