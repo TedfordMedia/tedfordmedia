@@ -282,7 +282,9 @@ if (typeof window === `undefined`) {
    //
 } else {
     height = window.innerHeight
-    wWidth = window.innerWidth
+    wWidth = window.innerWidth;
+console.log('window.innerWidth:'+window.innerWidth)
+console.log('window.innerHeight:'+window.innerHeight)
 }
 //    if(typeof window !== undefined){
 // console.dir(window)
@@ -290,7 +292,7 @@ if (typeof window === `undefined`) {
 //   //   wWidth = window.innerWidth
 //   }
 
-  const width = Math.min(wWidth, height)
+  const width = Math.min(wWidth, wWidth)
 
   // compute position of the canvas:
   const top = 0

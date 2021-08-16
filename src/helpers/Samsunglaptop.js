@@ -20,7 +20,7 @@ export default function Model(props) {
               <mesh geometry={nodes.lid_samsung_0.geometry} material={materials.samsung} />
               <mesh geometry={nodes.lid_scr_0.geometry} material={materials.material_2} />
               <group position={[-.5, -.3, .5]}  >      
-                  <Html className="html-story-label" occlude={group} occlude>
+                  <Html className="html-story-label" occlude>
                     <div className="label labeldiv">Second test label</div>
                   </Html>
               </group>

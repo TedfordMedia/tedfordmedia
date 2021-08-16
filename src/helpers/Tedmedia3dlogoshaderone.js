@@ -63,119 +63,119 @@ export default function Model(props) {
   ` 
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve027.geometry}
         material={materials['SVGMat.028']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       > 
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         material={materials['SVGMat.027']}
         geometry={nodes.Curve026.geometry} 
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       > 
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve025.geometry}
         material={materials['SVGMat.026']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve024.geometry}
         material={materials['SVGMat.025']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve023.geometry}
         material={materials['SVGMat.024']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve022.geometry}
         material={materials['SVGMat.023']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve021.geometry}
         material={materials['SVGMat.022']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve020.geometry}
         material={materials['SVGMat.021']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve019.geometry}
         material={materials['SVGMat.020']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve018.geometry}
         material={materials['SVGMat.019']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve017.geometry}
         material={materials['SVGMat.018']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve016.geometry}
         material={materials['SVGMat.017']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve015.geometry}
         material={materials['SVGMat.016']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve014.geometry}
         material={materials['SVGMat.015']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve013.geometry}
         material={materials['SVGMat.014']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve012.geometry}
         material={materials['SVGMat.013']}
         position={[-0.11, 0, -0.07]}
         scale={[1.42, 1.42, 1.42]}
       >     
       </mesh>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Curve011.geometry}
         material={materials['SVGMat.012']}
         position={[-0.11, 0, -0.07]}
