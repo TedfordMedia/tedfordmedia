@@ -271,27 +271,21 @@ const DirtyHook = (props) => {
   useFrame(JeelizThreeFiberHelper.update_camera.bind(null, props.sizing, _threeFiber.camera))
   return null
 }
-
-
+ 
 const compute_sizing = () => {
   // compute  size of the canvas:
   var height =500// window.innerHeight
   var wWidth = 500//window.innerWidth
 
-if (typeof window === `undefined`) {
-   //
-} else {
-    height = window.innerHeight
-    wWidth = window.innerWidth;
-console.log('window.innerWidth:'+window.innerWidth)
-console.log('window.innerHeight:'+window.innerHeight)
-}
-//    if(typeof window !== undefined){
-// console.dir(window)
-//   //   height = window.innerHeight
-//   //   wWidth = window.innerWidth
-//   }
-
+  if (typeof window === `undefined`) {
+    //
+  } else {
+      height = window.innerHeight
+      wWidth = window.innerWidth;
+      console.log('window.innerWidth:'+window.innerWidth)
+      console.log('window.innerHeight:'+window.innerHeight)
+  }
+  
   const width = Math.min(wWidth, wWidth)
 
   // compute position of the canvas:
@@ -299,7 +293,6 @@ console.log('window.innerHeight:'+window.innerHeight)
   const left = (wWidth - width ) / 2
   return {width, height, top, left}
 }
-
  
 const MyPage = (props) => {
 
