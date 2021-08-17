@@ -95,14 +95,8 @@ function MyPage(props){
   const modelRef = React.useRef(null);
   const requestRef = React.useRef(null);
   const predictionsRef = React.useRef(null);
-  const [ready, setReady] = React.useState(false);
-  const [buttonText, setButtonText] = useState("Next"); //same as creating your state variable where "Next" is the default value for buttonText and setButtonText is the setter function for your state variable instead of setState
- 
-  function changeText(x){
-    console.log('achangeTextchangeTextchangeTextchangeTextchangeText changeTextchangeText klsdjhaksjdhkjh')
-    console.dir(x)
-  }
-
+  const [ready, setReady] = React.useState(false); 
+  
   const capture = useCallback(async () => {
     if (webcamRef.current && modelRef.current) {
         const predictions = await modelRef.current.estimateHands(
@@ -173,31 +167,31 @@ function MyPage(props){
           />
         </div>
 
-        {!ready && (
-            <div
-            style={{
-                backgroundColor: "rgba(23,32,23,0.3)",
-                position: "absolute",
-                color: "white",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                right: 0,
-                top: 0,
-                left: 0,
-                bottom: 0
-            }}
-            >
-            <button
-                onClick={(e,) => {  
-                    requestRef.current = requestAnimationFrame(capture);
-                }}
-            >
-                Click me to Start
-            </button>
-            </div>
-        )}
+      {!ready && (
+          <div
+          style={{
+              backgroundColor: "rgba(23,32,23,0.3)",
+              position: "absolute",
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              right: 0,
+              top: 0,
+              left: 0,
+              bottom: 0
+          }}
+          >
+          <button
+              onClick={(e,) => {  
+                  requestRef.current = requestAnimationFrame(capture);
+              }}
+          >
+              Click me and wait...
+          </button>
+          </div>
+      )}
 
     </Layout> 
 )}
