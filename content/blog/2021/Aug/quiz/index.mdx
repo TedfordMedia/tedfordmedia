@@ -1,0 +1,97 @@
+---
+slug: zsquiz
+goto: zsquiz
+author: Ted@TedfordMedia
+date: 2021-08-17T23:30:27.094Z
+title: 'Quiz notes'
+description: quiz notes
+published: true 
+featuredScene: true
+banner: ./shadoww.jpg  
+---
+
+Lonely Integer
+```javascript
+function lonelyinteger(a) {
+    
+    let unique = a.filter(function(value){
+        return a.indexOf(value) === a.lastIndexOf(value)
+    })
+    
+    const XorReduce = (array) => {
+        let a = array.reduce((a,b) => a ^ b,0)
+        return a
+    }
+    var x = 0;
+    x = XorReduce(a); 
+    return x;
+}
+
+````  
+
+
+
+Diagonal difference
+
+```javascript
+function diagonalDifference(arr) {
+    // Write your code here
+ 
+    var totalToCount = arr.length
+    var diff = 0;
+    
+    var lefttrTot = 0;
+    var righttlTot  = 0;
+    var lPos;
+    var tempval = 0;
+    
+    for (let step = 0; step < arr.length; step++) { 
+        lPos = step % totalToCount;
+        tempval = arr[step][lPos];
+        console.log('step: '+step+' lPos: '+lPos+' value:'+arr[step][lPos])
+        lefttrTot =  lefttrTot + tempval * 1;
+           console.log('lefttrTot: '+lefttrTot)
+                   tempval = arr[step][(arr.length -1)-step];
+        righttlTot =  righttlTot + tempval * 1;
+         console.log('right val:'+tempval);
+                console.log('right righttlTot:'+righttlTot);
+        // console.log('Walking east one step');
+    }
+    console.log('lefttrTot:'+lefttrTot)
+    console.log('righttlTot:'+righttlTot)
+    diff = Math.abs(lefttrTot - righttlTot)
+    console.log('diff:'+diff)
+    return diff;
+
+}
+
+
+````
+
+counting sort
+```javascript
+
+function countingSort(arr) { 
+    // first create your empty frequency array
+
+    let result = new Array(100).fill(0);
+    // this creates a new array with length of 100 (last element is 99)
+    // and fills it with 0
+        
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < result.length; j++ ) {
+            if (j == arr[i]) {
+                result[j]++;
+            }
+        }
+    }
+    //this increments the result array indices that match the original array values
+        
+    return result;
+    // console.log(result);
+}
+
+```  
+
+
+ 
