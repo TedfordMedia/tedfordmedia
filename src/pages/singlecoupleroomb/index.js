@@ -5,7 +5,7 @@ import { OrbitControls,   Html   } from '@react-three/drei'
  
 import { css } from '@emotion/core'
  
-import EnvSingleCouple from "../../helpers/Env_SwankyOffice.js";  
+import EnvSingleCouple from "../../helpers/Env_SwankyOffice5.js";  
 
 import Layout from "../../components/layoutwidellh"  
  
@@ -34,13 +34,14 @@ const MyPage = (props) => (
         }>
   
           <Suspense fallback={<Html></Html>}>  
-            <group rotation-z={0}  rotation-y={0}  position={[-2, -1.8, 3]}> 
-              <EnvSingleCouple/>
+            <group     position={[0, -1.8, 0]}> 
+              <EnvSingleCouple   />
             </group>
           </Suspense>  
+ 
           <OrbitControls       
             target={[0,0,0]}  
-            enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
+            enableZoom={false} enablePan={true} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
       </Canvas>
     </div>
   </Layout> 

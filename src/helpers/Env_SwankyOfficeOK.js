@@ -103,7 +103,7 @@ function getFragmentShader() {
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/models/Env_SwankyOffice3/Env_SwankyOffice.gltf')
+  const { nodes, materials } = useGLTF('/models/Env_SwankyOffice4/Env_SwankyOffice.gltf')
   const { scene } = useThree() 
  
   useEffect(() => { 
@@ -171,69 +171,7 @@ export default function Model(props) {
               <group name="Hotspot_3" position={[0, 0, -0.32]} />
             </mesh>
           </group>
-          <group name="Characters">
-            <group
-              name="Dummy_1"
-              position={[-0.97, 0.55, -2.07]}
-              rotation={[Math.PI / 2, 0.2, -3.05]}
-              scale={[0.86, 0.86, 0.86]}>
-              <group name="Arm_L" position={[0, -0.19, -0.52]} rotation={[-0.45, 0.68, -1.11]} />
-              <group name="Arm_R" position={[0, 0.18, -0.52]} rotation={[0.36, 0.74, 1.07]} />
-              <group name="Body" position={[0.03, 0.01, -0.01]} rotation={[0.08, 0.01, 0.21]} />
-              <group name="UL_L" position={[-0.17, 0.04, 0.09]} rotation={[-1.38, -1.36, -1.26]}>
-                <group name="LL_L" position={[0.04, -0.04, 0.34]} rotation={[0.98, 1.29, -1.13]}>
-                  <group
-                    name="F_L"
-                    position={[-0.02, -0.02, 0.27]}
-                    rotation={[-1.22, 0.6, 1.27]}
-                    scale={[0.91, 0.91, 0.91]}
-                  />
-                </group>
-              </group>
-              <group name="UL_R" position={[-0.11, 0.01, 0.06]} rotation={[-0.33, -1.37, -0.31]}>
-                <group name="LL_R" position={[0.02, -0.04, 0.28]} rotation={[0.46, 1.42, 0.31]}>
-                  <group
-                    name="F_R"
-                    position={[0.02, 0.01, 0.21]}
-                    rotation={[0.05, 0.05, -0.38]}
-                    scale={[0.47, 0.33, 1.39]}
-                  />
-                </group>
-              </group>
-              <group
-                name="Cube"
-                position={[-0.08, -0.05, 0.01]}
-                rotation={[0.01, 0.07, 0.52]}
-                scale={[0.37, 0.29, 0.26]}
-              />
-              <group
-                name="Capsule"
-                position={[-0.33, -0.07, 0.56]}
-                rotation={[0.02, 0.04, 0.05]}
-                scale={[0.19, 0.25, 0.19]}
-              />
-              <group
-                name="Capsule_(1)"
-                position={[-0.17, -0.01, 0.02]}
-                rotation={[0.01, 0.07, 0]}
-                scale={[0.56, 0.22, 0.19]}
-              />
-              <group
-                name="Capsule_(2)"
-                position={[-0.42, -0.06, 0.25]}
-                rotation={[-3, 1.34, 3.03]}
-                scale={[0.66, 0.26, 0.19]}
-              />
-            </group>
-            <mesh
-              name="Sindu"
-              geometry={nodes.Sindu.geometry}
-              material={materials.Sindu}
-              position={[-0.67, 0.72, -2.01]}
-              rotation={[0, Math.PI / 2, 0]}
-              scale={[0.74, 1.47, 0.74]}
-            />
-          </group>
+    
           <mesh
             name="Amoena"
             geometry={nodes.Amoena.geometry}
@@ -388,4 +326,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/Env_SwankyOffice.gltf')
+useGLTF.preload('/models/Env_SwankyOffice4/Env_SwankyOffice.gltf')
