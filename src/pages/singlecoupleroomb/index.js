@@ -34,7 +34,7 @@ const MyPage = (props) => (
         }>
   
           <Suspense fallback={<Html></Html>}>  
-            <group     position={[0, -1.8, 0]}> 
+            <group     position={[-1.3, -1.8, 0]}> 
               <EnvSingleCouple   />
             </group>
           </Suspense>  
