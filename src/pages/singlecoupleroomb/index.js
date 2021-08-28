@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import React, { Suspense, useRef, useState, useEffect } from 'react'
-import { Canvas,useFrame } from '@react-three/fiber'
+import React, { Suspense  } from 'react'
+import { Canvas  } from '@react-three/fiber'
 import { OrbitControls, useTexture, Html, softShadows, Shadow  } from '@react-three/drei'
  
 import { css } from '@emotion/core'
@@ -9,11 +9,7 @@ import EnvSingleCouple from "../../helpers/ENV1_Family.js";
 
 import Layout from "../../components/layoutwidellh"  
  
-import Sofa from "../../helpers/Tedmed_sofa.js"; 
-softShadows();
-
  
-
 const MyPage = (props) => (   
   <Layout>    
     <div  
@@ -31,17 +27,15 @@ const MyPage = (props) => (
             far: 100}
           } 
           onCreated={({ gl, camera, scene }) => {  
-            scene.background = new THREE.Color( 0xa2b9e7 ); 
+            // scene.background = new THREE.Color( 0xa2b9e7 ); 
           }
         }>
   
-          <Suspense fallback={<Html></Html>}>  
- 
-            <EnvSingleCouple/>
-      
+          <Suspense fallback={<Html>Loading.....</Html>}>   
+            <EnvSingleCouple/> 
           </Suspense>  
    
-          <OrbitControls       target={[0,0,0]}  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
+          <OrbitControls target={[0,0,0]}  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
       </Canvas>
     </div>
   </Layout> 

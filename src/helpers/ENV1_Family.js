@@ -7,7 +7,7 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/ENV1_Family.gltf')
+  const { nodes, materials } = useGLTF('/models/singlelivingroomb/ENV1_Family.gltf')
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="ENV1_Family">
@@ -397,4 +397,4 @@ export default function Model(props) {
   )
 }
 
-useGLTF.preload('/ENV1_Family.gltf')
+useGLTF.preload('/models/singlelivingroomb/ENV1_Family.gltf')
