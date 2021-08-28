@@ -575,13 +575,13 @@ export default function Model(props) {
               <mesh name="TVStand001_1" geometry={nodes.TVStand001_1.geometry} material={nodes.TVStand001_1.material} />
               <mesh name="TVStand001_2" geometry={nodes.TVStand001_2.geometry} material={nodes.TVStand001_2.material} />
             </group>
-            <group name="WindowsDoorFireplaceStone001" position={[-4.69, 0.26, -0.1]} rotation={[Math.PI / 2, 0, 0]}>
-              <mesh
+            <group     scale={[.66,.8,.9]} name="WindowsDoorFireplaceStone001" position={[-4.79, 0.26, .3]} rotation={[Math.PI / 2, 0, 0]}>
+              {/* <mesh 
                 name="WindowsDoorFireplaceStone001_1"
                 geometry={nodes.WindowsDoorFireplaceStone001_1.geometry}
                 material={nodes.WindowsDoorFireplaceStone001_1.material}
-              />
-              <mesh
+              /> */}
+              {/* <mesh
                 name="WindowsDoorFireplaceStone001_2"
                 geometry={nodes.WindowsDoorFireplaceStone001_2.geometry}
                 material={nodes.WindowsDoorFireplaceStone001_2.material}
@@ -590,7 +590,7 @@ export default function Model(props) {
                 name="WindowsDoorFireplaceStone001_3"
                 geometry={nodes.WindowsDoorFireplaceStone001_3.geometry}
                 material={nodes.WindowsDoorFireplaceStone001_3.material}
-              />
+              /> */}
             </group>
           </group>
           <group name="InteractiveObjects">

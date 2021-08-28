@@ -36,9 +36,9 @@ const MyPage = (props) => (
         }>
   
           <Suspense fallback={<Html></Html>}>  
- 
+       <group position={[0, -1.2, 0]}> 
             <EnvSingleCouple/>
-      
+      </group>
           </Suspense>  
    
                      <OrbitControls       target={[0,0,0]}  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
