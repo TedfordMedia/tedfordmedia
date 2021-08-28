@@ -13,7 +13,7 @@ const TedmediaCube = props => {
   const [theHovColor] = useState('white');
  
   useEffect(() => void (document.body.style.cursor = hovered ? 'pointer' : 'auto'), [hovered])
-  // Rotate mesh every frame, this is outside of React without overhead
+
  // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.001))
 
  

@@ -79,7 +79,7 @@ function Ocean() {
       fog: false,
       format: gl.encoding
     }),
-    [waterNormals]
+    [waterNormals,gl]
   )
   useFrame((state, delta) => (ref.current.material.uniforms.time.value += delta))
   return <water ref={ref} args={[geom, config]} rotation-x={-Math.PI / 2} />

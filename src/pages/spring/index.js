@@ -1,16 +1,8 @@
-import React , {useRef, Suspense, useState, useref} from 'react';
+import React , {useRef, Suspense, useState} from 'react';
 import Layout from "../../components/layoutwide"  
-import { Canvas, useFrame, useMemo} from "@react-three/fiber"
-import { Stars, Html, OrbitControls, useLoader, useTexture } from '@react-three/drei';
-import * as THREE from 'three'
-import Flamingo from "../../helpers/Flamingo.js"; 
-import img from '../../images/logo.png'
-import gsap from "gsap"; 
-import LogoFloor from "../../components/layoutwidebb"   
-import Robot from "../../helpers/Robot6"; 
-import Samba from "../../helpers/Samba"; 
-import Roboto from '/static/helvetiker_regular.typeface.json';
-import { CurveModifier, CurveModifierRef } from '@react-three/drei';
+import { Canvas } from "@react-three/fiber"
+import { Html, OrbitControls,   useTexture } from '@react-three/drei';
+import * as THREE from 'three'  
 import { useSpring } from '@react-spring/core'
 import { a } from '@react-spring/three'
 

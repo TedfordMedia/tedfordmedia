@@ -7,7 +7,7 @@ import { useGLTF, OrbitControls,    Plane, Sphere,Sky, Html, Reflector, Text, us
 import * as THREE from 'three'
  import Overlay from './Overlay'
  function Carla(props) {
-  const { scene } = useGLTF('/carla-draco.glb')
+  const { scene } = useGLTF('/shoe-draco.glb')
   return <primitive object={scene} {...props} />
 }
 

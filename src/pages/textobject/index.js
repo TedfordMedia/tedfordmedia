@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import React, { Suspense, useRef, useEffect } from 'react'
-import { Canvas, extend, useThree, useLoader, useFrame } from '@react-three/fiber'
-import { Text , OrbitControls} from '@react-three/drei'
-import { Water } from 'three-stdlib'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { Text } from '@react-three/drei'
+ 
 import { css } from '@emotion/core'
 import Layout from "../../components/layoutwidellh"   
 import Roboto from '/static/helvetiker_regular.typeface.json';

@@ -9,7 +9,7 @@ import * as THREE from 'three'
 
 function TheShinyCube(){ 
   const ref = useRef()  
-  const { scene } = useThree() 
+
   const myytexture = useTexture('./images/tedmedlogos/square_logo_BW.png')  
  
 

@@ -5,11 +5,7 @@ import { OrbitControls, Sky } from '@react-three/drei'
 import { Water } from 'three-stdlib'
 import { css } from '@emotion/core' 
 import Layout from "../../components/layoutwidellh"  
-
-// import { Canvas, useFrame} from "@react-three/fiber"
-// import { Stars, Html, OrbitControls, useLoader, useTexture, Text } from '@react-three/drei';
-// import * as THREE from 'three'
-
+ 
  
 extend({ Water })
 
@@ -31,7 +27,7 @@ function Ocean() {
       fog: false,
       format: gl.encoding
     }),
-    [waterNormals]
+    [waterNormals,gl]
   )
   useFrame((state, delta) => (ref.current.material.uniforms.time.value += delta))
   return <water ref={ref} args={[geom, config]} rotation-x={-Math.PI / 2} />

@@ -177,5 +177,7 @@ module.exports = {
     },
     `gatsby-plugin-client-side-redirect`, // keep it in last in list,
     'gatsby-plugin-meta-redirect' ,
+    /* Rest of the plugins */
+    `gatsby-plugin-nodejs`,
   ],
 }
