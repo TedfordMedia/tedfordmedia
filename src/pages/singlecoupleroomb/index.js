@@ -1,15 +1,17 @@
 import * as THREE from 'three'
-import React, { Suspense  } from 'react'
-import { Canvas  } from '@react-three/fiber'
-import { OrbitControls, useTexture, Html, softShadows, Shadow  } from '@react-three/drei'
+import React, { Suspense, useRef, useState, useEffect } from 'react'
+import { Canvas,useFrame } from '@react-three/fiber'
+import { OrbitControls,   Html   } from '@react-three/drei'
  
 import { css } from '@emotion/core'
  
-import EnvSingleCouple from "../../helpers/ENV1_Family.js";  
+import EnvSingleCouple from "../../helpers/Env_SwankyOffice.js";  
 
 import Layout from "../../components/layoutwidellh"  
  
  
+
+
 const MyPage = (props) => (   
   <Layout>    
     <div  
@@ -31,11 +33,14 @@ const MyPage = (props) => (
           }
         }>
   
-          <Suspense fallback={<Html>Loading.....</Html>}>   
-            <EnvSingleCouple/> 
+          <Suspense fallback={<Html></Html>}>  
+            <group rotation-z={0}  rotation-y={0}  position={[-2, -1.8, 3]}> 
+              <EnvSingleCouple/>
+            </group>
           </Suspense>  
-   
-          <OrbitControls target={[0,0,0]}  enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
+          <OrbitControls       
+            target={[0,0,0]}  
+            enableZoom={false} enablePan={false} enableDamping dampingFactor={0.2} autoRotate={false} rotateSpeed={-0.5}/>
       </Canvas>
     </div>
   </Layout> 
