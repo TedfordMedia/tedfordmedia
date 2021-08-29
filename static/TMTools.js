@@ -1,8 +1,7 @@
 import * as THREE from 'three'
-  
 
 var masterTool = function () {
-    var sceneScreenName = '123not set yet!!!';
+    // var sceneScreenName = '123not set yet!!!';
    
     this.setupMainCamera = function (camera) {
         this.camera = camera;
