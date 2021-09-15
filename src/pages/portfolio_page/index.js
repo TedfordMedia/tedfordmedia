@@ -41,8 +41,7 @@ export default function Index({ data: { site, allMdx } }) {
                   color: ${theme.colors.headerBg};
                 `}>
                   Portfolio
-                </h2>  
-                <h2>This site is currently under construction;</h2>Keep an eye out over the coming days for a new portfolio items.... 
+                </h2>   
             </div>
             <Row>  
             {allMdx.edges.map(({ node: post }) => ( 

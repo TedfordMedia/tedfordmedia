@@ -96,7 +96,8 @@ function MyPage(props){
   const requestRef = React.useRef(null);
   const predictionsRef = React.useRef(null);
   const [ready, setReady] = React.useState(false); 
-  
+  const [buttonText, setButtonText] = useState("START"); //same as creating your state variable where "Next" is the default value for buttonText and setButtonText is the setter function for your state variable instead of setState
+
   const capture = useCallback(async () => {
     if (webcamRef.current && modelRef.current) {
         const predictions = await modelRef.current.estimateHands(
@@ -180,15 +181,17 @@ function MyPage(props){
               right: 0,
               top: 0,
               left: 0,
-              bottom: 0
+              bottom: 0,
+              'border-radius': '12px'
           }}
           >
           <button
               onClick={(e,) => {  
-                  requestRef.current = requestAnimationFrame(capture);
+                  requestRef.current = requestAnimationFrame(capture); 
+                  setButtonText("..initializing....")
               }}
           >
-              Click me and wait...
+              {buttonText}
           </button>
           </div>
       )}

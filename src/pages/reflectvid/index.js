@@ -1,6 +1,6 @@
 
 import React, { Suspense, useState,useEffect, useRef } from 'react'
-import { Canvas , useFrame,} from '@react-three/fiber'
+import { Canvas , useFrame,} from '@react-three/fiber' 
 import { useGLTF, OrbitControls,    Plane, Sphere,Sky, Html, Reflector, Text, useTexture  } from '@react-three/drei' 
 
  import Layout from "../../components/layoutwidellh"  
@@ -10,14 +10,13 @@ import * as THREE from 'three'
   const { scene } = useGLTF('/shoe-draco.glb')
   return <primitive object={scene} {...props} />
 }
-
  
-
-
 function VideoText({ clicked, ...props }) {
   const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/arintro.mp4', crossOrigin: 'Anonymous', loop: true, muted: 'muted' }))
   video.muted = 'muted';  
-useEffect(() => void (clicked && video.play()), [video, clicked])
+
+  useEffect(() => void (clicked && video.play()), [video, clicked])
+
   return (
     <Text font="/Inter-Bold.woff" fontSize={3} letterSpacing={-0.06} {...props}>
       drei
