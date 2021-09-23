@@ -10,7 +10,7 @@
 <!--
 **TedfordMedia/tedfordmedia** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
- 
+ .
 
   ![](https://basicpageforcorsfiles.azurewebsites.net/assets/imgs/top-page/pageheader.png)
 
