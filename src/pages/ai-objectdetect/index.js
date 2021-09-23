@@ -1,12 +1,31 @@
 import React, { Suspense, useRef, useState, useEffect } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
-import { ContactShadows, Environment, useGLTF, OrbitControls, Html, Box } from "@react-three/drei"
+import { ContactShadows, Environment, useGLTF, OrbitControls, Html } from "@react-three/drei"
 import Webcam from "react-webcam"; 
 import { proxy, useSnapshot } from "valtio"
 import '../../styles.css'
 import '../mystyling.scss'  
 import Layout from "../../components/layoutwide"   
-import * as THREE from 'three'  
+import * as THREE from 'three' 
+
+import {
+  TextField,
+  Grid,
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  IconButton,
+  Button,
+} from "@material-ui/core";
+import './App.css'
+import MenuIcon from "@material-ui/icons/Menu";
+import { makeStyles } from "@material-ui/core/styles";
+import * as cocoSsd from "@tensorflow-models/coco-ssd";
+import * as tf from "@tensorflow/tfjs"; 
+import { createWorker,createScheduler  } from 'tesseract.js';
+
+ 
  
 const state = proxy({
   current: null,
@@ -21,14 +40,45 @@ const state = proxy({
     patch: "#ffffff",
   },
 })
-  
+
+// Hook
+function useWindowSize() {
+    // Initialize state with undefined width/height so server and client renders match
+    // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
+    const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+    });
+
+    useEffect(() => {
+        // Handler to call on window resize
+        function handleResize() {
+          // Set window width/height to state
+          setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+          });
+        }
+        
+        // Add event listener
+        window.addEventListener("resize", handleResize);
+        
+        // Call handler right away so state gets updated with initial window size
+        handleResize();
+        
+        // Remove event listener on cleanup
+        return () => window.removeEventListener("resize", handleResize);
+      }, []); // Empty array ensures that effect is only run on mount
+    
+      return windowSize;
+    }
+
 const MyPage = (props) => { 
-  const webcamRef = useRef(null);
-  alert('object detect');
 
-
-return (   
-  <Layout displayHero={false}>    
+  const webcamRef = useRef(null); 
+ 
+  return (   
+   <Layout displayHero={false}>    
       <div  style={{ height: "100vh", width: "100%",background:"#a0a0a0" }}>  
         <Canvas  
             dpr={[1, 2]}   
@@ -47,8 +97,7 @@ return (
             style={{ height: "100%", width: "100%" }}
         >
           
-          <Suspense fallback={null}>
-            <Box />
+          <Suspense fallback={null}> 
             <Environment preset="city" /> 
           </Suspense>
             <OrbitControls  maxDistance={20} maxPolarAngle={Math.PI / 2}  autoRotate autoRotateSpeed={-.2} />
@@ -72,7 +121,7 @@ return (
           />
         </div>
       </div> 
-  </Layout> 
+   </Layout> 
 )
 }
   
